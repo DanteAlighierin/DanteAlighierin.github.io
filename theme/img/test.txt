@@ -1,0 +1,1 @@
+window.opener.CKEDITOR.tools.callFunction( funcNum, fileUrl [, data] );
