@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>testsite/</loc>
-<lastmod>2019-04-28T21:11:05-00:00</lastmod>
+<lastmod>2019-06-27T15:55:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>testsite/archives.html</loc>
-<lastmod>2019-04-28T21:11:05-00:00</lastmod>
+<lastmod>2019-06-27T15:55:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>testsite/tags.html</loc>
-<lastmod>2019-04-28T21:11:05-00:00</lastmod>
+<lastmod>2019-06-27T15:55:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>testsite/categories.html</loc>
-<lastmod>2019-04-28T21:11:05-00:00</lastmod>
+<lastmod>2019-06-27T15:55:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -60,15 +60,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>testsite/category/another</loc>
+<loc>testsite/category/internet</loc>
 <lastmod>2019-04-23T21:50:00+02:30</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>testsite/category/some_category</loc>
-<lastmod>2019-04-21T20:01:00+02:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -76,20 +69,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>testsite/category/web</loc>
 <lastmod>2019-04-22T10:48:00+02:30</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>testsite/tag/blogging</loc>
-<lastmod>2019-04-23T21:50:00+02:30</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>testsite/tag/test</loc>
-<lastmod>2019-04-23T21:50:00+02:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -111,6 +90,20 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>testsite/tag/web</loc>
 <lastmod>2019-04-22T10:48:00+02:30</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>testsite/tag/blogging</loc>
+<lastmod>2016-04-22T10:40:00+02:30</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>testsite/tag/test</loc>
+<lastmod>2016-04-22T10:40:00+02:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
