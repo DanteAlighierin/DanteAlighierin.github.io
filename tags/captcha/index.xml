@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>captcha on Dante&#39;s blog</title>
+    
+    
+    
+    <link>/tags/captcha/</link>
+    <description>Recent content in captcha on Dante&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Tue, 31 Mar 2020 17:10:00 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/captcha/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Автоматизируем решение капчи</title>
+      <link>/post/rucaptcha/</link>
+      <pubDate>Tue, 31 Mar 2020 17:10:00 +0300</pubDate>
+      
+      <guid>/post/rucaptcha/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          НА ПРАВАХ РЕКЛАМЫ
+Привет! Думаю, что тебя раздражает каждый раз вводить капчу при входе на любимый сайт. И было бы логично предположить, что существует сервис для решения этой проблемы. И действительно, такой есть.
+Согласно описанию на сайте:
+ RuCaptcha.com — антикапча-сервис ручного распознавания изображений, здесь встречаются те, кому нужно в режиме реального времени распознать текст с отсканированных документов, бланков, капч и те, кто хочет заработать на вводе текста с экрана.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

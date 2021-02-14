@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+         &#39;Я скорость&#39; или что такое rPython ::
+        Dante&#39;s blog
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Python существует уже много лет и за всё это время Гвидо ван Россум и другие разработчики этого языка стремились к созданию чистого дизайна языка. Для этого нужно было описать язык его же терминами. И по понятным причинам интерпретаторы на C(Cpython - самая популярная и на данный момент эталонная реализация) , Java(Jython) , на стеке .NET(IronPython)не подходят. Собственно нужна была реализация на самом питоне. И тут миру явился PyPy.
+Проект PyPy реализован не на самом python , как это может показаться на первый взгляд, а на его подмножестве rPython."
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/post/rpython/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css" />
+
+<link rel="stylesheet" href="/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="/img/favicon.png" />
+
+
+<link href="/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=" &#39;Я скорость&#39; или что такое rPython"/>
+<meta name="twitter:description" content="Python существует уже много лет и за всё это время Гвидо ван Россум и другие разработчики этого языка стремились к созданию чистого дизайна языка. Для этого нужно было описать язык его же терминами. И по понятным причинам интерпретаторы на C(Cpython - самая популярная и на данный момент эталонная реализация) , Java(Jython) , на стеке .NET(IronPython)не подходят. Собственно нужна была реализация на самом питоне. И тут миру явился PyPy.
+Проект PyPy реализован не на самом python , как это может показаться на первый взгляд, а на его подмножестве rPython."/>
+
+
+
+<meta property="og:title" content=" &#39;Я скорость&#39; или что такое rPython" />
+<meta property="og:description" content="Python существует уже много лет и за всё это время Гвидо ван Россум и другие разработчики этого языка стремились к созданию чистого дизайна языка. Для этого нужно было описать язык его же терминами. И по понятным причинам интерпретаторы на C(Cpython - самая популярная и на данный момент эталонная реализация) , Java(Jython) , на стеке .NET(IronPython)не подходят. Собственно нужна была реализация на самом питоне. И тут миру явился PyPy.
+Проект PyPy реализован не на самом python , как это может показаться на первый взгляд, а на его подмножестве rPython." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/rpython/" />
+<meta property="article:published_time" content="2020-02-10T17:25:04+03:00" />
+<meta property="article:modified_time" content="2020-02-10T17:25:04+03:00" /><meta property="og:site_name" content="Dante&#39;s blog" />
+
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Dante&#39;s blog</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/DanteAlighierin">github</a></li>
+        
+      
+        
+          <li><a href="https://t.me/dailymotions">telegram</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/DanteAlighierin">github</a></li>
+      
+    
+      
+        <li><a href="https://t.me/dailymotions">telegram</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+      
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">&lsquo;Я скорость&rsquo; или что такое rPython</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-02-10
+        </span>
+
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by Dante</span
+        >
+
+
+      
+        <span class="post-read-time"
+          >— 4 min read</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="/tags/python/">#python</a>&nbsp;
+        
+          <a href="/tags/jit/">#JIT</a>&nbsp;
+        
+          <a href="/tags/pypy/">#PyPy</a>&nbsp;
+        
+          <a href="/tags/rpython/">#rpython</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <p><img src="/images/speed_py.png" alt="python_speed"></p>
+<p>Python существует уже много лет и за всё это время Гвидо ван Россум и другие разработчики этого языка стремились к созданию чистого дизайна языка. Для этого нужно было описать язык его же терминами. И по понятным причинам интерпретаторы на C(Cpython - самая популярная и на данный момент эталонная реализация) , Java(Jython) , на стеке .NET(IronPython)не подходят. Собственно нужна была реализация на самом питоне. И тут миру явился PyPy.</p>
+<p>Проект PyPy реализован не на самом python , как это может показаться на первый взгляд, а на его подмножестве rPython. По своей задумке PyPy  можно назвать средой исполнения к которой можно подключать любой другой язык. К примеру для повышения производительности можно создавать эффективные и низкоуровневые оптимизаторы, средством JIT(just in time compilation). Данная технология используется не только в питоне, но и в Java.</p>
+<p>Однако в этой статье я бы хотел поговорить не о самом PyPy, а о том на чём непосредственно написан PyPy - подмножестве rPython. И не смотря на всего его преимущества, понять и начать работать с rPython не так уж и просто. По тому давайте рассмотрим пару примеров.</p>
+<h1 id="cтатическая-типизация">Cтатическая типизация</h1>
+<p><img src="/images/type_py.png" alt="Type_py"></p>
+<p>Не смотря на то, что с python я столкнулся раньше других языков. На статическую типизацию я впервые обратил внимание в TypeScript - расширении языка JavaScript для работы со статически типизированными данными. Но тем не менее давайте перейдём к нашему основному пациенту.</p>
+<p>Основной код пишем в теле главной функции, остальные функции пишем вне тела.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>(argv):
+  <span style="color:#75715e">#пиши весь код сюда</span>
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">target</span>(<span style="color:#f92672">*</span>args):
+  <span style="color:#66d9ef">return</span> main, None
+
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+  <span style="color:#f92672">import</span> sys
+  main(sys<span style="color:#f92672">.</span>argv)
+</code></pre></div><p>Cкомпилировать код можно после установки PyPy:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd Downloads/
+wget https://bitbucket.org/pypy/pypy/downloads/pypy-1.6-linux.tar.bz2
+cd ../.local
+tar jxvf ~/Downloads/pypy-1.6-linux.tar.bz2
+ln -s ~/.local/pypy-1.6/bin/pypy ~/.local/bin/
+</code></pre></div><p>Возможно ставить пакеты таким образом несколько не рационально, но я поставил их именно так. Но никто не мешает вам устанавливать любым другим способом.</p>
+<p>Затем желательно установить pip, если он еще не инсталлирован у вас в системе.</p>
+<p>Как опцию, можно использовать и виртуальное окружение venv, но в маленьких и простых примерах кода я считаю это неуместным. Однако в чём-то крупном я бы его задействовал.</p>
+<p>Давайте напишем простую функцию по подсчёту чисел.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#Функция</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(x,y):
+  <span style="color:#66d9ef">return</span> x <span style="color:#f92672">+</span> y
+  
+<span style="color:#66d9ef">print</span> add(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>)
+</code></pre></div><p>Однако если мы подставим данные неправильного типа(&lsquo;сat&rsquo;,&lsquo;dog&rsquo;), то получим ошибку:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">[translation:ERROR] In <span style="color:#f92672">&lt;</span>FunctionGraph of (rptest:<span style="color:#ae81ff">9</span>)main at <span style="color:#ae81ff">0x103f7dc58</span><span style="color:#f92672">&gt;</span>:
+[translation:ERROR] Happened at file rptest<span style="color:#f92672">.</span>py line <span style="color:#ae81ff">11</span>
+[translation:ERROR]
+[translation:ERROR]       <span style="color:#66d9ef">print</span> add(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>)
+[translation:ERROR] <span style="color:#f92672">==&gt;</span>   <span style="color:#66d9ef">print</span> add(<span style="color:#e6db74">&#39;cat&#39;</span>,<span style="color:#e6db74">&#39;dog&#39;</span>)
+</code></pre></div><p>Затем удалив <em>add(1,2)</em>, снова произойдёт компиляция. Это происходит потому, что rPython генерирует статически типизированные данные на лету, но если введённые данные отличаются от ожидаемых, то компилятор выведет вам ошибку.</p>
+<p><em>Совет: <strong>Запоминай и правильно используй типы данных</strong></em></p>
+<p><strong>Функции</strong></p>
+<p>Многие стандартные функции представленные в стандартной реализации могут не работать в rPython.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#39;bird&#39;</span><span style="color:#f92672">.</span>split()<span style="color:#75715e">#Работать в rPython не будет</span>
+</code></pre></div><p>А вот:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#39;bird&#39;</span><span style="color:#f92672">.</span>split(<span style="color:#e6db74">&#39;&#39;</span>)<span style="color:#75715e">#Будет работать в rPython</span>
+</code></pre></div><h1 id="а-что-на-счёт-лямбды">А что на счёт лямбды?</h1>
+<p><img src="/images/lambda_py.png" alt="py_lambda">
+К сожалению или к счастью лямбды в rPython работать не будут. В место них нужно использовать  классические функции.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">map</span>(fun,ls):
+  nls <span style="color:#f92672">=</span> []
+  <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> ls:
+    nls<span style="color:#f92672">.</span>append(fun(l))
+  <span style="color:#66d9ef">return</span> nls
+  
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_one</span>(x):
+  <span style="color:#66d9ef">return</span> x <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+
+map(add_one, [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>])
+</code></pre></div><h1 id="операторы">Операторы</h1>
+<p><img src="/images/operartorpy.png" alt="operator_py">
+Следует внимательно работать в этой реализации и с операторами.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello</span>()
+  <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;hi&#39;</span>
+
+hello() <span style="color:#f92672">==</span> None
+</code></pre></div><p>Если запустить этот код,то всё это дело завершиться ошибкой: *<em><strong>MissingRTypeOperation: unimplemented operation: &lsquo;eq&rsquo; on (<!-- raw HTML omitted -->, <!-- raw HTML omitted -->)</strong></em></p>
+<p>Вы можете исправить эту ошибку заменив конструкцию <em>==</em> на <em>is</em>.</p>
+<h1 id="грамотная-работа-с-rpython">Грамотная работа с rPython</h1>
+<p><img src="assets/worflow_py.png" alt=""></p>
+<p>Думаю,что многих заинтересует rPython. И не важна причина, будь-то статическая типизация данных или быстрая скорость работы. Тем не менее стоит тщательно подготовиться к работе с данным инструментом, для того чтобы писать валидный код. Для себя я составил простой план, согласно которому довольно легко написать что-то годное:</p>
+<ul>
+<li>
+<p>Написать код на стандартном питонe</p>
+</li>
+<li>
+<p>Отладить его</p>
+</li>
+<li>
+<p>Скомпилировать код в rPython</p>
+</li>
+<li>
+<p>Произвести отладку согласно требованиям rPython</p>
+</li>
+<li>
+<p>Финальная проверка</p>
+</li>
+</ul>
+<p><em>Совет: <strong>Сначала проверь работу в Python, перед тем как материть этот чёртов rPython.</strong></em></p>
+<h1 id="cахарочку-не-желаете">Cахарочку не желаете?</h1>
+<p><img src="assets/sugarpy.png" alt="sugar_py"></p>
+<p>Думаю, что кто-то может назвать rPython проектом , привносящим синтаксический сахар. Утверждение спорное, однако некоторые вещи действительно выглядят более дружелюбно в *R реализации.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">return</span> (x <span style="color:#f92672">&lt;</span> y) <span style="color:#66d9ef">if</span> hasattr(x, <span style="color:#e6db74">&#39;__lt__&#39;</span>) 
+<span style="color:#66d9ef">else</span> (<span style="color:#f92672">not</span> y <span style="color:#f92672">&lt;=</span> x) <span style="color:#75715e">#python</span>
+</code></pre></div><p>А вот более дружелюбная версия на rPython :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">return</span> x<span style="color:#f92672">.</span>heur() <span style="color:#f92672">&lt;</span> y<span style="color:#f92672">.</span>heur() <span style="color:#75715e">#rPython</span>
+</code></pre></div><h1 id="бенчмарки">Бенчмарки</h1>
+<p>Согласно бенчмаркам PyPy действительно быстрее стандатного змея.</p>
+<p><img src="assets/bench.png" alt="bench"></p>
+<h1 id="заключение">Заключение</h1>
+<p>RPython действительно интересная вещь. Питон любят за его простоту, обилие библиотек на любой вкус и цвет. Но не любят за его медлительность. Да, в большинстве случаев вам эта ошеломляющая скорость и не нужна, но есть те сферы где она просто необходима. И эту проблему призван решить rPython. Пускай он не так и прост, пускай многое придётся адаптировать. Однако я считаю, что оно окупится, если на то есть необходимость. Но не одним rPython&rsquo;ом единым. Есть еще одна быстрая реализация python, и имя ей - stackless&hellip;.</p>
+
+    </div>
+    
+
+    
+      
+    
+
+
+
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Dante&#39;s blog</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+	  <b>Golang</b></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-140031759-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+  </body>
+</html>

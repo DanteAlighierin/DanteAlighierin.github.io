@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Oh My Bash ::
+        Dante&#39;s blog
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Ни для кого не секрет , что под UNIX системы(в том числе и под Linux) существуют различные командные оболочки. Самой распостранённой из них является bash. Как правило он идёт в комплекте поставки почти каждого дистрибутива linux. Но не одним bash&amp;rsquo;ем единым наполняются репозитории операционных систем. Среди других ,как правило, выделяют fish shell, csh, ash и конечно же zsh. Последний становится всё более популярным в linux сообществе.
+За что же любят zsh, чем же он лучше стандартного?"
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/post/ohbash/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css" />
+
+<link rel="stylesheet" href="/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="/img/favicon.png" />
+
+
+<link href="/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Oh My Bash"/>
+<meta name="twitter:description" content="Ни для кого не секрет , что под UNIX системы(в том числе и под Linux) существуют различные командные оболочки. Самой распостранённой из них является bash. Как правило он идёт в комплекте поставки почти каждого дистрибутива linux. Но не одним bash&rsquo;ем единым наполняются репозитории операционных систем. Среди других ,как правило, выделяют fish shell, csh, ash и конечно же zsh. Последний становится всё более популярным в linux сообществе.
+За что же любят zsh, чем же он лучше стандартного?"/>
+
+
+
+<meta property="og:title" content="Oh My Bash" />
+<meta property="og:description" content="Ни для кого не секрет , что под UNIX системы(в том числе и под Linux) существуют различные командные оболочки. Самой распостранённой из них является bash. Как правило он идёт в комплекте поставки почти каждого дистрибутива linux. Но не одним bash&rsquo;ем единым наполняются репозитории операционных систем. Среди других ,как правило, выделяют fish shell, csh, ash и конечно же zsh. Последний становится всё более популярным в linux сообществе.
+За что же любят zsh, чем же он лучше стандартного?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/ohbash/" />
+<meta property="article:published_time" content="2020-01-05T18:30:00+03:00" />
+<meta property="article:modified_time" content="2020-01-05T18:30:00+03:00" /><meta property="og:site_name" content="Dante&#39;s blog" />
+
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Dante&#39;s blog</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/DanteAlighierin">github</a></li>
+        
+      
+        
+          <li><a href="https://t.me/dailymotions">telegram</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/DanteAlighierin">github</a></li>
+      
+    
+      
+        <li><a href="https://t.me/dailymotions">telegram</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+      
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Oh My Bash</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-01-05
+        </span>
+
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by Dante</span
+        >
+
+
+      
+        <span class="post-read-time"
+          >— 4 min read</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="/tags/shell/">#shell</a>&nbsp;
+        
+          <a href="/tags/bash/">#bash</a>&nbsp;
+        
+          <a href="/tags/zsh/">#zsh</a>&nbsp;
+        
+          <a href="/tags/oh_my_bash/">#oh_my_bash</a>&nbsp;
+        
+          <a href="/tags/terminal/">#terminal</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <p><img src="/images/terminal.gif" alt="terminal.gif"></p>
+<p>Ни для кого не секрет , что под UNIX системы(в том числе и под Linux) существуют различные командные оболочки. Самой распостранённой из них является bash. Как правило он идёт в комплекте поставки почти каждого дистрибутива linux. Но не одним bash&rsquo;ем единым наполняются репозитории операционных систем. Среди других ,как правило, выделяют fish shell, csh, ash и конечно же zsh. Последний становится всё более популярным в linux сообществе.</p>
+<p>За что же любят zsh, чем же он лучше стандартного? Да практически ничем. Истинную мощь zsh приобретает лишь при установки фреймворка oh my zsh. Огромное количество плагинов и тем оформления - вещь крутая. То же автодополнение становится на много удобнее чем в классической оболочке. Еще одна фишка, которая мне понравилась - это git плагин. Можно узнать много полезного(если вы находитесь в папках с репозиторием), актуально ли текущее состояние репозитория, в какой ветке находимся, имеются ли новые изменения в файлах, есть ли коммиты или изменения. В общем всю необходимую информацию. Не нужно проверять ветку через :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git branch -v
+</code></pre></div><p>, проверять есть ли изменения через:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git status
+</code></pre></div><p>Каждый найдёт то, что ему нужно при работе в терминале.</p>
+<p>Но что если вы не хотите использовать zsh по тем или иным причинам? И для меня стало открытием, что для bash также существует фреймворк, расширяющий возможности вашей командной оболочки. И имя ему - <a href="https://ohmybash.github.io/">oh my bash</a>. Именно о нём сегодня пойдёт речь.</p>
+<p>Думаю,что стоит начать с установки. Она тут проходит очень просто, через curl:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+
+</code></pre></div><p>или через wget:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sh -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>wget https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh -O -<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>Перезагружаемся командой:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">source ~/.bashrc
+</code></pre></div><p>Всё, фреймворк установлен. Вся настройка происходит через конфигурационный файл &ldquo;.bashrc&rdquo;, который находится в домашней директории. Перейдем в него и сделаем парочку изменений.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nano .bashrc
+</code></pre></div><p>К примеру давайте заменим стандартную цветовую палитру на что-нибудь по-интереснее.Меняем это:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">OSH_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;powerline&#34;</span>
+</code></pre></div><p>На это:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">OSH_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;agnoster&#34;</span>
+</code></pre></div><p>После этого ваш терминал будет выглядеть примерно так(с учётом установленного git плагина):</p>
+<p><img src="/images/example_powerline.png" alt="example_powerline.png"></p>
+<p>В конфиге можно указать, чтобы oh my zsh менял тему на случайную:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">OSH_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;random&#34;</span>
+</code></pre></div><p>Плагины устанавливаютя следующим образом:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">plugins<span style="color:#f92672">=(</span>git bundler osx rake ruby<span style="color:#f92672">)</span>
+</code></pre></div><p>Конфиг автора приведён ниже(к примеру был заменён стандартный редактор кода с vim на nano):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Path to your oh-my-bash installation.</span>
+export OSH<span style="color:#f92672">=</span>/home/dante/.oh-my-bash
+
+<span style="color:#75715e"># Set name of the theme to load. Optionally, if you set this to &#34;random&#34;</span>
+<span style="color:#75715e"># it&#39;ll load a random theme each time that oh-my-bash is loaded.</span>
+OSH_THEME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;agnoster&#34;</span>
+
+<span style="color:#75715e"># Uncomment the following line to use case-sensitive completion.</span>
+<span style="color:#75715e"># CASE_SENSITIVE=&#34;true&#34;</span>
+
+<span style="color:#75715e"># Uncomment the following line to use hyphen-insensitive completion. Case</span>
+<span style="color:#75715e"># sensitive completion must be off. _ and - will be interchangeable.</span>
+<span style="color:#75715e"># HYPHEN_INSENSITIVE=&#34;true&#34;</span>
+
+<span style="color:#75715e"># Uncomment the following line to disable bi-weekly auto-update checks.</span>
+<span style="color:#75715e"># DISABLE_AUTO_UPDATE=&#34;true&#34;</span>
+
+<span style="color:#75715e"># Uncomment the following line to change how often to auto-update (in days).</span>
+<span style="color:#75715e"># export UPDATE_OSH_DAYS=13</span>
+
+<span style="color:#75715e"># Uncomment the following line to disable colors in ls.</span>
+<span style="color:#75715e"># DISABLE_LS_COLORS=&#34;true&#34;</span>
+
+<span style="color:#75715e"># Uncomment the following line to disable auto-setting terminal title.</span>
+<span style="color:#75715e"># DISABLE_AUTO_TITLE=&#34;true&#34;</span>
+
+<span style="color:#75715e"># Uncomment the following line to enable command auto-correction.</span>
+<span style="color:#75715e"># ENABLE_CORRECTION=&#34;true&#34;</span>
+
+<span style="color:#75715e"># Uncomment the following line to display red dots whilst waiting for completion.</span>
+<span style="color:#75715e"># COMPLETION_WAITING_DOTS=&#34;true&#34;</span>
+
+<span style="color:#75715e"># Uncomment the following line if you want to disable marking untracked files</span>
+<span style="color:#75715e"># under VCS as dirty. This makes repository status check for large repositories</span>
+<span style="color:#75715e"># much, much faster.</span>
+<span style="color:#75715e"># DISABLE_UNTRACKED_FILES_DIRTY=&#34;true&#34;</span>
+
+<span style="color:#75715e"># Uncomment the following line if you want to change the command execution time</span>
+<span style="color:#75715e"># stamp shown in the history command output.</span>
+<span style="color:#75715e"># The optional three formats: &#34;mm/dd/yyyy&#34;|&#34;dd.mm.yyyy&#34;|&#34;yyyy-mm-dd&#34;</span>
+<span style="color:#75715e"># HIST_STAMPS=&#34;mm/dd/yyyy&#34;</span>
+
+<span style="color:#75715e"># Would you like to use another custom folder than $OSH/custom?</span>
+<span style="color:#75715e"># OSH_CUSTOM=/path/to/new-custom-folder</span>
+
+
+completions<span style="color:#f92672">=(</span>
+  git
+  composer
+  ssh
+<span style="color:#f92672">)</span>
+
+
+aliases<span style="color:#f92672">=(</span>
+  general
+<span style="color:#f92672">)</span>
+
+plugins<span style="color:#f92672">=(</span>
+  git
+  bashmarks
+<span style="color:#f92672">)</span>
+
+source $OSH/oh-my-bash.sh
+
+<span style="color:#75715e"># User configuration</span>
+<span style="color:#75715e"># export MANPATH=&#34;/usr/local/man:$MANPATH&#34;</span>
+
+<span style="color:#75715e"># You may need to manually set your language environment</span>
+<span style="color:#75715e"># export LANG=en_US.UTF-8</span>
+
+<span style="color:#75715e"># Preferred editor for local and remote sessions</span>
+<span style="color:#75715e"># if [[ -n $SSH_CONNECTION ]]; then</span>
+<span style="color:#75715e">#   export EDITOR=&#39;nano&#39;</span>
+<span style="color:#75715e"># else</span>
+<span style="color:#75715e">#   export EDITOR=&#39;mvim&#39;</span>
+<span style="color:#75715e"># fi</span>
+
+<span style="color:#75715e"># Compilation flags</span>
+<span style="color:#75715e"># export ARCHFLAGS=&#34;-arch x86_64&#34;</span>
+
+<span style="color:#75715e"># ssh</span>
+<span style="color:#75715e"># export SSH_KEY_PATH=&#34;~/.ssh/rsa_id&#34;</span>
+<span style="color:#75715e"># users are encouraged to define aliases within the OSH_CUSTOM folder.</span>
+<span style="color:#75715e"># Example aliases</span>
+<span style="color:#75715e"># alias bashconfig=&#34;mate ~/.bashrc&#34;</span>
+<span style="color:#75715e"># alias ohmybash=&#34;mate ~/.oh-my-bash&#34;</span>
+</code></pre></div><p>У меня это выглядит вот так:
+<img src="/images/author.png" alt="author.png"></p>
+<p>Всего в репозитории присутствует 6 плагинов и 53 темы (на момент написания статьи).</p>
+<p><img src="/images/progress.png" alt="progress.png"></p>
+<p>Да, честно сказать маловато. Однако никто не запрещает вам помочь проекту, разработчики будут лишь рады этому факту.</p>
+<p>Цель этой статьи не заставить вас перейти на этот фреймворк. У него пока мало плагинов и это его главный недостаток. Думаю, что всё-же стоит остановить свой выбор на чём-то другом, на том же fish или zsh с его oh my zsh. Но если вас удовлетворят возможности oh my bash, то это будет не таким уж и плохим решением. Главная цель этой статьи показать то многообразиее решений применяемых в linux. Изучайте его, это здорово.</p>
+
+    </div>
+    
+
+    
+      
+    
+
+
+
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Dante&#39;s blog</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+	  <b>Golang</b></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-140031759-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+  </body>
+</html>

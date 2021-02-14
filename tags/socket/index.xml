@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>socket on Dante&#39;s blog</title>
+    
+    
+    
+    <link>/tags/socket/</link>
+    <description>Recent content in socket on Dante&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Fri, 01 May 2020 21:00:00 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/socket/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Пишем клон neofetch на python</title>
+      <link>/post/neofetch/</link>
+      <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
+      
+      <guid>/post/neofetch/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Немного о самой программе Думаю, что каждому пользователю UNIX-подобных систем знакома утилита neofetch и её аналоги (pfetch,screenfetch и некоторые другие). Эта маленькая программа позволяет вывести информацию о системе и аппаратной части компьютера в удобном формате.
+Neofetch есть в большинстве дистрибутивов, (и даже есть возможность установки в windows и haiku), да и собрать из исходников никто не мешает.
+K примеру в ubuntu она ставиться следующим образом:
+sudo apt update sudo apt install neofetch На гифке выше - neofetch выводит название ОС, имя хоста, shell, разрешение экрана, оконный менеджер, gtk тему, иконки и название терминала.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Простой мессенджер на tkinter,socket и threading</title>
+      <link>/post/chat/</link>
+      <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
+      
+      <guid>/post/chat/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          В этой статье я бы хотел показать как написать простое приложение мессенджер менее чем в 150 строк.
+Серверная часть Начнём с сервера(наше приложение будет состоять из скриптов сервера и клиента), через который можно получать входящие запросы от клиентов, желающих общаться. Традиционно указываем путь до интерпретатора и импортируем необходимые модули. Конкретно socket и threading. Первый отвечает непосредственно за &amp;ldquo;общение&amp;rdquo; процесссов между собой, второй за многопоточность. О этих модулях подробно можно почитать например здесь - socket , threading.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

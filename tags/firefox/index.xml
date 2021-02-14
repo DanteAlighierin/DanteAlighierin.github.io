@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>firefox on Dante&#39;s blog</title>
+    
+    
+    
+    <link>/tags/firefox/</link>
+    <description>Recent content in firefox on Dante&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Sat, 14 Dec 2019 23:00:00 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/firefox/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Кастомная стартовая страница для браузера</title>
+      <link>/post/custom_page/</link>
+      <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
+      
+      <guid>/post/custom_page/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          XXI век - век информации,а потому очень важно уметь её искать и изучать. В этом нам помогают веб обозреватели, они же браузеры. И как только пользователь запускает заветный ярлычок, сразу же попадает на стартовую страницу. Как правило там расположены самые читаемые сайты, закладки и поисковая строка. В разных браузерах это выглядит по разному. К примеру в mozilla firefox это выглядит вот так:
+Safari: А вот так у меня выглядит chromium(chrome) !
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

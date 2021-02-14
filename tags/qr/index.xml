@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>qr on Dante&#39;s blog</title>
+    
+    
+    
+    <link>/tags/qr/</link>
+    <description>Recent content in qr on Dante&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Mon, 03 Feb 2020 20:30:00 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/qr/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Qr генератор на python</title>
+      <link>/post/qrcode/</link>
+      <pubDate>Mon, 03 Feb 2020 20:30:00 +0300</pubDate>
+      
+      <guid>/post/qrcode/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Некоторое время назад я написал статью, где показывал построение простого виджета часов на tkinter. Если кто-то не помнит, то tkinter - это кроссплатформенная библиотека для разработки графического интерфейса на языке Python.
+И в то или иное время у меня возникает потребность в написании простых программ, и неважно, будь это прямая потребность или просто желание постучать пальцами по клавиатуре. По мимо этого я люблю копаться в репозитории библиотек python.
+Среди всего этого разнообразия пакетов мне приглянулся PyQRCode.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Qr генератор на python ::
+        Dante&#39;s blog
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Некоторое время назад я написал статью, где показывал построение простого виджета часов на tkinter. Если кто-то не помнит, то tkinter - это кроссплатформенная библиотека для разработки графического интерфейса на языке Python.
+И в то или иное время у меня возникает потребность в написании простых программ, и неважно, будь это прямая потребность или просто желание постучать пальцами по клавиатуре. По мимо этого я люблю копаться в репозитории библиотек python.
+Среди всего этого разнообразия пакетов мне приглянулся PyQRCode."
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/post/qrcode/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css" />
+
+<link rel="stylesheet" href="/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="/img/favicon.png" />
+
+
+<link href="/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Qr генератор на python"/>
+<meta name="twitter:description" content="Некоторое время назад я написал статью, где показывал построение простого виджета часов на tkinter. Если кто-то не помнит, то tkinter - это кроссплатформенная библиотека для разработки графического интерфейса на языке Python.
+И в то или иное время у меня возникает потребность в написании простых программ, и неважно, будь это прямая потребность или просто желание постучать пальцами по клавиатуре. По мимо этого я люблю копаться в репозитории библиотек python.
+Среди всего этого разнообразия пакетов мне приглянулся PyQRCode."/>
+
+
+
+<meta property="og:title" content="Qr генератор на python" />
+<meta property="og:description" content="Некоторое время назад я написал статью, где показывал построение простого виджета часов на tkinter. Если кто-то не помнит, то tkinter - это кроссплатформенная библиотека для разработки графического интерфейса на языке Python.
+И в то или иное время у меня возникает потребность в написании простых программ, и неважно, будь это прямая потребность или просто желание постучать пальцами по клавиатуре. По мимо этого я люблю копаться в репозитории библиотек python.
+Среди всего этого разнообразия пакетов мне приглянулся PyQRCode." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/qrcode/" />
+<meta property="article:published_time" content="2020-02-03T20:30:00+03:00" />
+<meta property="article:modified_time" content="2020-02-03T20:30:00+03:00" /><meta property="og:site_name" content="Dante&#39;s blog" />
+
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Dante&#39;s blog</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/DanteAlighierin">github</a></li>
+        
+      
+        
+          <li><a href="https://t.me/dailymotions">telegram</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/DanteAlighierin">github</a></li>
+      
+    
+      
+        <li><a href="https://t.me/dailymotions">telegram</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+      
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Qr генератор на python</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-02-03
+        </span>
+
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by Dante</span
+        >
+
+
+      
+        <span class="post-read-time"
+          >— 3 min read</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="/tags/python/">#python</a>&nbsp;
+        
+          <a href="/tags/tkinter/">#tkinter</a>&nbsp;
+        
+          <a href="/tags/qr/">#qr</a>&nbsp;
+        
+          <a href="/tags/pyqrcode/">#pyqrcode</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <p><img src="/images/qr.jpg" alt="qr.jpg"></p>
+<p>Некоторое время назад я написал статью, где показывал построение простого виджета часов на tkinter. Если кто-то не помнит, то tkinter - это кроссплатформенная библиотека для разработки графического интерфейса на языке Python.</p>
+<p>И в то или иное время у меня возникает потребность в написании простых программ, и неважно, будь это прямая потребность или просто желание постучать пальцами по клавиатуре. По мимо этого я люблю копаться в репозитории библиотек python.</p>
+<p>Среди всего этого разнообразия пакетов мне приглянулся PyQRCode. Из названия очевидно, что этот пакет предназначен для работы с qr кодами. Потому давайте напишем простую программу для генерирования qr по введённому url. Сразу скажу, что напишем  две версии: консольную и с графическим интерфейсом.</p>
+<p>Для начала давайте инсталлируем необходимый пакет:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install pyqrcode
+</code></pre></div><p>Теперь перейдём непосредственно к написанию кода. Импортируем необходимые модули, при этом не забыв в начале файла прописать путь для интерпретатора:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/python3</span>
+<span style="color:#f92672">from</span> pyqrcode <span style="color:#f92672">import</span> create
+</code></pre></div><p>Прописываем приглашение в командной строке. Затем создаём переменную URL, где мы можем указать необходимый адрес, для последующей генерации qr. В данном кусочке кода create отвечает за непосредственную генерацию.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;please,type url:&#34;</span>)
+url <span style="color:#f92672">=</span> create(input(<span style="color:#e6db74">&#39;&#39;</span>))
+</code></pre></div><p>К примеру достаточно вот такой строчки для генерации qr кода гугла:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">url <span style="color:#f92672">=</span> pyqrcode<span style="color:#f92672">.</span>create(<span style="color:#e6db74">&#39;https://google.com&#39;</span>)
+</code></pre></div><p>Затем задаём параметры(например размер) отображения:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">url<span style="color:#f92672">.</span>svg(<span style="color:#e6db74">&#39;code.svg&#39;</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>)
+</code></pre></div><p>И создаём рамки вокруг кода, если это необходимо:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(url<span style="color:#f92672">.</span>terminal(quiet_zone<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+</code></pre></div><p>Должно получиться примерно вот так:</p>
+<p><img src="/images/cli.gif" alt="cliqr"></p>
+<p>Закончив с консольной версией, приступим к построению графического интерфейса. Сделаем это в отдельном файле, во благо удобства. Судя по началу статьи очевидно, что будем использовать tk.</p>
+<p>Импортируем библиотеки</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> tkinter <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+<span style="color:#f92672">from</span> tkinter <span style="color:#f92672">import</span> messagebox
+<span style="color:#f92672">import</span> pyqrcode
+</code></pre></div><p>Инициализируем окно и заголовок:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">window <span style="color:#f92672">=</span> Tk() <span style="color:#75715e">#init</span>
+window<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;PyQr&#34;</span>) <span style="color:#75715e">#title</span>
+</code></pre></div><p>Создаём функцию, где указываем все параметры, такой подход необходим для возможного дальнейшего масштабирования программы. По мимо аргументов в функции генерации создадим вывод сообщения об ошибке:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">generate</span>():
+	<span style="color:#66d9ef">if</span> len(subject<span style="color:#f92672">.</span>get()) <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>:
+		<span style="color:#66d9ef">global</span> myQr
+		myQr<span style="color:#f92672">=</span> pyqrcode<span style="color:#f92672">.</span>create(subject<span style="color:#f92672">.</span>get())
+		qrImage<span style="color:#f92672">=</span> myQr<span style="color:#f92672">.</span>xbm(scale<span style="color:#f92672">=</span><span style="color:#ae81ff">6</span>)
+		<span style="color:#66d9ef">global</span> photo
+		photo <span style="color:#f92672">=</span> BitmapImage(data<span style="color:#f92672">=</span> qrImage)
+	<span style="color:#66d9ef">else</span>:
+		messagebox<span style="color:#f92672">.</span>showinfo(<span style="color:#e6db74">&#34;Error!&#34;</span>, <span style="color:#e6db74">&#34;Please Enter The Subject&#34;</span>)
+	<span style="color:#66d9ef">try</span>:
+		showCode()
+	<span style="color:#66d9ef">except</span>:
+		<span style="color:#66d9ef">pass</span>
+</code></pre></div><p>Сгенерированые данные передадим функции showCode. Её задача проста - выводить qr код с введённым url:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">showCode</span>():
+	<span style="color:#66d9ef">global</span> photo
+	notificationLabel<span style="color:#f92672">.</span>config(image<span style="color:#f92672">=</span> photo)
+	subLabel<span style="color:#f92672">.</span>config(text<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Showing QR Code for: &#34;</span><span style="color:#f92672">+</span>subject<span style="color:#f92672">.</span>get())
+</code></pre></div><p>Зададим формы и элементы:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">lab1 <span style="color:#f92672">=</span> Label(window, text<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Enter Subject&#34;</span>,  font<span style="color:#f92672">=</span>( <span style="color:#ae81ff">12</span>))
+lab1<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, column<span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, sticky<span style="color:#f92672">=</span> N<span style="color:#f92672">+</span>S<span style="color:#f92672">+</span>E<span style="color:#f92672">+</span>W)
+
+
+subject<span style="color:#f92672">=</span> StringVar()
+subjectEntry <span style="color:#f92672">=</span> Entry(window, textvariable <span style="color:#f92672">=</span> subject,font<span style="color:#f92672">=</span>( <span style="color:#ae81ff">12</span>))
+subjectEntry<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, column<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, sticky<span style="color:#f92672">=</span> N<span style="color:#f92672">+</span>S<span style="color:#f92672">+</span>E<span style="color:#f92672">+</span>W)
+
+
+createButton <span style="color:#f92672">=</span> Button(window, text<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Create QR Code&#34;</span>, font<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>), width<span style="color:#f92672">=</span> <span style="color:#ae81ff">15</span>,command<span style="color:#f92672">=</span> generate)
+createButton<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, column<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, sticky<span style="color:#f92672">=</span> N<span style="color:#f92672">+</span>S<span style="color:#f92672">+</span>E<span style="color:#f92672">+</span>W)
+
+
+notificationLabel<span style="color:#f92672">=</span> Label(window)
+notificationLabel<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>, column<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, sticky<span style="color:#f92672">=</span> N<span style="color:#f92672">+</span>S<span style="color:#f92672">+</span>E<span style="color:#f92672">+</span>W)
+
+
+subLabel<span style="color:#f92672">=</span> Label(window, text<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>)
+subLabel<span style="color:#f92672">.</span>grid(row<span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>, column<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, sticky<span style="color:#f92672">=</span> N<span style="color:#f92672">+</span>S<span style="color:#f92672">+</span>E<span style="color:#f92672">+</span>W)
+
+totalRows<span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+totalCols <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+
+<span style="color:#66d9ef">for</span> row <span style="color:#f92672">in</span> range(totalRows<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+	window<span style="color:#f92672">.</span>grid_rowconfigure(row, weight<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+
+<span style="color:#66d9ef">for</span> col <span style="color:#f92672">in</span> range(totalCols<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+	window<span style="color:#f92672">.</span>grid_columnconfigure(col, weight<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</code></pre></div><p>И естественно прописываем mainloop:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">window<span style="color:#f92672">.</span>mainloop()
+</code></pre></div><p>В итоге получаем следующее:</p>
+<p><img src="/images/gui.gif" alt="gui_qr"></p>
+<p>А что если пользователю предоставить возможность выбирать режим? Рациональнее предложить интерфейс выбора, чем вручную выбирать необходимый файлик. Потому давайте создадим этот интерфейс, в файле choise.py напишем следующее:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">choise <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;CLI/gui mode?; Type C to use cli or type g to use gui:  &#39;</span>)
+
+<span style="color:#66d9ef">if</span> choise <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;c&#34;</span>:
+    <span style="color:#f92672">import</span> cli
+<span style="color:#66d9ef">if</span> choise <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;C&#34;</span>:
+    <span style="color:#f92672">import</span> cli
+<span style="color:#66d9ef">if</span> choise <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;g&#34;</span>:
+    <span style="color:#f92672">import</span> main
+<span style="color:#66d9ef">if</span> choise <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;G&#34;</span>:
+    <span style="color:#f92672">import</span> main
+<span style="color:#66d9ef">else</span>:
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;please, enter a valid letter&#34;</span>)
+</code></pre></div><p>А именно: делаем инпут по вопросу о выборе режима. В зависимости от выбранной буквы(в не зависимости от регистра) импортируем код либо терминальной версии  ,либо графической. В качестве cli-версии импортируем файл cli без префикса &ldquo;.py&rdquo;, аналогично импортируется gui(пакет main). А в случае неправильно введённой переменной просим пользователя ввести правильную букву.</p>
+<p>Думаю, что получилось неплохо. Традиционно код программы расположен в моём <a href="https://github.com/DanteAlighierin/PyQr">GitHub аккаунте</a>. Буду рад любым предложениям и критике , как в комментариях, так и в issues или pull request.</p>
+
+    </div>
+    
+
+    
+      
+    
+
+
+
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Dante&#39;s blog</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+	  <b>Golang</b></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-140031759-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+  </body>
+</html>

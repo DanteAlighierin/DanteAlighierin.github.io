@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JIT on Dante&#39;s blog</title>
+    
+    
+    
+    <link>/tags/jit/</link>
+    <description>Recent content in JIT on Dante&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Mon, 10 Feb 2020 17:25:04 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/jit/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title> &#39;Я скорость&#39; или что такое rPython</title>
+      <link>/post/rpython/</link>
+      <pubDate>Mon, 10 Feb 2020 17:25:04 +0300</pubDate>
+      
+      <guid>/post/rpython/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Python существует уже много лет и за всё это время Гвидо ван Россум и другие разработчики этого языка стремились к созданию чистого дизайна языка. Для этого нужно было описать язык его же терминами. И по понятным причинам интерпретаторы на C(Cpython - самая популярная и на данный момент эталонная реализация) , Java(Jython) , на стеке .NET(IronPython)не подходят. Собственно нужна была реализация на самом питоне. И тут миру явился PyPy.
+Проект PyPy реализован не на самом python , как это может показаться на первый взгляд, а на его подмножестве rPython.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

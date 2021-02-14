@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>threading on Dante&#39;s blog</title>
+    
+    
+    
+    <link>/tags/threading/</link>
+    <description>Recent content in threading on Dante&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Sun, 23 Feb 2020 15:10:00 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/threading/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Простой мессенджер на tkinter,socket и threading</title>
+      <link>/post/chat/</link>
+      <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
+      
+      <guid>/post/chat/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          В этой статье я бы хотел показать как написать простое приложение мессенджер менее чем в 150 строк.
+Серверная часть Начнём с сервера(наше приложение будет состоять из скриптов сервера и клиента), через который можно получать входящие запросы от клиентов, желающих общаться. Традиционно указываем путь до интерпретатора и импортируем необходимые модули. Конкретно socket и threading. Первый отвечает непосредственно за &amp;ldquo;общение&amp;rdquo; процесссов между собой, второй за многопоточность. О этих модулях подробно можно почитать например здесь - socket , threading.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

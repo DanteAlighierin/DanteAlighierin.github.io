@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>thinking on Dante&#39;s blog</title>
+    
+    
+    
+    <link>/tags/thinking/</link>
+    <description>Recent content in thinking on Dante&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Sat, 21 Dec 2019 17:32:04 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/thinking/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Об искусственном интеллекте</title>
+      <link>/post/ai-copy/</link>
+      <pubDate>Sat, 21 Dec 2019 17:32:04 +0300</pubDate>
+      
+      <guid>/post/ai-copy/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Лично меня раздражает тенденция маркетологов , когда они злоупотребляют в своём продукте такими словосочетаниями как &amp;ldquo;нейронные сети&amp;rdquo; и &amp;ldquo;искусственный интеллект&amp;rdquo;. И ладно ,если бы это соответстовало действительности,но на самом деле это, как правило,не так. Либо такие люди действительно заблуждаются и не понимают,что значат эти слова, либо просто считают, что эти триггеры помогут продукту развиваться.
+К примеру, бота в чате способного выдавать ответы на те или иные вопросы начинают считать искусственным интелектом.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

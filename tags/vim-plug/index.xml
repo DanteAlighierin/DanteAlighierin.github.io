@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim-plug on Dante&#39;s blog</title>
+    
+    
+    
+    <link>/tags/vim-plug/</link>
+    <description>Recent content in vim-plug on Dante&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Thu, 31 Dec 2020 17:25:04 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/vim-plug/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vim в массы</title>
+      <link>/post/vim/</link>
+      <pubDate>Thu, 31 Dec 2020 17:25:04 +0300</pubDate>
+      
+      <guid>/post/vim/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Не буду в тысячный раз описывать преимущества vim&amp;rsquo;a, их и так все знают, да и на эту тему есть вагон и маленькая тележка статей и видео.
+Предположим,что вы всё же решились. И вот, наконец, вы открыли терминал, через пакетный менеджер провели установку, открывайте программу и видите примерно следующую картину:
+Не очень красиво,правда? И это еще не зашла речь про функциональность и какие-либо плюшки. Уже внешний вид может отпугнуть потенциального пользователя, ведь он хочет удобную и красивую рабочую среду, а не просто кусок терминала с текстом.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Dante&#39;s blog</title>
+    
+    
+    
+    <link>/tags/</link>
+    <description>Recent content in Tags on Dante&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Thu, 31 Dec 2020 17:25:04 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>setup</title>
+      <link>/tags/setup/</link>
+      <pubDate>Thu, 31 Dec 2020 17:25:04 +0300</pubDate>
+      
+      <guid>/tags/setup/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>/tags/vim/</link>
+      <pubDate>Thu, 31 Dec 2020 17:25:04 +0300</pubDate>
+      
+      <guid>/tags/vim/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>vim-plug</title>
+      <link>/tags/vim-plug/</link>
+      <pubDate>Thu, 31 Dec 2020 17:25:04 +0300</pubDate>
+      
+      <guid>/tags/vim-plug/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>clone</title>
+      <link>/tags/clone/</link>
+      <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
+      
+      <guid>/tags/clone/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>neofetch</title>
+      <link>/tags/neofetch/</link>
+      <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
+      
+      <guid>/tags/neofetch/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>os</title>
+      <link>/tags/os/</link>
+      <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
+      
+      <guid>/tags/os/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>platform</title>
+      <link>/tags/platform/</link>
+      <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
+      
+      <guid>/tags/platform/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>/tags/python/</link>
+      <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
+      
+      <guid>/tags/python/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>socket</title>
+      <link>/tags/socket/</link>
+      <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
+      
+      <guid>/tags/socket/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>subprocess</title>
+      <link>/tags/subprocess/</link>
+      <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
+      
+      <guid>/tags/subprocess/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>2captcha</title>
+      <link>/tags/2captcha/</link>
+      <pubDate>Tue, 31 Mar 2020 17:10:00 +0300</pubDate>
+      
+      <guid>/tags/2captcha/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>automation</title>
+      <link>/tags/automation/</link>
+      <pubDate>Tue, 31 Mar 2020 17:10:00 +0300</pubDate>
+      
+      <guid>/tags/automation/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>captcha</title>
+      <link>/tags/captcha/</link>
+      <pubDate>Tue, 31 Mar 2020 17:10:00 +0300</pubDate>
+      
+      <guid>/tags/captcha/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>rucaptcha</title>
+      <link>/tags/rucaptcha/</link>
+      <pubDate>Tue, 31 Mar 2020 17:10:00 +0300</pubDate>
+      
+      <guid>/tags/rucaptcha/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>ar</title>
+      <link>/tags/ar/</link>
+      <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
+      
+      <guid>/tags/ar/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>cli</title>
+      <link>/tags/cli/</link>
+      <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
+      
+      <guid>/tags/cli/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>gui</title>
+      <link>/tags/gui/</link>
+      <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
+      
+      <guid>/tags/gui/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>ui</title>
+      <link>/tags/ui/</link>
+      <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
+      
+      <guid>/tags/ui/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>vr</title>
+      <link>/tags/vr/</link>
+      <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
+      
+      <guid>/tags/vr/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>wimp</title>
+      <link>/tags/wimp/</link>
+      <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
+      
+      <guid>/tags/wimp/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>zui</title>
+      <link>/tags/zui/</link>
+      <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
+      
+      <guid>/tags/zui/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>messanger</title>
+      <link>/tags/messanger/</link>
+      <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
+      
+      <guid>/tags/messanger/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>threading</title>
+      <link>/tags/threading/</link>
+      <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
+      
+      <guid>/tags/threading/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>tkinter</title>
+      <link>/tags/tkinter/</link>
+      <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
+      
+      <guid>/tags/tkinter/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>JIT</title>
+      <link>/tags/jit/</link>
+      <pubDate>Mon, 10 Feb 2020 17:25:04 +0300</pubDate>
+      
+      <guid>/tags/jit/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>PyPy</title>
+      <link>/tags/pypy/</link>
+      <pubDate>Mon, 10 Feb 2020 17:25:04 +0300</pubDate>
+      
+      <guid>/tags/pypy/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>rpython</title>
+      <link>/tags/rpython/</link>
+      <pubDate>Mon, 10 Feb 2020 17:25:04 +0300</pubDate>
+      
+      <guid>/tags/rpython/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>pyqrcode</title>
+      <link>/tags/pyqrcode/</link>
+      <pubDate>Mon, 03 Feb 2020 20:30:00 +0300</pubDate>
+      
+      <guid>/tags/pyqrcode/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>qr</title>
+      <link>/tags/qr/</link>
+      <pubDate>Mon, 03 Feb 2020 20:30:00 +0300</pubDate>
+      
+      <guid>/tags/qr/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>bash</title>
+      <link>/tags/bash/</link>
+      <pubDate>Sun, 05 Jan 2020 18:30:00 +0300</pubDate>
+      
+      <guid>/tags/bash/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>oh_my_bash</title>
+      <link>/tags/oh_my_bash/</link>
+      <pubDate>Sun, 05 Jan 2020 18:30:00 +0300</pubDate>
+      
+      <guid>/tags/oh_my_bash/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>shell</title>
+      <link>/tags/shell/</link>
+      <pubDate>Sun, 05 Jan 2020 18:30:00 +0300</pubDate>
+      
+      <guid>/tags/shell/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>terminal</title>
+      <link>/tags/terminal/</link>
+      <pubDate>Sun, 05 Jan 2020 18:30:00 +0300</pubDate>
+      
+      <guid>/tags/terminal/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>zsh</title>
+      <link>/tags/zsh/</link>
+      <pubDate>Sun, 05 Jan 2020 18:30:00 +0300</pubDate>
+      
+      <guid>/tags/zsh/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>ai</title>
+      <link>/tags/ai/</link>
+      <pubDate>Sat, 21 Dec 2019 17:32:04 +0300</pubDate>
+      
+      <guid>/tags/ai/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>thinking</title>
+      <link>/tags/thinking/</link>
+      <pubDate>Sat, 21 Dec 2019 17:32:04 +0300</pubDate>
+      
+      <guid>/tags/thinking/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>chrome</title>
+      <link>/tags/chrome/</link>
+      <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
+      
+      <guid>/tags/chrome/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>chromium</title>
+      <link>/tags/chromium/</link>
+      <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
+      
+      <guid>/tags/chromium/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>css</title>
+      <link>/tags/css/</link>
+      <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
+      
+      <guid>/tags/css/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>firefox</title>
+      <link>/tags/firefox/</link>
+      <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
+      
+      <guid>/tags/firefox/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>html</title>
+      <link>/tags/html/</link>
+      <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
+      
+      <guid>/tags/html/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>web</title>
+      <link>/tags/web/</link>
+      <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
+      
+      <guid>/tags/web/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>pyinstaller</title>
+      <link>/tags/pyinstaller/</link>
+      <pubDate>Fri, 20 Sep 2019 20:00:00 +0300</pubDate>
+      
+      <guid>/tags/pyinstaller/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>pytube</title>
+      <link>/tags/pytube/</link>
+      <pubDate>Fri, 20 Sep 2019 20:00:00 +0300</pubDate>
+      
+      <guid>/tags/pytube/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

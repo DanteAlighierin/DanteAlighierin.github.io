@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Простые часы  на tkinter ::
+        Dante&#39;s blog
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Tkinter – это кроссплатформенная библиотека для разработки графического интерфейса на языке Python (начиная с Python 3.0 переименована в tkinter). Tkinter расшифровывается как Tool kit interface, и является интерфейсом для языка програмирования Tcl и графической для него привязки tk.Не вдаваясь в подробности, Tkinter можно охарактеризовать как переводчик с языка Python на язык Tcl. Вы пишете программу на Python, а код модуля tkinter у вас за спиной переводит ваши инструкции на язык Tcl(тикль-токль), который понимает библиотека Tk (tool kit)."
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/post/tko/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css" />
+
+<link rel="stylesheet" href="/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="/img/favicon.png" />
+
+
+<link href="/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Простые часы  на tkinter"/>
+<meta name="twitter:description" content="Tkinter – это кроссплатформенная библиотека для разработки графического интерфейса на языке Python (начиная с Python 3.0 переименована в tkinter). Tkinter расшифровывается как Tool kit interface, и является интерфейсом для языка програмирования Tcl и графической для него привязки tk.Не вдаваясь в подробности, Tkinter можно охарактеризовать как переводчик с языка Python на язык Tcl. Вы пишете программу на Python, а код модуля tkinter у вас за спиной переводит ваши инструкции на язык Tcl(тикль-токль), который понимает библиотека Tk (tool kit)."/>
+
+
+
+<meta property="og:title" content="Простые часы  на tkinter" />
+<meta property="og:description" content="Tkinter – это кроссплатформенная библиотека для разработки графического интерфейса на языке Python (начиная с Python 3.0 переименована в tkinter). Tkinter расшифровывается как Tool kit interface, и является интерфейсом для языка програмирования Tcl и графической для него привязки tk.Не вдаваясь в подробности, Tkinter можно охарактеризовать как переводчик с языка Python на язык Tcl. Вы пишете программу на Python, а код модуля tkinter у вас за спиной переводит ваши инструкции на язык Tcl(тикль-токль), который понимает библиотека Tk (tool kit)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/tko/" />
+<meta property="article:published_time" content="2019-09-13T18:00:00+03:00" />
+<meta property="article:modified_time" content="2019-09-13T18:00:00+03:00" /><meta property="og:site_name" content="Dante&#39;s blog" />
+
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Dante&#39;s blog</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/DanteAlighierin">github</a></li>
+        
+      
+        
+          <li><a href="https://t.me/dailymotions">telegram</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/DanteAlighierin">github</a></li>
+      
+    
+      
+        <li><a href="https://t.me/dailymotions">telegram</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+      
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Простые часы  на tkinter</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2019-09-13
+        </span>
+
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by Dante</span
+        >
+
+
+      
+        <span class="post-read-time"
+          >— 4 min read</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="/tags/tkinter/">#tkinter</a>&nbsp;
+        
+          <a href="/tags/python/">#python</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <p><img src="/images/clock.png" alt="f375a21a.png"></p>
+<p>Tkinter – это кроссплатформенная библиотека для разработки графического интерфейса на языке Python (начиная с Python 3.0 переименована в tkinter). Tkinter расшифровывается как Tool kit interface, и является интерфейсом для языка програмирования Tcl и графической  для него привязки tk.Не вдаваясь в подробности, Tkinter можно охарактеризовать как переводчик с языка Python на язык Tcl. Вы пишете программу на Python, а код модуля tkinter у вас за спиной переводит ваши инструкции на язык Tcl(тикль-токль), который понимает библиотека Tk (tool kit).</p>
+<p>Конечно для python есть и другие более мощные и интересные библиотеки графического интерфейса такие как: pygame и qiwi, qt и gtk.Однако pygame расчитан больше на разработку видео игр, qiwi лучше использовать для мобильных платформ , qt и gtk несколько сложнее в изучении и могут иметь много не нужного на первых этапах . А вот tkinter хорош для протипирования и быстрой разработки,а потому он идеально подходит для начинающих. В плюсы данной библиотеке можно записать её наличие в стандартном дистрибутиве python,в то время,как другие библиотеки для создания графического интерфейса требует отдельной установки через внутренний менеджер пакетов питона pip.</p>
+<p>Под графическим интерфейсом пользователя (GUI или graphical user interfase) подразумеваются все  окна, кнопки, текстовые поля для ввода, скроллеры, списки, флаги. Через них пользователь взаимодействует с программой и управляет ею. Все эти элементы интерфейса называются виджетами (widgets).</p>
+<p>Приложения с графическим интерфейсом пользователя событийно-ориентированные. Вы,уважаемый читатель, уже должны иметь представление о структурном и желательно объектно-ориентированном программировании. Событийно-ориентированное ориентировано на события. То есть та или иная часть программного кода начинает выполняться лишь тогда, когда случается то или иное событие.Собственно наши часы и будут использовать эту парадигму.</p>
+<p>Событийно-ориентированное программирование базируется на объектно-ориентированном и структурном. Даже если мы не создаем собственных классов и объектов, то все-равно ими пользуемся. Все виджеты – объекты, порожденные встроенными классами.</p>
+<p>События бывают разными. Сработал временной фактор, кто-то кликнул мышкой или нажал Enter, начал вводить текст, переключил радиокнопки, прокрутил страницу  и т. д. Когда случается что-то подобное, то, если был создан соответствующий обработчик, происходит срабатывание определенной части программы(trigger), что приводит к какому-либо результату. Например в наших часах как только сменяется системное время,сразу обновляется счётчик. Вот вам и наглядный пример событийно-ориентированого програмирования.</p>
+<p>Далее, чтобы написать GUI-программу, надо в своей программе следовать следуещему плану:</p>
+<pre><code>1) Создать главное окно.
+
+2)Создать виджеты и выполнить конфигурацию их свойств (опций).
+
+3)Определить события, то есть то, на что будет реагировать программа.
+
+2)Определить обработчики событий, то есть то, как будет реагировать программа.
+
+4)Расположить виджеты в главном окне.
+
+5)Запустить цикл обработки событий.
+</code></pre>
+<p>Последовательность не обязательно такая, но первый и последний пункты всегда остаются на своих местах. Достаточно следовать этому плану и всё получится!</p>
+<p>В качестве учебного проекта можно написать свою реализацию стандартного ПО. Для примера я написал простые часы. Простые и без наворотов. Но при желании всегда можно расширить функционал. Благо софт находится под свободной лицензией GNU GPL v2. Исходный код программы лежит <a href="https://github.com/DanteAlighierin/tkClock">на Github</a>. Вы можете спокойно почитать исходный код программы , сделать code-review, внести правки или вовсе создать ответвление(fork).</p>
+<p>Для начала импортируем необходимые для работы программы модули , а именно time(отвечает за операции связанные со времинем и манипуляциями над ним) и собственно tkinter:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">	<span style="color:#f92672">from</span> tkinter <span style="color:#f92672">import</span> <span style="color:#f92672">*</span>
+	<span style="color:#f92672">import</span> time
+</code></pre></div><p>Следующая часть кода отвечает за отображение заголовка,шрифт,цвет текста</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">	root <span style="color:#f92672">=</span> Tk()
+	root<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;tkClock&#34;</span>)
+	time1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+	clock <span style="color:#f92672">=</span> Label(root, font<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#39;bold&#39;</span>, <span style="color:#ae81ff">20</span>, <span style="color:#e6db74">&#39;bold&#39;</span>), bg<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;white&#39;</span>)
+	clock<span style="color:#f92672">.</span>pack(fill<span style="color:#f92672">=</span>BOTH, expand<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</code></pre></div><p>Далее мы создаем функцию ,которая при помощи <code>time.strftime</code> узнает текущее системное время. Далее оно передаётся в тело программы. Сразу как только системное время изменяется,происходит обновление фрейма. При этом проверка времени происходит каждые 200 милисекунд,что позволяет поддерживать баланс между производительностью и точностью:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">	<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">tick</span>():
+    	<span style="color:#66d9ef">global</span> time1
+    	<span style="color:#75715e"># узнаем время </span>
+    	time2 <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>strftime(<span style="color:#e6db74">&#39;%H:%M:%S&#39;</span>) 
+    	<span style="color:#75715e"># фрейм обновляется как только время меняется</span>
+    	<span style="color:#66d9ef">if</span> time2 <span style="color:#f92672">!=</span> time1:
+        	time1 <span style="color:#f92672">=</span> time2
+        	clock<span style="color:#f92672">.</span>config(text<span style="color:#f92672">=</span>time2)
+        	<span style="color:#75715e"># вызовы идут каждые 200 милисекунд</span>
+    	clock<span style="color:#f92672">.</span>after(<span style="color:#ae81ff">200</span>, tick)
+</code></pre></div><p>Последние строчки закрывают цикл &ldquo;clock&rdquo; и позволяют закрыть окно,если того пожелает пользователь:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">	tick()
+	root<span style="color:#f92672">.</span>mainloop()
+</code></pre></div><p>Программа вышла очень простой , однако никто не мешает доработать её или вообще переписать полностью. Благо open source.</p>
+<p>Вот и всё. Tkinter – это, безусловно, мощная и удобная библиотека.</p>
+<p>Полезные ссылки:</p>
+<p><a href="http://ru.wikiversity.org">http://ru.wikiversity.org</a></p>
+<p><a href="http://www.pythonware.com/">http://www.pythonware.com/</a></p>
+<p>Хочешь помочь проекту? Просто оставь комментарий или поделись этой статьёй с друзьями.</p>
+
+    </div>
+    
+
+    
+      
+    
+
+
+
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Dante&#39;s blog</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+	  <b>Golang</b></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-140031759-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+  </body>
+</html>

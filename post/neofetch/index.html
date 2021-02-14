@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>
+        Пишем клон neofetch на python ::
+        Dante&#39;s blog
+      </title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta
+  name="description"
+  content="Немного о самой программе Думаю, что каждому пользователю UNIX-подобных систем знакома утилита neofetch и её аналоги (pfetch,screenfetch и некоторые другие). Эта маленькая программа позволяет вывести информацию о системе и аппаратной части компьютера в удобном формате.
+Neofetch есть в большинстве дистрибутивов, (и даже есть возможность установки в windows и haiku), да и собрать из исходников никто не мешает.
+K примеру в ubuntu она ставиться следующим образом:
+sudo apt update sudo apt install neofetch На гифке выше - neofetch выводит название ОС, имя хоста, shell, разрешение экрана, оконный менеджер, gtk тему, иконки и название терминала."
+/>
+<meta
+  name="keywords"
+  content=""
+/>
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/post/neofetch/" />
+
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css" />
+
+<link rel="stylesheet" href="/style.css" />
+
+
+<link
+  rel="apple-touch-icon-precomposed"
+  sizes="144x144"
+  href="/img/apple-touch-icon-144-precomposed.png"
+/>
+<link rel="shortcut icon" href="/img/favicon.png" />
+
+
+<link href="/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Пишем клон neofetch на python"/>
+<meta name="twitter:description" content="Немного о самой программе Думаю, что каждому пользователю UNIX-подобных систем знакома утилита neofetch и её аналоги (pfetch,screenfetch и некоторые другие). Эта маленькая программа позволяет вывести информацию о системе и аппаратной части компьютера в удобном формате.
+Neofetch есть в большинстве дистрибутивов, (и даже есть возможность установки в windows и haiku), да и собрать из исходников никто не мешает.
+K примеру в ubuntu она ставиться следующим образом:
+sudo apt update sudo apt install neofetch На гифке выше - neofetch выводит название ОС, имя хоста, shell, разрешение экрана, оконный менеджер, gtk тему, иконки и название терминала."/>
+
+
+
+<meta property="og:title" content="Пишем клон neofetch на python" />
+<meta property="og:description" content="Немного о самой программе Думаю, что каждому пользователю UNIX-подобных систем знакома утилита neofetch и её аналоги (pfetch,screenfetch и некоторые другие). Эта маленькая программа позволяет вывести информацию о системе и аппаратной части компьютера в удобном формате.
+Neofetch есть в большинстве дистрибутивов, (и даже есть возможность установки в windows и haiku), да и собрать из исходников никто не мешает.
+K примеру в ubuntu она ставиться следующим образом:
+sudo apt update sudo apt install neofetch На гифке выше - neofetch выводит название ОС, имя хоста, shell, разрешение экрана, оконный менеджер, gtk тему, иконки и название терминала." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/neofetch/" />
+<meta property="article:published_time" content="2020-05-01T21:00:00+03:00" />
+<meta property="article:modified_time" content="2020-05-01T21:00:00+03:00" /><meta property="og:site_name" content="Dante&#39;s blog" />
+
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Dante&#39;s blog</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="https://github.com/DanteAlighierin">github</a></li>
+        
+      
+        
+          <li><a href="https://t.me/dailymotions">telegram</a></li>
+        
+      
+      
+      
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="https://github.com/DanteAlighierin">github</a></li>
+      
+    
+      
+        <li><a href="https://t.me/dailymotions">telegram</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </span>
+      
+      <span class="theme-toggle">
+        <svg
+  class="theme-toggler"
+  width="24"
+  height="24"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"
+  />
+</svg>
+
+      </span>
+    </span>
+  </span>
+</header>
+
+      
+
+
+      <div class="content">
+        
+  
+  
+
+  <div class="post">
+    <h1 class="post-title">Пишем клон neofetch на python</h1>
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-05-01
+        </span>
+
+        
+      
+
+      
+        <span class="post-author"
+          >— Written by Dante</span
+        >
+
+
+      
+        <span class="post-read-time"
+          >— 5 min read</span
+        >
+      
+    </div>
+
+    
+      <span class="post-tags">
+        
+          <a href="/tags/python/">#python</a>&nbsp;
+        
+          <a href="/tags/os/">#os</a>&nbsp;
+        
+          <a href="/tags/subprocess/">#subprocess</a>&nbsp;
+        
+          <a href="/tags/platform/">#platform</a>&nbsp;
+        
+          <a href="/tags/socket/">#socket</a>&nbsp;
+        
+          <a href="/tags/neofetch/">#neofetch</a>&nbsp;
+        
+          <a href="/tags/clone/">#clone</a>&nbsp;
+        
+      </span>
+    
+
+    
+
+    <div class="post-content">
+      
+      <h3 id="немного-о-самой-программе">Немного о самой программе</h3>
+<p><img src="https://camo.githubusercontent.com/b9b096d774e2e00aa7300cf3110029116041ddce/68747470733a2f2f692e696d6775722e636f6d2f5a51493245597a2e706e67" alt=""></p>
+<p>Думаю, что каждому пользователю UNIX-подобных систем знакома утилита <strong>neofetch</strong> и её аналоги (pfetch,screenfetch и некоторые другие). Эта маленькая программа позволяет вывести  информацию о системе и аппаратной части компьютера в удобном формате.</p>
+<p>Neofetch есть в большинстве дистрибутивов, (и даже есть возможность установки в windows и haiku), да и собрать из исходников никто не мешает.</p>
+<p>K примеру в ubuntu она ставиться следующим образом:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt update
+sudo apt install neofetch
+</code></pre></div><p><img src="/images/neofetch_pro.gif" alt="neofetch_pro"></p>
+<p>На гифке выше - neofetch выводит название ОС, имя хоста, shell, разрешение экрана, оконный менеджер, gtk тему, иконки и название терминала. Чуть ниже расположена полоска с цветами, отображающая цветовую схему терминала.  Однако можно вывести куда больше информации, и на этом этапе вы можете начать разбираться с конфигурационным файлом. Как правило он лежит в директории ~/.config/neofetch . Если такой директории нет, то создайте её и в ней пропишите конфиг в файле config.conf.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim ~ /.config/neofetch/config.conf
+</code></pre></div><p>Однако мне захотелось сделать свою версию на python. И для начала я отправился на github и нашёл там уже готовое решение,правда для MacOs.  И естественно оно не заработало на linux, даже не смотря то, что это схожие системы с точки зрения UNIX.  И потому было принято решение переписать эту программу.</p>
+<p>Я не стал менять архитектуру скрипта, а просто изменил системные вызовы , подходящиe для linux систем.</p>
+<h3 id="модули">Модули</h3>
+<h4 id="локальный-ip-адрес">Локальный ip адрес</h4>
+<p>Давайте определим локальный ip адрес. Сделаем мы это при помощи модуля socket.</p>
+<p>Создаём функцию <strong>local_ip</strong>, ищем локальный адрес, открывая localhost и перебирая порты. Функция сохраняет значение, которые в последствии мы выведем пользователю на экран. Если же по каким-то причинам нам это не удалось, то функция сохраняет значение <strong>None</strong>.</p>
+<p>По такому же принципу работают и остальные модули, которые обозначены ниже.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">local_ip</span>():
+   <span style="color:#66d9ef">try</span>:
+       s <span style="color:#f92672">=</span> socket<span style="color:#f92672">.</span>socket(socket<span style="color:#f92672">.</span>AF_INET, socket<span style="color:#f92672">.</span>SOCK_DGRAM)
+       s<span style="color:#f92672">.</span>connect((<span style="color:#e6db74">&#34;8.8.8.8&#34;</span>, <span style="color:#ae81ff">80</span>))
+       <span style="color:#66d9ef">return</span> s<span style="color:#f92672">.</span>getsockname()[<span style="color:#ae81ff">0</span>]
+   <span style="color:#66d9ef">except</span>:
+       <span style="color:#66d9ef">return</span> None
+
+</code></pre></div><h4 id="имя-хоста">Имя хоста</h4>
+<p>В функции <strong>host_name</strong> через <strong>socket.gethostname()</strong> определяем имя хоста.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">host_name</span>():
+    <span style="color:#66d9ef">try</span>:
+        <span style="color:#66d9ef">return</span> socket<span style="color:#f92672">.</span>gethostname()
+    <span style="color:#66d9ef">except</span>:
+        <span style="color:#66d9ef">return</span> None
+
+</code></pre></div><h4 id="операционная-система">Операционная система</h4>
+<p>Чтобы определить операционную систему воспользуемся специальной библиотекой - platform.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">os_version</span>():
+    <span style="color:#66d9ef">try</span>:
+        <span style="color:#66d9ef">return</span> platform<span style="color:#f92672">.</span>linux_distribution(distname<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, version<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, id<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span>, supported_dists<span style="color:#f92672">=</span>(<span style="color:#e6db74">&#39;SuSE&#39;</span>, <span style="color:#e6db74">&#39;debian&#39;</span>, <span style="color:#e6db74">&#39;redhat&#39;</span>, <span style="color:#e6db74">&#39;mandrake&#39;</span>, <span style="color:#f92672">...</span>), full_distribution_name<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+
+
+    <span style="color:#66d9ef">except</span>:
+        <span style="color:#66d9ef">return</span> None
+
+</code></pre></div><h4 id="разрешение-экрана">Разрешение экрана</h4>
+<p>Давайте теперь узнаем разрешение экрана. Сделаем мы это при помощи библиотеки subprocess, которой мы воспользуемся ещё не раз. Главным для нас являтся <strong>subprocess.check_output</strong> , который позволяет прямо из python выполнять команды <strong>sh</strong>. Чтобы выяснить разрешение в терминале можно ввести команду :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">xrandr
+</code></pre></div><p>А в своём python скрипте мы напишем следущее:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">screen_size</span>():
+    <span style="color:#66d9ef">try</span>:
+        <span style="color:#66d9ef">return</span> subprocess<span style="color:#f92672">.</span>check_output([<span style="color:#e6db74">&#34;xrandr | grep </span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">*</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">&#34;</span>], shell<span style="color:#f92672">=</span>True)
+    <span style="color:#66d9ef">except</span>:
+        <span style="color:#66d9ef">return</span> None
+</code></pre></div><p>Однако в выводе терминала мы получаем следущее</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> b<span style="color:#e6db74">&#39;   1280x1024     60.02*+  75.02  \n&#39;</span>
+</code></pre></div><p>На мой взгляд это выглядит некрасиво. Потому давайте поправим эту ситуацию. Мы просто декодируем вывод  в удобо-читаемый формат.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;utf-8&#39;</span>)
+</code></pre></div><p>Итоговая конструкции выглядит следующим образом:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">screen_size</span>():
+    <span style="color:#66d9ef">try</span>:
+        <span style="color:#66d9ef">return</span> subprocess<span style="color:#f92672">.</span>check_output([<span style="color:#e6db74">&#34;xrandr | grep </span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">*</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">&#34;</span>], shell<span style="color:#f92672">=</span>True)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;utf-8&#39;</span>)
+    <span style="color:#66d9ef">except</span>:
+        <span style="color:#66d9ef">return</span> None
+
+</code></pre></div><h4 id="uptime">Uptime</h4>
+<p>Через тот же модуль узнаем uptime - время проведённое за текущей сессией. Команда uptime выведет нам крайне много информации, которая на мой взгляд лишняя. Потому я добавил префикс -p , что является сокращением от pretty. Основываясь на опыте написания предыдущего модуля, добавляем <strong>.decode(&lsquo;utf-8&rsquo;)</strong>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">uptime</span>():
+    <span style="color:#66d9ef">try</span>:
+        <span style="color:#66d9ef">return</span> subprocess<span style="color:#f92672">.</span>check_output([<span style="color:#e6db74">&#34;uptime -p&#34;</span>], shell<span style="color:#f92672">=</span>True)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#39;utf-8&#39;</span>)
+    <span style="color:#66d9ef">except</span>:
+        <span style="color:#66d9ef">return</span> None
+
+</code></pre></div><h4 id="shell">Shell</h4>
+<p>Название shell узнаем при помощи библиотеки <strong>os</strong>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">shell</span>():
+    <span style="color:#66d9ef">try</span>:
+        <span style="color:#66d9ef">return</span> os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;SHELL&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>)
+    <span style="color:#66d9ef">except</span>:
+        <span style="color:#66d9ef">return</span> None
+
+</code></pre></div><h4 id="ядро">Ядро</h4>
+<p>Версию ядра можно вывести при помощи <strong>platform</strong> - библиотеки,которая может нам рассказать много интересного об установленном билде python, платформе на которую установлен язык. Также эта библиотека может показать нам версию ядра, и неважно будет оно &ldquo;ванильным&rdquo; или пропатченным каким-либо мейнтейнером.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">kernel</span>():
+    <span style="color:#66d9ef">try</span>:
+        <span style="color:#66d9ef">return</span> platform<span style="color:#f92672">.</span>release()
+    <span style="color:#66d9ef">except</span>:
+        <span style="color:#66d9ef">return</span> None
+
+</code></pre></div><h4 id="архитектура-процессора">Архитектура процессора</h4>
+<p>Скажу честно, адекватно выводить название процессора и его поколение я не научился (я работаю над этим). Однако без каких-либо проблем я могу выводить название архитектуры процессора. Так как в наличии у меня только компьютер с архитектурой <strong>x86_64</strong>, то и тестировалась эта функция на предмет вывода <strong>x86_64</strong>. Если у вас есть устройства на базе других архитектур: <em>arm</em>, <em>powerpc</em> и прочих, то прошу вас протестировать. В случае проблем откройте тикет на github в <a href="https://github.com/DanteAlighierin/PyQr">соотвествующем репозитории</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">cpu_spec</span>():
+    <span style="color:#66d9ef">try</span>:
+        <span style="color:#66d9ef">return</span> platform<span style="color:#f92672">.</span>processor()
+    <span style="color:#66d9ef">except</span>:
+        <span style="color:#66d9ef">return</span> None
+
+</code></pre></div><h4 id="dewm">DE/WM</h4>
+<p>Теперь выведем <strong>Desktop environment(DE)</strong> и <strong>window manager(WM)</strong>.  <strong>os.environ.get()</strong> позволит нам узнать, что же у нас за окружение.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">de</span>():
+    <span style="color:#66d9ef">try</span>:
+        <span style="color:#66d9ef">return</span> os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;DESKTOP_SESSION&#39;</span>)
+    <span style="color:#66d9ef">except</span>:
+        <span style="color:#66d9ef">return</span> None
+
+</code></pre></div><h3 id="шаблон">Шаблон</h3>
+<p>Теперь самое вкусное - шаблон. Здесь в виде <em>ascii</em> мы нарисуем пингвинчика <strong>Tux</strong> - символа linux,  гапсы для вывода информации,которыю мы собирали модулями, а также цветовую палитру.</p>
+<p>Создаём константу <strong>TEMPLATE</strong> в которой мы выводим информацию на экран. Однако вы зададитесь вопросом, что за  <strong>\033[92m</strong> . А я вам отвечу - это комманда позволяющая окрашивать терминал в различные цвета. Она работает и без python, можете попробовать её в  своём терминале. Её используют для проверки цветового покрытия терминала . Можете почитать об этом подробнее <a href="https://stackoverflow.com/questions/287871/how-to-print-colored-text-in-terminal-in-python">тут</a> .</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"> TEMPLATE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[92m       a88888.       {hostname} </span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[92m      d888888b.   </span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m   {hostname_sep}
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[92m      d888888b.   </span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[93m  OS: {os_version}
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[92m      8P&#34;YP&#34;Y88   </span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[93m  Kernel:{kernel}
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[93m      8|o||o|88   </span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[93m  Cpu architecture: {cpu}
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[93m      8&#39;    .88   </span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[93m  Shell: {shell}
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[93m      8&#39;    .88   </span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[93m  DE(WM): {de}
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[93m      8`._.&#39; Y8   </span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[93m  Uptime: {uptime}
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[91m     d/      `8b. </span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[93m  Resolution: {size}
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[91m   .dP   .     Y8b</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[93m  Local IP: {local_ip}
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[91m   d8:&#39;   &#34;   `::88b.
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[95m  d8&#34;           `Y88b
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[95m :8P     &#39;       :888
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[95m  8a.    :      _a88
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[94m  ._/&#34;Yaa_ :    .| 88P|
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[94m   \    YP&#34;      `| 8P  `.
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[94m  /     \._____.d|    .&#39;
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[94m  `--..__)888888P`._.&#39;
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74"></span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[30m███</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[91m███</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[92m███</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[93m███</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[94m███</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[95m███</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[0m</span><span style="color:#ae81ff">\033</span><span style="color:#e6db74">[96m███</span><span style="color:#ae81ff">\0</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+
+</code></pre></div><h3 id="вывод-информации">Вывод информации</h3>
+<p>Ну и на последок нам стоит привести выше изложенный <em>template</em> в работоспособное состояние. Просто обозначаем команду вывода в которой указываем что хотим вывести - сохранённые значения функций и <em>сепаратор</em>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(TEMPLATE<span style="color:#f92672">.</span>format(hostname <span style="color:#f92672">=</span> host_name(),
+       hostname_sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#f92672">*</span> len(host_name()),
+       os_version<span style="color:#f92672">=</span>os_version(),
+       kernel<span style="color:#f92672">=</span>kernel(),
+       cpu<span style="color:#f92672">=</span>cpu_spec(),
+       shell<span style="color:#f92672">=</span>shell(),
+       de<span style="color:#f92672">=</span>de(),
+       uptime<span style="color:#f92672">=</span>uptime(),
+       size<span style="color:#f92672">=</span>screen_size(),
+       local_ip<span style="color:#f92672">=</span>local_ip()
+ ))
+
+</code></pre></div><h3 id="и-что-в-итоге">И что в итоге?</h3>
+<p>Сохранив скрипт и запустив его, мы получаем следующий результат:</p>
+<p><img src="/images/neo_py.gif" alt=""></p>
+<p>Ну и по традиции прилагаю репозиторий на <a href="https://github.com/DanteAlighierin/PyQr">GitHub&rsquo;е</a> .</p>
+
+    </div>
+    
+
+    
+      
+    
+
+
+
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+      <a
+  href="/"
+  class="logo"
+  style="text-decoration: none;"
+>
+  
+    <span class="logo__mark"><svg xmlns="http://www.w3.org/2000/svg" class="greater-icon" viewBox="0 0 44 44">
+  <path fill="none" d="M15 8l14.729 14.382L15 35.367" />
+</svg>
+</span>
+    <span class="logo__text"
+      >Dante&#39;s blog</span
+    >
+    <span class="logo__cursor"></span>
+  
+</a>
+
+      <div class="copyright">
+        <span
+          >© 2021 Powered by
+	  <b>Golang</b></span
+        >
+      </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-140031759-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+  </body>
+</html>

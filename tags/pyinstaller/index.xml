@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pyinstaller on Dante&#39;s blog</title>
+    
+    
+    
+    <link>/tags/pyinstaller/</link>
+    <description>Recent content in pyinstaller on Dante&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Fri, 20 Sep 2019 20:00:00 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/pyinstaller/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Не очень хороший python</title>
+      <link>/post/python_found/</link>
+      <pubDate>Fri, 20 Sep 2019 20:00:00 +0300</pubDate>
+      
+      <guid>/post/python_found/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Python безусловно прекрасный язык программирования. Он идеально подходит для новичков,благодаря простому синтаксису, богатой библиотеке( в том числе идущей &amp;ldquo;из коробки&amp;rdquo; ), профилированию. Да и сам я заметил,что любая статья про python начинается с перечисления его достоинств. А вот называть недостатки языка не принято. Не понятно почему так сложилось,ведь абсолютно у всего в этом мире есть свои достоинства и недостатки. Думаю,что читателю будет полезно знать про плохие стороны змеиного языка.
+Нет,я не буду упоминать про медлительность стандартного интерпретатора на Си.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

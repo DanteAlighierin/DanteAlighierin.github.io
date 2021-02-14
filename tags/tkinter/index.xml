@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tkinter on Dante&#39;s blog</title>
+    
+    
+    
+    <link>/tags/tkinter/</link>
+    <description>Recent content in tkinter on Dante&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Sun, 23 Feb 2020 15:10:00 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/tkinter/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Простой мессенджер на tkinter,socket и threading</title>
+      <link>/post/chat/</link>
+      <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
+      
+      <guid>/post/chat/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          В этой статье я бы хотел показать как написать простое приложение мессенджер менее чем в 150 строк.
+Серверная часть Начнём с сервера(наше приложение будет состоять из скриптов сервера и клиента), через который можно получать входящие запросы от клиентов, желающих общаться. Традиционно указываем путь до интерпретатора и импортируем необходимые модули. Конкретно socket и threading. Первый отвечает непосредственно за &amp;ldquo;общение&amp;rdquo; процесссов между собой, второй за многопоточность. О этих модулях подробно можно почитать например здесь - socket , threading.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Qr генератор на python</title>
+      <link>/post/qrcode/</link>
+      <pubDate>Mon, 03 Feb 2020 20:30:00 +0300</pubDate>
+      
+      <guid>/post/qrcode/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Некоторое время назад я написал статью, где показывал построение простого виджета часов на tkinter. Если кто-то не помнит, то tkinter - это кроссплатформенная библиотека для разработки графического интерфейса на языке Python.
+И в то или иное время у меня возникает потребность в написании простых программ, и неважно, будь это прямая потребность или просто желание постучать пальцами по клавиатуре. По мимо этого я люблю копаться в репозитории библиотек python.
+Среди всего этого разнообразия пакетов мне приглянулся PyQRCode.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>Простые часы  на tkinter</title>
+      <link>/post/tko/</link>
+      <pubDate>Fri, 13 Sep 2019 18:00:00 +0300</pubDate>
+      
+      <guid>/post/tko/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Tkinter – это кроссплатформенная библиотека для разработки графического интерфейса на языке Python (начиная с Python 3.0 переименована в tkinter). Tkinter расшифровывается как Tool kit interface, и является интерфейсом для языка програмирования Tcl и графической для него привязки tk.Не вдаваясь в подробности, Tkinter можно охарактеризовать как переводчик с языка Python на язык Tcl. Вы пишете программу на Python, а код модуля tkinter у вас за спиной переводит ваши инструкции на язык Tcl(тикль-токль), который понимает библиотека Tk (tool kit).
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

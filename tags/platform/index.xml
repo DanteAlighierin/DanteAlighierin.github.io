@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>platform on Dante&#39;s blog</title>
+    
+    
+    
+    <link>/tags/platform/</link>
+    <description>Recent content in platform on Dante&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Fri, 01 May 2020 21:00:00 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/platform/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Пишем клон neofetch на python</title>
+      <link>/post/neofetch/</link>
+      <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
+      
+      <guid>/post/neofetch/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Немного о самой программе Думаю, что каждому пользователю UNIX-подобных систем знакома утилита neofetch и её аналоги (pfetch,screenfetch и некоторые другие). Эта маленькая программа позволяет вывести информацию о системе и аппаратной части компьютера в удобном формате.
+Neofetch есть в большинстве дистрибутивов, (и даже есть возможность установки в windows и haiku), да и собрать из исходников никто не мешает.
+K примеру в ubuntu она ставиться следующим образом:
+sudo apt update sudo apt install neofetch На гифке выше - neofetch выводит название ОС, имя хоста, shell, разрешение экрана, оконный менеджер, gtk тему, иконки и название терминала.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

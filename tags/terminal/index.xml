@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>terminal on Dante&#39;s blog</title>
+    
+    
+    
+    <link>/tags/terminal/</link>
+    <description>Recent content in terminal on Dante&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Sun, 05 Jan 2020 18:30:00 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Oh My Bash</title>
+      <link>/post/ohbash/</link>
+      <pubDate>Sun, 05 Jan 2020 18:30:00 +0300</pubDate>
+      
+      <guid>/post/ohbash/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Ни для кого не секрет , что под UNIX системы(в том числе и под Linux) существуют различные командные оболочки. Самой распостранённой из них является bash. Как правило он идёт в комплекте поставки почти каждого дистрибутива linux. Но не одним bash&amp;rsquo;ем единым наполняются репозитории операционных систем. Среди других ,как правило, выделяют fish shell, csh, ash и конечно же zsh. Последний становится всё более популярным в linux сообществе.
+За что же любят zsh, чем же он лучше стандартного?
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

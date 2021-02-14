@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ui on Dante&#39;s blog</title>
+    
+    
+    
+    <link>/tags/ui/</link>
+    <description>Recent content in ui on Dante&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Sat, 14 Mar 2020 21:30:00 +0300</lastBuildDate>
+    
+	<atom:link href="/tags/ui/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Разновидности UI</title>
+      <link>/post/ui/</link>
+      <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
+      
+      <guid>/post/ui/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          Привет! Сегодня поговорим про пользовательские интерфейсы, а именно про их разновидности, положительные стороны и недостатки. Что-ж , приступим!
+Окунёмся в историю   В период с 1950 по 1960 пользовательским интерфейсом компьютеров являлись физические устройства с помощью которых можно было вводить команды в компьютер (кнопки и переключатели, считыватели перфокарт) и устройства для вывода данных (принтеры, индикаторные панели).
+  В период с 1960 по 1980 основным пользовательским интерфейсом был CLI (Command Line Interface), позволяющий пользователю вводить команды с параметрами.
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>
