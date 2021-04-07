@@ -5,21 +5,21 @@
     
     
     
-    <link>/tags/tkinter/</link>
+    <link>https://dantealighierin.github.io/tags/tkinter/</link>
     <description>Recent content in tkinter on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sun, 23 Feb 2020 15:10:00 +0300</lastBuildDate>
     
-	<atom:link href="/tags/tkinter/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dantealighierin.github.io/tags/tkinter/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Простой мессенджер на tkinter,socket и threading</title>
-      <link>/post/chat/</link>
+      <link>https://dantealighierin.github.io/post/chat/</link>
       <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
       
-      <guid>/post/chat/</guid>
+      <guid>https://dantealighierin.github.io/post/chat/</guid>
       <description>
         
           
@@ -37,10 +37,10 @@
     
     <item>
       <title>Qr генератор на python</title>
-      <link>/post/qrcode/</link>
+      <link>https://dantealighierin.github.io/post/qrcode/</link>
       <pubDate>Mon, 03 Feb 2020 20:30:00 +0300</pubDate>
       
-      <guid>/post/qrcode/</guid>
+      <guid>https://dantealighierin.github.io/post/qrcode/</guid>
       <description>
         
           
@@ -59,10 +59,10 @@
     
     <item>
       <title>Простые часы  на tkinter</title>
-      <link>/post/tko/</link>
+      <link>https://dantealighierin.github.io/post/tko/</link>
       <pubDate>Fri, 13 Sep 2019 18:00:00 +0300</pubDate>
       
-      <guid>/post/tko/</guid>
+      <guid>https://dantealighierin.github.io/post/tko/</guid>
       <description>
         
           

@@ -5,21 +5,21 @@
     
     
     
-    <link>/tags/socket/</link>
+    <link>https://dantealighierin.github.io/tags/socket/</link>
     <description>Recent content in socket on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Fri, 01 May 2020 21:00:00 +0300</lastBuildDate>
     
-	<atom:link href="/tags/socket/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dantealighierin.github.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Пишем клон neofetch на python</title>
-      <link>/post/neofetch/</link>
+      <link>https://dantealighierin.github.io/post/neofetch/</link>
       <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
       
-      <guid>/post/neofetch/</guid>
+      <guid>https://dantealighierin.github.io/post/neofetch/</guid>
       <description>
         
           
@@ -39,10 +39,10 @@ sudo apt update sudo apt install neofetch На гифке выше - neofetch в
     
     <item>
       <title>Простой мессенджер на tkinter,socket и threading</title>
-      <link>/post/chat/</link>
+      <link>https://dantealighierin.github.io/post/chat/</link>
       <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
       
-      <guid>/post/chat/</guid>
+      <guid>https://dantealighierin.github.io/post/chat/</guid>
       <description>
         
           

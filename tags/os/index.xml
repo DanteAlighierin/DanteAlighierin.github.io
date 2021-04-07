@@ -5,21 +5,21 @@
     
     
     
-    <link>/tags/os/</link>
+    <link>https://dantealighierin.github.io/tags/os/</link>
     <description>Recent content in os on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Fri, 01 May 2020 21:00:00 +0300</lastBuildDate>
     
-	<atom:link href="/tags/os/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dantealighierin.github.io/tags/os/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Пишем клон neofetch на python</title>
-      <link>/post/neofetch/</link>
+      <link>https://dantealighierin.github.io/post/neofetch/</link>
       <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
       
-      <guid>/post/neofetch/</guid>
+      <guid>https://dantealighierin.github.io/post/neofetch/</guid>
       <description>
         
           

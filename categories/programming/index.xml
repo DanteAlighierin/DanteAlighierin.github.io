@@ -5,21 +5,21 @@
     
     
     
-    <link>/categories/programming/</link>
+    <link>https://dantealighierin.github.io/categories/programming/</link>
     <description>Recent content in Programming on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Fri, 01 May 2020 21:00:00 +0300</lastBuildDate>
     
-	<atom:link href="/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dantealighierin.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Пишем клон neofetch на python</title>
-      <link>/post/neofetch/</link>
+      <link>https://dantealighierin.github.io/post/neofetch/</link>
       <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
       
-      <guid>/post/neofetch/</guid>
+      <guid>https://dantealighierin.github.io/post/neofetch/</guid>
       <description>
         
           
@@ -39,10 +39,10 @@ sudo apt update sudo apt install neofetch На гифке выше - neofetch в
     
     <item>
       <title>Автоматизируем решение капчи</title>
-      <link>/post/rucaptcha/</link>
+      <link>https://dantealighierin.github.io/post/rucaptcha/</link>
       <pubDate>Tue, 31 Mar 2020 17:10:00 +0300</pubDate>
       
-      <guid>/post/rucaptcha/</guid>
+      <guid>https://dantealighierin.github.io/post/rucaptcha/</guid>
       <description>
         
           
@@ -62,10 +62,10 @@ sudo apt update sudo apt install neofetch На гифке выше - neofetch в
     
     <item>
       <title>Простой мессенджер на tkinter,socket и threading</title>
-      <link>/post/chat/</link>
+      <link>https://dantealighierin.github.io/post/chat/</link>
       <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
       
-      <guid>/post/chat/</guid>
+      <guid>https://dantealighierin.github.io/post/chat/</guid>
       <description>
         
           
@@ -83,10 +83,10 @@ sudo apt update sudo apt install neofetch На гифке выше - neofetch в
     
     <item>
       <title> &#39;Я скорость&#39; или что такое rPython</title>
-      <link>/post/rpython/</link>
+      <link>https://dantealighierin.github.io/post/rpython/</link>
       <pubDate>Mon, 10 Feb 2020 17:25:04 +0300</pubDate>
       
-      <guid>/post/rpython/</guid>
+      <guid>https://dantealighierin.github.io/post/rpython/</guid>
       <description>
         
           
@@ -104,10 +104,10 @@ sudo apt update sudo apt install neofetch На гифке выше - neofetch в
     
     <item>
       <title>Qr генератор на python</title>
-      <link>/post/qrcode/</link>
+      <link>https://dantealighierin.github.io/post/qrcode/</link>
       <pubDate>Mon, 03 Feb 2020 20:30:00 +0300</pubDate>
       
-      <guid>/post/qrcode/</guid>
+      <guid>https://dantealighierin.github.io/post/qrcode/</guid>
       <description>
         
           
@@ -126,10 +126,10 @@ sudo apt update sudo apt install neofetch На гифке выше - neofetch в
     
     <item>
       <title>Кастомная стартовая страница для браузера</title>
-      <link>/post/custom_page/</link>
+      <link>https://dantealighierin.github.io/post/custom_page/</link>
       <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
       
-      <guid>/post/custom_page/</guid>
+      <guid>https://dantealighierin.github.io/post/custom_page/</guid>
       <description>
         
           
@@ -147,10 +147,10 @@ Safari: А вот так у меня выглядит chromium(chrome) !
     
     <item>
       <title>Не очень хороший python</title>
-      <link>/post/python_found/</link>
+      <link>https://dantealighierin.github.io/post/python_found/</link>
       <pubDate>Fri, 20 Sep 2019 20:00:00 +0300</pubDate>
       
-      <guid>/post/python_found/</guid>
+      <guid>https://dantealighierin.github.io/post/python_found/</guid>
       <description>
         
           
@@ -168,10 +168,10 @@ Safari: А вот так у меня выглядит chromium(chrome) !
     
     <item>
       <title>Простые часы  на tkinter</title>
-      <link>/post/tko/</link>
+      <link>https://dantealighierin.github.io/post/tko/</link>
       <pubDate>Fri, 13 Sep 2019 18:00:00 +0300</pubDate>
       
-      <guid>/post/tko/</guid>
+      <guid>https://dantealighierin.github.io/post/tko/</guid>
       <description>
         
           
