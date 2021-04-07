@@ -27,10 +27,108 @@
           
         
         
-        
-          Python существует уже много лет и за всё это время Гвидо ван Россум и другие разработчики этого языка стремились к созданию чистого дизайна языка. Для этого нужно было описать язык его же терминами. И по понятным причинам интерпретаторы на C(Cpython - самая популярная и на данный момент эталонная реализация) , Java(Jython) , на стеке .NET(IronPython)не подходят. Собственно нужна была реализация на самом питоне. И тут миру явился PyPy.
-Проект PyPy реализован не на самом python , как это может показаться на первый взгляд, а на его подмножестве rPython.
-          
+        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/speed_py.png&#34; alt=&#34;python_speed&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Python существует уже много лет и за всё это время Гвидо ван Россум и другие разработчики этого языка стремились к созданию чистого дизайна языка. Для этого нужно было описать язык его же терминами. И по понятным причинам интерпретаторы на C(Cpython - самая популярная и на данный момент эталонная реализация) , Java(Jython) , на стеке .NET(IronPython)не подходят. Собственно нужна была реализация на самом питоне. И тут миру явился PyPy.&lt;/p&gt;
+&lt;p&gt;Проект PyPy реализован не на самом python , как это может показаться на первый взгляд, а на его подмножестве rPython. По своей задумке PyPy  можно назвать средой исполнения к которой можно подключать любой другой язык. К примеру для повышения производительности можно создавать эффективные и низкоуровневые оптимизаторы, средством JIT(just in time compilation). Данная технология используется не только в питоне, но и в Java.&lt;/p&gt;
+&lt;p&gt;Однако в этой статье я бы хотел поговорить не о самом PyPy, а о том на чём непосредственно написан PyPy - подмножестве rPython. И не смотря на всего его преимущества, понять и начать работать с rPython не так уж и просто. По тому давайте рассмотрим пару примеров.&lt;/p&gt;
+&lt;h1 id=&#34;cтатическая-типизация&#34;&gt;Cтатическая типизация&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/type_py.png&#34; alt=&#34;Type_py&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Не смотря на то, что с python я столкнулся раньше других языков. На статическую типизацию я впервые обратил внимание в TypeScript - расширении языка JavaScript для работы со статически типизированными данными. Но тем не менее давайте перейдём к нашему основному пациенту.&lt;/p&gt;
+&lt;p&gt;Основной код пишем в теле главной функции, остальные функции пишем вне тела.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(argv):
+  &lt;span style=&#34;color:#75715e&#34;&gt;#пиши весь код сюда&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;target&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;args):
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; main, None
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
+  &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; sys
+  main(sys&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;argv)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Cкомпилировать код можно после установки PyPy:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd Downloads/
+wget https://bitbucket.org/pypy/pypy/downloads/pypy-1.6-linux.tar.bz2
+cd ../.local
+tar jxvf ~/Downloads/pypy-1.6-linux.tar.bz2
+ln -s ~/.local/pypy-1.6/bin/pypy ~/.local/bin/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Возможно ставить пакеты таким образом несколько не рационально, но я поставил их именно так. Но никто не мешает вам устанавливать любым другим способом.&lt;/p&gt;
+&lt;p&gt;Затем желательно установить pip, если он еще не инсталлирован у вас в системе.&lt;/p&gt;
+&lt;p&gt;Как опцию, можно использовать и виртуальное окружение venv, но в маленьких и простых примерах кода я считаю это неуместным. Однако в чём-то крупном я бы его задействовал.&lt;/p&gt;
+&lt;p&gt;Давайте напишем простую функцию по подсчёту чисел.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Функция&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;add&lt;/span&gt;(x,y):
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; x &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; y
+  
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt; add(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Однако если мы подставим данные неправильного типа(&amp;lsquo;сat&amp;rsquo;,&amp;lsquo;dog&amp;rsquo;), то получим ошибку:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;[translation:ERROR] In &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;FunctionGraph of (rptest:&lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt;)main at &lt;span style=&#34;color:#ae81ff&#34;&gt;0x103f7dc58&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;:
+[translation:ERROR] Happened at file rptest&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;py line &lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;
+[translation:ERROR]
+[translation:ERROR]       &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt; add(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
+[translation:ERROR] &lt;span style=&#34;color:#f92672&#34;&gt;==&amp;gt;&lt;/span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt; add(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;cat&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;dog&amp;#39;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Затем удалив &lt;em&gt;add(1,2)&lt;/em&gt;, снова произойдёт компиляция. Это происходит потому, что rPython генерирует статически типизированные данные на лету, но если введённые данные отличаются от ожидаемых, то компилятор выведет вам ошибку.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Совет: &lt;strong&gt;Запоминай и правильно используй типы данных&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Функции&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Многие стандартные функции представленные в стандартной реализации могут не работать в rPython.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bird&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split()&lt;span style=&#34;color:#75715e&#34;&gt;#Работать в rPython не будет&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;А вот:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bird&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;)&lt;span style=&#34;color:#75715e&#34;&gt;#Будет работать в rPython&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;а-что-на-счёт-лямбды&#34;&gt;А что на счёт лямбды?&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/lambda_py.png&#34; alt=&#34;py_lambda&#34;&gt;
+К сожалению или к счастью лямбды в rPython работать не будут. В место них нужно использовать  классические функции.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;map&lt;/span&gt;(fun,ls):
+  nls &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; l &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; ls:
+    nls&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(fun(l))
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; nls
+  
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;add_one&lt;/span&gt;(x):
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; x &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+
+map(add_one, [&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;операторы&#34;&gt;Операторы&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/operartorpy.png&#34; alt=&#34;operator_py&#34;&gt;
+Следует внимательно работать в этой реализации и с операторами.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hello&lt;/span&gt;()
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;hi&amp;#39;&lt;/span&gt;
+
+hello() &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; None
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Если запустить этот код,то всё это дело завершиться ошибкой: *&lt;em&gt;&lt;strong&gt;MissingRTypeOperation: unimplemented operation: &amp;lsquo;eq&amp;rsquo; on (&lt;!-- raw HTML omitted --&gt;, &lt;!-- raw HTML omitted --&gt;)&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Вы можете исправить эту ошибку заменив конструкцию &lt;em&gt;==&lt;/em&gt; на &lt;em&gt;is&lt;/em&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;грамотная-работа-с-rpython&#34;&gt;Грамотная работа с rPython&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;assets/worflow_py.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Думаю,что многих заинтересует rPython. И не важна причина, будь-то статическая типизация данных или быстрая скорость работы. Тем не менее стоит тщательно подготовиться к работе с данным инструментом, для того чтобы писать валидный код. Для себя я составил простой план, согласно которому довольно легко написать что-то годное:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Написать код на стандартном питонe&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Отладить его&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Скомпилировать код в rPython&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Произвести отладку согласно требованиям rPython&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Финальная проверка&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;Совет: &lt;strong&gt;Сначала проверь работу в Python, перед тем как материть этот чёртов rPython.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&#34;cахарочку-не-желаете&#34;&gt;Cахарочку не желаете?&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;assets/sugarpy.png&#34; alt=&#34;sugar_py&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Думаю, что кто-то может назвать rPython проектом , привносящим синтаксический сахар. Утверждение спорное, однако некоторые вещи действительно выглядят более дружелюбно в *R реализации.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; (x &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; y) &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; hasattr(x, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__lt__&amp;#39;&lt;/span&gt;) 
+&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; y &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; x) &lt;span style=&#34;color:#75715e&#34;&gt;#python&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;А вот более дружелюбная версия на rPython :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; x&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;heur() &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; y&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;heur() &lt;span style=&#34;color:#75715e&#34;&gt;#rPython&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;бенчмарки&#34;&gt;Бенчмарки&lt;/h1&gt;
+&lt;p&gt;Согласно бенчмаркам PyPy действительно быстрее стандатного змея.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;assets/bench.png&#34; alt=&#34;bench&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;заключение&#34;&gt;Заключение&lt;/h1&gt;
+&lt;p&gt;RPython действительно интересная вещь. Питон любят за его простоту, обилие библиотек на любой вкус и цвет. Но не любят за его медлительность. Да, в большинстве случаев вам эта ошеломляющая скорость и не нужна, но есть те сферы где она просто необходима. И эту проблему призван решить rPython. Пускай он не так и прост, пускай многое придётся адаптировать. Однако я считаю, что оно окупится, если на то есть необходимость. Но не одним rPython&amp;rsquo;ом единым. Есть еще одна быстрая реализация python, и имя ей - stackless&amp;hellip;.&lt;/p&gt;
+
         
         </description>
     </item>

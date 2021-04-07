@@ -27,12 +27,156 @@
           
         
         
-        
-          Немного о самой программе Думаю, что каждому пользователю UNIX-подобных систем знакома утилита neofetch и её аналоги (pfetch,screenfetch и некоторые другие). Эта маленькая программа позволяет вывести информацию о системе и аппаратной части компьютера в удобном формате.
-Neofetch есть в большинстве дистрибутивов, (и даже есть возможность установки в windows и haiku), да и собрать из исходников никто не мешает.
-K примеру в ubuntu она ставиться следующим образом:
-sudo apt update sudo apt install neofetch На гифке выше - neofetch выводит название ОС, имя хоста, shell, разрешение экрана, оконный менеджер, gtk тему, иконки и название терминала.
-          
+        &lt;h3 id=&#34;немного-о-самой-программе&#34;&gt;Немного о самой программе&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;https://camo.githubusercontent.com/b9b096d774e2e00aa7300cf3110029116041ddce/68747470733a2f2f692e696d6775722e636f6d2f5a51493245597a2e706e67&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Думаю, что каждому пользователю UNIX-подобных систем знакома утилита &lt;strong&gt;neofetch&lt;/strong&gt; и её аналоги (pfetch,screenfetch и некоторые другие). Эта маленькая программа позволяет вывести  информацию о системе и аппаратной части компьютера в удобном формате.&lt;/p&gt;
+&lt;p&gt;Neofetch есть в большинстве дистрибутивов, (и даже есть возможность установки в windows и haiku), да и собрать из исходников никто не мешает.&lt;/p&gt;
+&lt;p&gt;K примеру в ubuntu она ставиться следующим образом:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt update
+sudo apt install neofetch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/neofetch_pro.gif&#34; alt=&#34;neofetch_pro&#34;&gt;&lt;/p&gt;
+&lt;p&gt;На гифке выше - neofetch выводит название ОС, имя хоста, shell, разрешение экрана, оконный менеджер, gtk тему, иконки и название терминала. Чуть ниже расположена полоска с цветами, отображающая цветовую схему терминала.  Однако можно вывести куда больше информации, и на этом этапе вы можете начать разбираться с конфигурационным файлом. Как правило он лежит в директории ~/.config/neofetch . Если такой директории нет, то создайте её и в ней пропишите конфиг в файле config.conf.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;vim ~ /.config/neofetch/config.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Однако мне захотелось сделать свою версию на python. И для начала я отправился на github и нашёл там уже готовое решение,правда для MacOs.  И естественно оно не заработало на linux, даже не смотря то, что это схожие системы с точки зрения UNIX.  И потому было принято решение переписать эту программу.&lt;/p&gt;
+&lt;p&gt;Я не стал менять архитектуру скрипта, а просто изменил системные вызовы , подходящиe для linux систем.&lt;/p&gt;
+&lt;h3 id=&#34;модули&#34;&gt;Модули&lt;/h3&gt;
+&lt;h4 id=&#34;локальный-ip-адрес&#34;&gt;Локальный ip адрес&lt;/h4&gt;
+&lt;p&gt;Давайте определим локальный ip адрес. Сделаем мы это при помощи модуля socket.&lt;/p&gt;
+&lt;p&gt;Создаём функцию &lt;strong&gt;local_ip&lt;/strong&gt;, ищем локальный адрес, открывая localhost и перебирая порты. Функция сохраняет значение, которые в последствии мы выведем пользователю на экран. Если же по каким-то причинам нам это не удалось, то функция сохраняет значение &lt;strong&gt;None&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;По такому же принципу работают и остальные модули, которые обозначены ниже.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;local_ip&lt;/span&gt;():
+   &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+       s &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;socket(socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;AF_INET, socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SOCK_DGRAM)
+       s&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connect((&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;8.8.8.8&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;))
+       &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; s&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;getsockname()[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
+   &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
+       &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;имя-хоста&#34;&gt;Имя хоста&lt;/h4&gt;
+&lt;p&gt;В функции &lt;strong&gt;host_name&lt;/strong&gt; через &lt;strong&gt;socket.gethostname()&lt;/strong&gt; определяем имя хоста.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;host_name&lt;/span&gt;():
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;gethostname()
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;операционная-система&#34;&gt;Операционная система&lt;/h4&gt;
+&lt;p&gt;Чтобы определить операционную систему воспользуемся специальной библиотекой - platform.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;os_version&lt;/span&gt;():
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; platform&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;linux_distribution(distname&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;, version&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;, id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;, supported_dists&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;SuSE&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;debian&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;redhat&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mandrake&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;), full_distribution_name&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
+
+
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;разрешение-экрана&#34;&gt;Разрешение экрана&lt;/h4&gt;
+&lt;p&gt;Давайте теперь узнаем разрешение экрана. Сделаем мы это при помощи библиотеки subprocess, которой мы воспользуемся ещё не раз. Главным для нас являтся &lt;strong&gt;subprocess.check_output&lt;/strong&gt; , который позволяет прямо из python выполнять команды &lt;strong&gt;sh&lt;/strong&gt;. Чтобы выяснить разрешение в терминале можно ввести команду :&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;xrandr
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;А в своём python скрипте мы напишем следущее:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;screen_size&lt;/span&gt;():
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; subprocess&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;check_output([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xrandr | grep &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;], shell&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;True)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Однако в выводе терминала мы получаем следущее&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt; b&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;   1280x1024     60.02*+  75.02  \n&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;На мой взгляд это выглядит некрасиво. Потому давайте поправим эту ситуацию. Мы просто декодируем вывод  в удобо-читаемый формат.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Итоговая конструкции выглядит следующим образом:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;screen_size&lt;/span&gt;():
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; subprocess&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;check_output([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xrandr | grep &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;], shell&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;True)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;uptime&#34;&gt;Uptime&lt;/h4&gt;
+&lt;p&gt;Через тот же модуль узнаем uptime - время проведённое за текущей сессией. Команда uptime выведет нам крайне много информации, которая на мой взгляд лишняя. Потому я добавил префикс -p , что является сокращением от pretty. Основываясь на опыте написания предыдущего модуля, добавляем &lt;strong&gt;.decode(&amp;lsquo;utf-8&amp;rsquo;)&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;uptime&lt;/span&gt;():
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; subprocess&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;check_output([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;uptime -p&amp;#34;&lt;/span&gt;], shell&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;True)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;shell&#34;&gt;Shell&lt;/h4&gt;
+&lt;p&gt;Название shell узнаем при помощи библиотеки &lt;strong&gt;os&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;shell&lt;/span&gt;():
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;environ&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;SHELL&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;ядро&#34;&gt;Ядро&lt;/h4&gt;
+&lt;p&gt;Версию ядра можно вывести при помощи &lt;strong&gt;platform&lt;/strong&gt; - библиотеки,которая может нам рассказать много интересного об установленном билде python, платформе на которую установлен язык. Также эта библиотека может показать нам версию ядра, и неважно будет оно &amp;ldquo;ванильным&amp;rdquo; или пропатченным каким-либо мейнтейнером.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;kernel&lt;/span&gt;():
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; platform&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;release()
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;архитектура-процессора&#34;&gt;Архитектура процессора&lt;/h4&gt;
+&lt;p&gt;Скажу честно, адекватно выводить название процессора и его поколение я не научился (я работаю над этим). Однако без каких-либо проблем я могу выводить название архитектуры процессора. Так как в наличии у меня только компьютер с архитектурой &lt;strong&gt;x86_64&lt;/strong&gt;, то и тестировалась эта функция на предмет вывода &lt;strong&gt;x86_64&lt;/strong&gt;. Если у вас есть устройства на базе других архитектур: &lt;em&gt;arm&lt;/em&gt;, &lt;em&gt;powerpc&lt;/em&gt; и прочих, то прошу вас протестировать. В случае проблем откройте тикет на github в &lt;a href=&#34;https://github.com/DanteAlighierin/PyQr&#34;&gt;соотвествующем репозитории&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cpu_spec&lt;/span&gt;():
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; platform&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;processor()
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;dewm&#34;&gt;DE/WM&lt;/h4&gt;
+&lt;p&gt;Теперь выведем &lt;strong&gt;Desktop environment(DE)&lt;/strong&gt; и &lt;strong&gt;window manager(WM)&lt;/strong&gt;.  &lt;strong&gt;os.environ.get()&lt;/strong&gt; позволит нам узнать, что же у нас за окружение.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;de&lt;/span&gt;():
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;environ&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;DESKTOP_SESSION&amp;#39;&lt;/span&gt;)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;шаблон&#34;&gt;Шаблон&lt;/h3&gt;
+&lt;p&gt;Теперь самое вкусное - шаблон. Здесь в виде &lt;em&gt;ascii&lt;/em&gt; мы нарисуем пингвинчика &lt;strong&gt;Tux&lt;/strong&gt; - символа linux,  гапсы для вывода информации,которыю мы собирали модулями, а также цветовую палитру.&lt;/p&gt;
+&lt;p&gt;Создаём константу &lt;strong&gt;TEMPLATE&lt;/strong&gt; в которой мы выводим информацию на экран. Однако вы зададитесь вопросом, что за  &lt;strong&gt;\033[92m&lt;/strong&gt; . А я вам отвечу - это комманда позволяющая окрашивать терминал в различные цвета. Она работает и без python, можете попробовать её в  своём терминале. Её используют для проверки цветового покрытия терминала . Можете почитать об этом подробнее &lt;a href=&#34;https://stackoverflow.com/questions/287871/how-to-print-colored-text-in-terminal-in-python&#34;&gt;тут&lt;/a&gt; .&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt; TEMPLATE &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[92m       a88888.       {hostname} &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[92m      d888888b.   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m   {hostname_sep}
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[92m      d888888b.   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  OS: {os_version}
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[92m      8P&amp;#34;YP&amp;#34;Y88   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Kernel:{kernel}
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m      8|o||o|88   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Cpu architecture: {cpu}
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m      8&amp;#39;    .88   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Shell: {shell}
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m      8&amp;#39;    .88   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  DE(WM): {de}
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m      8`._.&amp;#39; Y8   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Uptime: {uptime}
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[91m     d/      `8b. &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Resolution: {size}
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[91m   .dP   .     Y8b&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Local IP: {local_ip}
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[91m   d8:&amp;#39;   &amp;#34;   `::88b.
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[95m  d8&amp;#34;           `Y88b
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[95m :8P     &amp;#39;       :888
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[95m  8a.    :      _a88
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[94m  ._/&amp;#34;Yaa_ :    .| 88P|
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[94m   \    YP&amp;#34;      `| 8P  `.
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[94m  /     \._____.d|    .&amp;#39;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[94m  `--..__)888888P`._.&amp;#39;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[30m███&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[91m███&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[92m███&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m███&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[94m███&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[95m███&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[96m███&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\0&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;вывод-информации&#34;&gt;Вывод информации&lt;/h3&gt;
+&lt;p&gt;Ну и на последок нам стоит привести выше изложенный &lt;em&gt;template&lt;/em&gt; в работоспособное состояние. Просто обозначаем команду вывода в которой указываем что хотим вывести - сохранённые значения функций и &lt;em&gt;сепаратор&lt;/em&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(TEMPLATE&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;format(hostname &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; host_name(),
+       hostname_sep &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; len(host_name()),
+       os_version&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;os_version(),
+       kernel&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;kernel(),
+       cpu&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;cpu_spec(),
+       shell&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;shell(),
+       de&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;de(),
+       uptime&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;uptime(),
+       size&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;screen_size(),
+       local_ip&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;local_ip()
+ ))
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;и-что-в-итоге&#34;&gt;И что в итоге?&lt;/h3&gt;
+&lt;p&gt;Сохранив скрипт и запустив его, мы получаем следующий результат:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/neo_py.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Ну и по традиции прилагаю репозиторий на &lt;a href=&#34;https://github.com/DanteAlighierin/PyQr&#34;&gt;GitHub&amp;rsquo;е&lt;/a&gt; .&lt;/p&gt;
+
         
         </description>
     </item>
@@ -50,10 +194,266 @@ sudo apt update sudo apt install neofetch На гифке выше - neofetch в
           
         
         
+        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/chat.png/&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;В этой статье я бы хотел показать как написать простое приложение мессенджер менее чем в 150 строк.&lt;/p&gt;
+&lt;h3 id=&#34;серверная-часть&#34;&gt;Серверная часть&lt;/h3&gt;
+&lt;p&gt;Начнём с сервера(наше  приложение будет состоять из скриптов сервера и клиента), через который можно получать входящие запросы от клиентов, желающих общаться.  Традиционно указываем путь до интерпретатора и импортируем необходимые модули. Конкретно socket и threading. Первый отвечает непосредственно за &amp;ldquo;общение&amp;rdquo; процесссов между собой, второй за многопоточность. О этих модулях подробно можно почитать например здесь - &lt;a href=&#34;https://habr.com/ru/post/149077/&#34;&gt;socket&lt;/a&gt; , &lt;a href=&#34;https://habr.com/ru/post/149420/&#34;&gt;threading&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Использование фреймворков, таких как Twisted и SocketServer, было возможным, но мне показалось это излишним для такого простого программного обеспечения, как наше.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; socket &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; AF_INET, socket, SOCK_STREAM
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; threading &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Thread
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Давайте обозначим константы, отвечающие например за адрес порта и размер буфера.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;clients &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {}
+addresses &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {}
+HOST &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+PORT &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;33000&lt;/span&gt;
+BUFSIZ &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1024&lt;/span&gt;
+ADDR &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (HOST, PORT)
+SERVER &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; socket(AF_INET, SOCK_STREAM)
+SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bind(ADDR)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Теперь мы разбиваем нашу задачу на прием новых соединений, рассылку сообщений и обработку определенных клиентов. Давайте начнем с принятия соединений:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;accept_incoming_connections&lt;/span&gt;():
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Настраивает обработку для входящих клиентов.&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; True:
+        client, client_address &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;accept()
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; присоединился к переписке&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; client_address)
+        client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Привет!&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
+                          &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Введи своё имя и нажми Enter&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
+        addresses[client] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client_address
+        Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;handle_client, args&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;(client,))&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Это просто цикл, который всегда ждет входящих соединений и, как только он его получает, регистрирует соединение (печатает некоторые сведения о соединении) и отправляет подключенному клиенту приветствие. Затем он сохраняет адрес клиента и позже запускает поток обработки для этого клиента. Конечно, мы еще не определили для этого целевую функцию &lt;em&gt;handle_client ()&lt;/em&gt;, но вот как мы это сделаем:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;handle_client&lt;/span&gt;(client):
+     name &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;recv(BUFSIZ)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;)
+    welcome &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Добро пожаловать &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;! если желаете покинуть чат то, нажмите {quit} чтобы выйти.&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; name
+    client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(welcome, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
+    msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; Теперь в переписке&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; name
+    broadcast(bytes(msg, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
+    clients[client] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; name
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; True:
+        msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;recv(BUFSIZ)
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; msg &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;):
+            broadcast(msg, name&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;: &amp;#34;&lt;/span&gt;)
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+            client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
+            client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;close()
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;del&lt;/span&gt; clients[client]
+            broadcast(bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; покинул переписку.&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; name, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Естественно, после того, как мы отправим новому клиенту приветственное сообщение, он ответит именем, которое он хочет использовать для дальнейшего общения. В функции &lt;em&gt;handle_client ()&lt;/em&gt; первая задача, которую мы делаем, - мы сохраняем это имя, а затем отправляем клиенту еще одно сообщение о дальнейших инструкциях. После этого идет основной цикл: здесь мы получаем дополнительные сообщения от клиента и, если сообщение не содержит инструкций для выхода, мы просто передаем сообщение другим подключенным клиентам (мы определим метод широковещания через минуту ). Если мы сталкиваемся с сообщением с инструкциями выхода (то есть клиент отправляет &lt;em&gt;{quit}&lt;/em&gt;), мы возвращаем то же самое сообщение клиенту, а затем мы закрываем сокет подключения для него. Затем мы делаем очистку, удаляя запись для клиента, и, наконец, сообщаем другим связанным людям, что этот конкретный человек покинул чат.&lt;/p&gt;
+&lt;p&gt;Теперь пропишем функцию &lt;em&gt;broadcast ()&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;broadcast&lt;/span&gt;(msg, prefix&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;):
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; sock &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; clients:
+        sock&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(prefix, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;msg)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Эта функция просто отправляет сообщение всем подключенным клиентам и при необходимости добавляет дополнительный префикс. Мы передаем префикс для &lt;em&gt;broadcast ()&lt;/em&gt; в нашей функции &lt;em&gt;handle_client ()&lt;/em&gt; и делаем это так, чтобы люди могли точно знать, кто является отправителем конкретного сообщения.
+Это были все необходимые функции для нашего сервера. Наконец, мы добавили код для запуска нашего сервера и прослушивания входящих соединений:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;__main__&amp;#34;&lt;/span&gt;:
+    SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;listen(&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Ожидание соединения&amp;#34;&lt;/span&gt;)
+    ACCEPT_THREAD &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;accept_incoming_connections)
+    ACCEPT_THREAD&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()  &lt;span style=&#34;color:#75715e&#34;&gt;# Бесконечный цикл.&lt;/span&gt;
+    ACCEPT_THREAD&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join()
+    SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;close()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Мы присоединяемся к &lt;em&gt;ACCEPT_THREAD&lt;/em&gt;, чтобы основной скрипт ожидал его завершения и не переходил на следующую строку, которая закрывает сервер.
+Это завершает наш серверный скрипт.&lt;/p&gt;
+&lt;p&gt;В итоге получаем вот такой код для серверной части:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; socket &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; AF_INET, socket, SOCK_STREAM
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; threading &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Thread
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;accept_incoming_connections&lt;/span&gt;():
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; True:
+        client, client_address &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;accept()
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; соединено&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; client_address)
+        client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Добро пожаловать , введите своё имя и нажмите Enter&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
+        addresses[client] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client_address
+        Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;handle_client, args&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;(client,))&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()
+
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;handle_client&lt;/span&gt;(client):  
+    name &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;recv(BUFSIZ)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;)
+    welcome &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Добро пожаловать &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;! Если желаете выйти,то нажмите {quit} чтобы выйти.&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; name
+    client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(welcome, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
+    msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; вступил в переписку&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; name
+    broadcast(bytes(msg, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
+    clients[client] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; name
+
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; True:
+        msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;recv(BUFSIZ)
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; msg &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;):
+            broadcast(msg, name&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;: &amp;#34;&lt;/span&gt;)
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+            client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
+            client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;close()
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;del&lt;/span&gt; clients[client]
+            broadcast(bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; покинул переписку&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; name, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;broadcast&lt;/span&gt;(msg, prefix&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;):
+
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; sock &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; clients:
+        sock&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(prefix, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;msg)
+
         
-          В этой статье я бы хотел показать как написать простое приложение мессенджер менее чем в 150 строк.
-Серверная часть Начнём с сервера(наше приложение будет состоять из скриптов сервера и клиента), через который можно получать входящие запросы от клиентов, желающих общаться. Традиционно указываем путь до интерпретатора и импортируем необходимые модули. Конкретно socket и threading. Первый отвечает непосредственно за &amp;ldquo;общение&amp;rdquo; процесссов между собой, второй за многопоточность. О этих модулях подробно можно почитать например здесь - socket , threading.
-          
+clients &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {}
+addresses &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {}
+
+HOST &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+PORT &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;33000&lt;/span&gt;
+BUFSIZ &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1024&lt;/span&gt;
+ADDR &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (HOST, PORT)
+
+SERVER &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; socket(AF_INET, SOCK_STREAM)
+SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bind(ADDR)
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;__main__&amp;#34;&lt;/span&gt;:
+    SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;listen(&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ожидание соединения&amp;#34;&lt;/span&gt;)
+    ACCEPT_THREAD &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;accept_incoming_connections)
+    ACCEPT_THREAD&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()
+    ACCEPT_THREAD&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join()
+    SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;close()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;клиентская-часть&#34;&gt;Клиентская часть###&lt;/h3&gt;
+&lt;p&gt;Теперь приступим к наиболее интересной части нашего приложения - к клиенту. В качестве gui будем использовать tkinter, т.к в нём довольно легко построить несложное приложение. Традиционно импортируем модуль tkinter, а также модули использовавшиеся ранее при написании серверной части программы.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
+
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; socket &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; AF_INET, socket, SOCK_STREAM
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; threading &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Thread
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; tkinter
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Теперь мы напишем функции для обработки отправки и получения сообщений. Начнем с получения:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;receive&lt;/span&gt;():
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;обработка получения сообщений&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; True:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+            msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;recv(BUFSIZ)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#75715e&#34;&gt;# декодируем,чтобы не получить кракозябры&lt;/span&gt;
+            msg_list&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;insert(tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;END, msg)
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;OSError&lt;/span&gt;:
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Почему  мы снова используем бесконечный цикл? Потому что мы будем получать сообщения совершенно независимо от того, как и когда мы отправляем сообщения. Мы не хотим, чтобы это было приложение для чата с функциональностью уровня рации. Мы хотим приложение в котором можно отправлять или получать сообщения одновременно; мы хотим получать сообщения, когда сами того пожелаем, и отправлять их, когда захотим.&lt;/p&gt;
+&lt;p&gt;Функциональность внутри цикла довольно проста; &lt;em&gt;recv ()&lt;/em&gt; является блокирующей частью. Он останавливает выполнение до тех пор, пока не получит сообщение, а когда это произойдет, мы продвигаемся вперед и добавляем сообщение в &lt;em&gt;msglist&lt;/em&gt;. Затем мы определяем &lt;em&gt;msg_list&lt;/em&gt;, который является функцией Tkinter для отображения списка сообщений на экране.
+Далее мы определим функцию &lt;em&gt;send ()&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;send&lt;/span&gt;(event&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;None):
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;обработка отправленных сообщений&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+    msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get()
+    my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;)  &lt;span style=&#34;color:#75715e&#34;&gt;# очищаем поле.&lt;/span&gt;
+    client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(msg, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; msg &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;:
+        client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;close()
+        top&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;quit()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;my_msg&lt;/em&gt; - это поле ввода в графическом интерфейсе, и поэтому мы извлекаем сообщение для отправки с помощью &lt;em&gt;msg = my_msg.get ()&lt;/em&gt;. После этого мы очищаем поле ввода и затем отправляем сообщение на сервер, который, как мы видели ранее, передает это сообщение всем клиентам (если это не сообщение о выходе). Если это сообщение о выходе, мы закрываем сокет, а затем приложение с графическим интерфейсом (через &lt;em&gt;top.close ()&lt;/em&gt;)&lt;/p&gt;
+&lt;p&gt;Мы определяем еще одну функцию, которая будет вызываться, когда мы решим закрыть окно с GUI. Это своего рода функция очистки до закрытия, которая закрывает соединение с сокетом до закрытия графического интерфейса:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;on_closing&lt;/span&gt;(event&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;None):
+    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Эта функция вызывается когда закрывается окно&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+    my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;)
+    send()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Это устанавливает в поле ввода значение &lt;em&gt;{quit}&lt;/em&gt;, а затем вызывает &lt;em&gt;send ()&lt;/em&gt;. Начнем с определения виджета верхнего уровня и установки его заголовка, как и в любой другой программе на tkinter:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;top &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Tk()
+top&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;title(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TkMessenger&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Затем создаём фрейм со списком сообщений, поле для ввода сообщений и скроллбар для перемещения по истории переписки&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;messages_frame &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Frame(top)
+my_msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;StringVar()
+my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Введите ваше сообщение здесь.&amp;#34;&lt;/span&gt;)
+scrollbar &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Scrollbar(messages_frame)&lt;span style=&#34;color:#75715e&#34;&gt;#скроллбар&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&amp;ldquo;Упаковываем&amp;rdquo; наши элементы и размечаем их расположение в окне:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;msg_list &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Listbox(messages_frame, height&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;, width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;, yscrollcommand&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;scrollbar&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set)
+scrollbar&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack(side&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;RIGHT, fill&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Y)
+msg_list&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack(side&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;LEFT, fill&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;BOTH)
+msg_list&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack()
+messages_frame&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;После этого мы создаем поле ввода для пользователя, чтобы ввести свое сообщение, и привязать его к строковой переменной, определенной выше. Мы также привязываем его к функции &lt;em&gt;send ()&lt;/em&gt;, чтобы всякий раз, когда пользователь нажимает &lt;em&gt;return&lt;/em&gt;, сообщение отправлялось на сервер.&lt;/p&gt;
+&lt;p&gt;Далее мы создаем кнопку отправки, если пользователь желает отправить свои сообщения, нажав на нее. Опять же, мы связываем нажатие этой кнопки с функцией &lt;em&gt;send ()&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;И да, мы также упаковываем все то, что создали только сейчас. Кроме того, не забудьте использовать функцию очистки &lt;em&gt;on_closing ()&lt;/em&gt;, которая должна вызываться, когда пользователь хочет закрыть окно GUI:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;entry_field &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Entry(top, textvariable&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;my_msg)
+entry_field&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bind(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;Return&amp;gt;&amp;#34;&lt;/span&gt;, send)
+entry_field&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack()
+send_button &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Button(top, text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;отправить&amp;#34;&lt;/span&gt;, command&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;send)
+send_button&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack()
+top&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;protocol(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;WM_DELETE_WINDOW&amp;#34;&lt;/span&gt;, on_closing)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;И вот мы подходим к завершению. Мы еще не написали код для подключения к серверу. Для этого мы должны запросить у пользователя адрес сервера. Я сделал это, просто используя &lt;em&gt;input ()&lt;/em&gt;, чтобы пользователь встретился с подсказкой командной строки, запрашивающей адрес хоста перед запуском окна с графическим интерфейсом. В будущем можно добавить виджет для этой цели. А пока вот так:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;HOST &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Введите хост: &amp;#39;&lt;/span&gt;)
+PORT &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Введите порт: &amp;#39;&lt;/span&gt;)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; PORT:
+    PORT &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;33000&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Стандартный порт&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+    PORT &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; int(PORT)
+BUFSIZ &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1024&lt;/span&gt;
+ADDR &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (HOST, PORT)
+client_socket &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; socket(AF_INET, SOCK_STREAM)
+client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connect(ADDR)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Как только мы получаем адрес и создаем сокет для подключения к нему, мы запускаем поток для получения сообщений, а затем основной цикл для нашего приложения с графическим интерфейсом:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/chat.gif&#34; alt=&#34;chat_app_gif&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;receive_thread &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;receive)
+receive_thread&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()
+tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Вот и всё! Теперь наш скрипт клиентской части выглядит вот так:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; socket &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; AF_INET, socket, SOCK_STREAM
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; threading &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Thread
+&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; tkinter
+
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;receive&lt;/span&gt;():
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; True:
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
+            msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;recv(BUFSIZ)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;)
+            msg_list&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;insert(tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;END, msg)
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;OSError&lt;/span&gt;:
+            &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
+
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;send&lt;/span&gt;(event&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;None):
+    msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get()
+    my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;)
+    client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(msg, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; msg &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;:
+        client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;close()
+        top&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;quit()
+
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;on_closing&lt;/span&gt;(event&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;None):
+    my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;)
+    send()
+
+top &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Tk()
+top&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;title(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TkMessenger&amp;#34;&lt;/span&gt;)
+
+messages_frame &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Frame(top)
+my_msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;StringVar()
+my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Введите ваше сообщение здесь&amp;#34;&lt;/span&gt;)
+scrollbar &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Scrollbar(messages_frame)
+msg_list &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Listbox(messages_frame, height&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;, width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;, yscrollcommand&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;scrollbar&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set)
+scrollbar&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack(side&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;RIGHT, fill&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Y)
+msg_list&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack(side&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;LEFT, fill&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;BOTH)
+msg_list&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack()
+messages_frame&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack()
+
+entry_field &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Entry(top, textvariable&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;my_msg)
+entry_field&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bind(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;Return&amp;gt;&amp;#34;&lt;/span&gt;, send)
+entry_field&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack()
+send_button &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Button(top, text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;отправить&amp;#34;&lt;/span&gt;, command&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;send)
+send_button&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack()
+
+top&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;protocol(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;WM_DELETE_WINDOW&amp;#34;&lt;/span&gt;, on_closing)
+
+
+HOST &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Введите хост: &amp;#39;&lt;/span&gt;)
+PORT &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Введите порт: &amp;#39;&lt;/span&gt;)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; PORT:
+    PORT &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;33000&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+    PORT &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; int(PORT)
+
+BUFSIZ &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1024&lt;/span&gt;
+ADDR &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (HOST, PORT)
+
+client_socket &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; socket(AF_INET, SOCK_STREAM)
+client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connect(ADDR)
+
+receive_thread &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;receive)
+receive_thread&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()
+tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Да, наше приложение не может тягаться с такими гигантами как: telegram, viber, клиентами xmpp/jabber; однако нам удалось создать простой чат, который каждый может развить в что-то своё: сделать уклон в безопасность(например шифруя передаваемые пакеты) или в хороший ux/ui. Получилась своего рода база для чего-то большего и это круто. Спасибо за прочтение, буду рад любым замечаниям и пожеланиям. Традиционно исходный код программы доступен в &lt;a href=&#34;https://github.com/DanteAlighierin/TkMessenger&#34;&gt;моём репозитории на github&lt;/a&gt;.&lt;/p&gt;
+
         
         </description>
     </item>

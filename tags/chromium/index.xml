@@ -27,10 +27,142 @@
           
         
         
-        
-          XXI век - век информации,а потому очень важно уметь её искать и изучать. В этом нам помогают веб обозреватели, они же браузеры. И как только пользователь запускает заветный ярлычок, сразу же попадает на стартовую страницу. Как правило там расположены самые читаемые сайты, закладки и поисковая строка. В разных браузерах это выглядит по разному. К примеру в mozilla firefox это выглядит вот так:
-Safari: А вот так у меня выглядит chromium(chrome) !
-          
+        &lt;p&gt;XXI век - век информации,а потому очень важно уметь её искать и изучать. В этом нам помогают веб обозреватели, они же браузеры. И как только пользователь запускает заветный ярлычок, сразу же попадает на стартовую страницу. Как правило там расположены самые читаемые сайты, закладки и поисковая строка. В разных браузерах это выглядит по разному. К примеру в mozilla firefox это  выглядит вот так:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./assets/firefox60-768x480.png&#34; alt=&#34;firefox60-768x480.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Safari:
+&lt;img src=&#34;./assets/macos-mojave-safari-favicons-100762161-large.jpg&#34; alt=&#34;macos-mojave-safari-favicons-100762161-large.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;А вот так у меня выглядит chromium(chrome)
+![Снимок экрана_2019-10-18_17-07-06.png](./assets/Снимок экрана_2019-10-18_17-07-06.png)&lt;/p&gt;
+&lt;p&gt;Как правило внешний вид стартовой страницы можно поменять в настройках или же поискать темы в магазине расширений, в тех же &lt;a href=&#34;https://chrome.google.com/webstore/category/themes?hl=en&#34;&gt;chrome web store&lt;/a&gt; и &lt;a href=&#34;https://addons.mozilla.org/ru/firefox/themes/&#34;&gt;mozilla addons&lt;/a&gt; их хоть отбавляй.&lt;/p&gt;
+&lt;p&gt;Однако на мой взгляд всё это выглядит слишком перегружено,а потому хотелось бы чего-нибудь более минималистичного. Но ничего не мешает написать свою собственную.К тому же, стартовая страница браузера - это всего-лишь web страничка, а значит состоит всего лишь из html файла и заданых стилей в css
+А потому открывайте свой любимый текстовый редактор или IDE, и начинайте писать.&lt;/p&gt;
+&lt;p&gt;Капитан Очевидность подсказывает,что надо указать стандартные теги,задать title,прописать линки на css файл и задать кодировку.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt;&amp;gt;
+   &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;head&lt;/span&gt;&amp;gt;
+     &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;title&lt;/span&gt;&amp;gt;Startpage&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;title&lt;/span&gt;&amp;gt;
+     &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;meta&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;charset&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt; /&amp;gt;
+     &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;link&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;rel&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;stylesheet&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;../css/style.css&amp;#34;&lt;/span&gt; /&amp;gt;
+   &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;head&lt;/span&gt;&amp;gt;
+   &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt;&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Далее создаём контейнеры со страницами. Каждый контейнер тематический,со своим содержимым.Для примера пропишем контейнер с социальными сетями,при этом не забудь заменить стандартные ссылки на те ,которые необходимы лично тебе.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;
+
+     &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;container&amp;#34;&lt;/span&gt;&amp;gt;
+        &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;table1&amp;#34;&lt;/span&gt;&amp;gt;
+    &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!--Social Table--&amp;gt;&lt;/span&gt;
+          &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;h3&lt;/span&gt;&amp;gt;Social&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;h3&lt;/span&gt;&amp;gt;
+            &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tcontent&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!--- You can add your personal pages to this templates--&amp;gt;&lt;/span&gt;
+              &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://vk.com/feed&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;_blank&amp;#34;&lt;/span&gt;&amp;gt;vk&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt;&amp;gt;
+              &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://reddit.com&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;_blank&amp;#34;&lt;/span&gt;&amp;gt;reddit&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt;&amp;gt;
+              &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://www.instagram.com&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;_blank&amp;#34;&lt;/span&gt;&amp;gt;instagram&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt;&amp;gt;
+              &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://www.linux.org.ru/&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;_blank&amp;#34;&lt;/span&gt;&amp;gt;LOR&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt;&amp;gt;
+              &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;href&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://www.opennet.ru/&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;target&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;_blank&amp;#34;&lt;/span&gt;&amp;gt;opennet&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt;&amp;gt;
+
+            &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt;&amp;gt;
+        &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Аналогично прописываем другие контейнеры.Также мне захотелось добавить красивую картинку и подпись.&lt;/p&gt;
+&lt;p&gt;Картинка:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./assets/1.png&#34; alt=&#34;./assets/1.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Вот этот кусочек кода запишем в самом начале в header.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;
+&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;img&amp;#34;&lt;/span&gt;&amp;gt;
+       &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;img&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;../1.png&amp;#34;&lt;/span&gt; /&amp;gt;
+     &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt;&amp;gt;
+     &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!--Message ---&amp;gt;&lt;/span&gt;
+     &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;header&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;main_header&amp;#34;&lt;/span&gt;&amp;gt;
+      Welcome to your &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;span&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;startpage&amp;#34;&lt;/span&gt;&amp;gt;startpage&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;span&lt;/span&gt;&amp;gt;  &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;header&lt;/span&gt;&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Пока это выглядит вот так:
+![Снимок экрана_2019-10-18_17-35-21.png](./assets/Снимок экрана_2019-10-18_17-35-21.png)&lt;/p&gt;
+&lt;p&gt;Осталось дело за малым,будем прописывать стили.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;
+.&lt;span style=&#34;color:#a6e22e&#34;&gt;img&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;display&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;flex&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;justify-content&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;center&lt;/span&gt;;
+}
+&lt;span style=&#34;color:#f92672&#34;&gt;img&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;height&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;250&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;px&lt;/span&gt;;
+}
+#main_header {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;text-transform&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;capitalize&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;text-align&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;center&lt;/span&gt;;
+}
+&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt;{
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;background-color&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;#14161B&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;#D5D5D5&lt;/span&gt;
+ca}
+&lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;font-family&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Luculent&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;sans-serif&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;font-weight&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;300&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;margin&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;px&lt;/span&gt;;
+}
+
+&lt;span style=&#34;color:#f92672&#34;&gt;h3&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;display&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;flex&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;justify-content&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;center&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;margin&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;px&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;px&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;px&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;px&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;#E8A64F&lt;/span&gt;;
+
+}
+
+&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;margin&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;auto&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;text-decoration&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;none&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;inherit&lt;/span&gt;;
+}
+
+&lt;span style=&#34;color:#f92672&#34;&gt;a&lt;/span&gt;:&lt;span style=&#34;color:#a6e22e&#34;&gt;hover&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;#E8A64F&lt;/span&gt;;
+}
+
+.&lt;span style=&#34;color:#a6e22e&#34;&gt;tcontent&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;display&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;flex&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;flex-direction&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;column&lt;/span&gt;;
+}
+
+#startpage {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;#E8A64F&lt;/span&gt;;
+}
+
+#name {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;#93386B&lt;/span&gt;;
+}
+
+.&lt;span style=&#34;color:#a6e22e&#34;&gt;table1&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;flex&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+}
+
+.&lt;span style=&#34;color:#a6e22e&#34;&gt;table2&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;flex&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+}
+.&lt;span style=&#34;color:#a6e22e&#34;&gt;table3&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;flex&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+}
+.&lt;span style=&#34;color:#a6e22e&#34;&gt;table4&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;flex&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+}
+
+.&lt;span style=&#34;color:#a6e22e&#34;&gt;container&lt;/span&gt; {
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;display&lt;/span&gt;:&lt;span style=&#34;color:#66d9ef&#34;&gt;flex&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;flex-direction&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;row&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;flex-wrap&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;nowrap&lt;/span&gt;;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;justify-content&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;space&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;around;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;margin-top&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;px&lt;/span&gt;;
+}
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;![Снимок экрана_2019-10-18_17-43-18.png](./assets/Снимок экрана_2019-10-18_17-43-18.png)&lt;/p&gt;
+&lt;p&gt;Не думаю ,что стоит разбирать код построчно.Скажу лишь в кратце,для тектста использован шрифт Luculent и оранжевый цвет для заголовков в тон картинки, для контейнеров прописал центрирование и равное расположение относительно друг друга.На мой взгляд это выглядело бы ещё лучше в тайловых оконных меннеджерах, по типу i3wm или bspwm.&lt;/p&gt;
+&lt;p&gt;Чтобы при запуске браузера запускалась наша кастомная страница нужно указать это в настройках. В chromium/chrome это делается вот так:&lt;/p&gt;
+&lt;p&gt;![Снимок экрана_2019-10-18_17-47-22.png](./assets/Снимок экрана_2019-10-18_17-47-22.png)&lt;/p&gt;
+&lt;p&gt;А в mozilla firefox вот так:
+![Снимок экрана_2019-10-18_17-44-45.png](./assets/Снимок экрана_2019-10-18_17-44-45.png)&lt;/p&gt;
+&lt;p&gt;Вроде получилось неплохо. Ссылочка на &lt;a href=&#34;https://github.com/DanteAlighierin/Custom-startpage-for-webbrowser&#34;&gt;репозиторий&lt;/a&gt; со всем кодом и картиночками.&lt;/p&gt;
+
         
         </description>
     </item>
