@@ -19,31 +19,31 @@
   content=""
 />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://dantealighierin.github.io/post/post/chat/" />
+<link rel="canonical" href="https://dantealighierin.github.io/post/chat/" />
 
 
 
 
 
-<link rel="stylesheet" href="https://dantealighierin.github.io/post/assets/style.css" />
+<link rel="stylesheet" href="https://dantealighierin.github.io/assets/style.css" />
 
-<link rel="stylesheet" href="https://dantealighierin.github.io/post/style.css" />
+<link rel="stylesheet" href="https://dantealighierin.github.io/style.css" />
 
 
 <link
   rel="apple-touch-icon-precomposed"
   sizes="144x144"
-  href="https://dantealighierin.github.io/post/img/apple-touch-icon-144-precomposed.png"
+  href="https://dantealighierin.github.io/img/apple-touch-icon-144-precomposed.png"
 />
-<link rel="shortcut icon" href="https://dantealighierin.github.io/post/images/favicon.ico" />
+<link rel="shortcut icon" href="https://dantealighierin.github.io/images/favicon.ico" />
 
 
-<link href="https://dantealighierin.github.io/post/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="https://dantealighierin.github.io/post/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="https://dantealighierin.github.io/post/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="https://dantealighierin.github.io/post/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="https://dantealighierin.github.io/post/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="https://dantealighierin.github.io/post/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://dantealighierin.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://dantealighierin.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://dantealighierin.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://dantealighierin.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://dantealighierin.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://dantealighierin.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
 
 
 <meta name="twitter:card" content="summary"/>
@@ -57,7 +57,7 @@
 <meta property="og:description" content="В этой статье я бы хотел показать как написать простое приложение мессенджер менее чем в 150 строк.
 Серверная часть Начнём с сервера(наше приложение будет состоять из скриптов сервера и клиента), через который можно получать входящие запросы от клиентов, желающих общаться. Традиционно указываем путь до интерпретатора и импортируем необходимые модули. Конкретно socket и threading. Первый отвечает непосредственно за &ldquo;общение&rdquo; процесссов между собой, второй за многопоточность. О этих модулях подробно можно почитать например здесь - socket , threading." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dantealighierin.github.io/post/post/chat/" /><meta property="article:section" content="post" />
+<meta property="og:url" content="https://dantealighierin.github.io/post/chat/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-02-23T15:10:00+03:00" />
 <meta property="article:modified_time" content="2020-02-23T15:10:00+03:00" /><meta property="og:site_name" content="Dante&#39;s blog" />
 
@@ -96,7 +96,7 @@
     
       
         
-          <li><a href="/post/about">About</a></li>
+          <li><a href="/about">About</a></li>
         
       
         
@@ -104,7 +104,7 @@
         
       
         
-          <li><a href="/post/index.xml">rss</a></li>
+          <li><a href="/index.xml">rss</a></li>
         
       
         
@@ -118,7 +118,7 @@
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/post/about">About</a></li>
+        <li><a href="/about">About</a></li>
       
     
       
@@ -126,7 +126,7 @@
       
     
       
-        <li><a href="/post/index.xml">rss</a></li>
+        <li><a href="/index.xml">rss</a></li>
       
     
       
@@ -199,15 +199,15 @@
     
       <span class="post-tags">
         
-          <a href="https://dantealighierin.github.io/post/tags/python/">#python</a>&nbsp;
+          <a href="https://dantealighierin.github.io/tags/python/">#python</a>&nbsp;
         
-          <a href="https://dantealighierin.github.io/post/tags/tkinter/">#tkinter</a>&nbsp;
+          <a href="https://dantealighierin.github.io/tags/tkinter/">#tkinter</a>&nbsp;
         
-          <a href="https://dantealighierin.github.io/post/tags/messanger/">#messanger</a>&nbsp;
+          <a href="https://dantealighierin.github.io/tags/messanger/">#messanger</a>&nbsp;
         
-          <a href="https://dantealighierin.github.io/post/tags/socket/">#socket</a>&nbsp;
+          <a href="https://dantealighierin.github.io/tags/socket/">#socket</a>&nbsp;
         
-          <a href="https://dantealighierin.github.io/post/tags/threading/">#threading</a>&nbsp;
+          <a href="https://dantealighierin.github.io/tags/threading/">#threading</a>&nbsp;
         
       </span>
     
@@ -531,8 +531,8 @@ tkinter<span style="color:#f92672">.</span>mainloop()
   </div>
 </footer>
 
-<script src="https://dantealighierin.github.io/post/assets/main.js"></script>
-<script src="https://dantealighierin.github.io/post/assets/prism.js"></script>
+<script src="https://dantealighierin.github.io/assets/main.js"></script>
+<script src="https://dantealighierin.github.io/assets/prism.js"></script>
 
 
       

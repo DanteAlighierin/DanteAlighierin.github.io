@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/post/tags/</link>
+    <link>https://dantealighierin.github.io/tags/</link>
     <description>Recent content in Tags on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Thu, 31 Dec 2020 17:25:04 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/post/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dantealighierin.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>setup</title>
-      <link>https://dantealighierin.github.io/post/tags/setup/</link>
+      <link>https://dantealighierin.github.io/tags/setup/</link>
       <pubDate>Thu, 31 Dec 2020 17:25:04 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/setup/</guid>
+      <guid>https://dantealighierin.github.io/tags/setup/</guid>
       <description>
         
           
@@ -34,10 +34,10 @@
     
     <item>
       <title>vim</title>
-      <link>https://dantealighierin.github.io/post/tags/vim/</link>
+      <link>https://dantealighierin.github.io/tags/vim/</link>
       <pubDate>Thu, 31 Dec 2020 17:25:04 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/vim/</guid>
+      <guid>https://dantealighierin.github.io/tags/vim/</guid>
       <description>
         
           
@@ -52,10 +52,10 @@
     
     <item>
       <title>vim-plug</title>
-      <link>https://dantealighierin.github.io/post/tags/vim-plug/</link>
+      <link>https://dantealighierin.github.io/tags/vim-plug/</link>
       <pubDate>Thu, 31 Dec 2020 17:25:04 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/vim-plug/</guid>
+      <guid>https://dantealighierin.github.io/tags/vim-plug/</guid>
       <description>
         
           
@@ -70,10 +70,10 @@
     
     <item>
       <title>clone</title>
-      <link>https://dantealighierin.github.io/post/tags/clone/</link>
+      <link>https://dantealighierin.github.io/tags/clone/</link>
       <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/clone/</guid>
+      <guid>https://dantealighierin.github.io/tags/clone/</guid>
       <description>
         
           
@@ -88,10 +88,10 @@
     
     <item>
       <title>neofetch</title>
-      <link>https://dantealighierin.github.io/post/tags/neofetch/</link>
+      <link>https://dantealighierin.github.io/tags/neofetch/</link>
       <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/neofetch/</guid>
+      <guid>https://dantealighierin.github.io/tags/neofetch/</guid>
       <description>
         
           
@@ -106,10 +106,10 @@
     
     <item>
       <title>os</title>
-      <link>https://dantealighierin.github.io/post/tags/os/</link>
+      <link>https://dantealighierin.github.io/tags/os/</link>
       <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/os/</guid>
+      <guid>https://dantealighierin.github.io/tags/os/</guid>
       <description>
         
           
@@ -124,10 +124,10 @@
     
     <item>
       <title>platform</title>
-      <link>https://dantealighierin.github.io/post/tags/platform/</link>
+      <link>https://dantealighierin.github.io/tags/platform/</link>
       <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/platform/</guid>
+      <guid>https://dantealighierin.github.io/tags/platform/</guid>
       <description>
         
           
@@ -142,10 +142,10 @@
     
     <item>
       <title>python</title>
-      <link>https://dantealighierin.github.io/post/tags/python/</link>
+      <link>https://dantealighierin.github.io/tags/python/</link>
       <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/python/</guid>
+      <guid>https://dantealighierin.github.io/tags/python/</guid>
       <description>
         
           
@@ -160,10 +160,10 @@
     
     <item>
       <title>socket</title>
-      <link>https://dantealighierin.github.io/post/tags/socket/</link>
+      <link>https://dantealighierin.github.io/tags/socket/</link>
       <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/socket/</guid>
+      <guid>https://dantealighierin.github.io/tags/socket/</guid>
       <description>
         
           
@@ -178,10 +178,10 @@
     
     <item>
       <title>subprocess</title>
-      <link>https://dantealighierin.github.io/post/tags/subprocess/</link>
+      <link>https://dantealighierin.github.io/tags/subprocess/</link>
       <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/subprocess/</guid>
+      <guid>https://dantealighierin.github.io/tags/subprocess/</guid>
       <description>
         
           
@@ -196,10 +196,10 @@
     
     <item>
       <title>2captcha</title>
-      <link>https://dantealighierin.github.io/post/tags/2captcha/</link>
+      <link>https://dantealighierin.github.io/tags/2captcha/</link>
       <pubDate>Tue, 31 Mar 2020 17:10:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/2captcha/</guid>
+      <guid>https://dantealighierin.github.io/tags/2captcha/</guid>
       <description>
         
           
@@ -214,10 +214,10 @@
     
     <item>
       <title>automation</title>
-      <link>https://dantealighierin.github.io/post/tags/automation/</link>
+      <link>https://dantealighierin.github.io/tags/automation/</link>
       <pubDate>Tue, 31 Mar 2020 17:10:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/automation/</guid>
+      <guid>https://dantealighierin.github.io/tags/automation/</guid>
       <description>
         
           
@@ -232,10 +232,10 @@
     
     <item>
       <title>captcha</title>
-      <link>https://dantealighierin.github.io/post/tags/captcha/</link>
+      <link>https://dantealighierin.github.io/tags/captcha/</link>
       <pubDate>Tue, 31 Mar 2020 17:10:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/captcha/</guid>
+      <guid>https://dantealighierin.github.io/tags/captcha/</guid>
       <description>
         
           
@@ -250,10 +250,10 @@
     
     <item>
       <title>rucaptcha</title>
-      <link>https://dantealighierin.github.io/post/tags/rucaptcha/</link>
+      <link>https://dantealighierin.github.io/tags/rucaptcha/</link>
       <pubDate>Tue, 31 Mar 2020 17:10:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/rucaptcha/</guid>
+      <guid>https://dantealighierin.github.io/tags/rucaptcha/</guid>
       <description>
         
           
@@ -268,10 +268,10 @@
     
     <item>
       <title>ar</title>
-      <link>https://dantealighierin.github.io/post/tags/ar/</link>
+      <link>https://dantealighierin.github.io/tags/ar/</link>
       <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/ar/</guid>
+      <guid>https://dantealighierin.github.io/tags/ar/</guid>
       <description>
         
           
@@ -286,10 +286,10 @@
     
     <item>
       <title>cli</title>
-      <link>https://dantealighierin.github.io/post/tags/cli/</link>
+      <link>https://dantealighierin.github.io/tags/cli/</link>
       <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/cli/</guid>
+      <guid>https://dantealighierin.github.io/tags/cli/</guid>
       <description>
         
           
@@ -304,10 +304,10 @@
     
     <item>
       <title>gui</title>
-      <link>https://dantealighierin.github.io/post/tags/gui/</link>
+      <link>https://dantealighierin.github.io/tags/gui/</link>
       <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/gui/</guid>
+      <guid>https://dantealighierin.github.io/tags/gui/</guid>
       <description>
         
           
@@ -322,10 +322,10 @@
     
     <item>
       <title>ui</title>
-      <link>https://dantealighierin.github.io/post/tags/ui/</link>
+      <link>https://dantealighierin.github.io/tags/ui/</link>
       <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/ui/</guid>
+      <guid>https://dantealighierin.github.io/tags/ui/</guid>
       <description>
         
           
@@ -340,10 +340,10 @@
     
     <item>
       <title>vr</title>
-      <link>https://dantealighierin.github.io/post/tags/vr/</link>
+      <link>https://dantealighierin.github.io/tags/vr/</link>
       <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/vr/</guid>
+      <guid>https://dantealighierin.github.io/tags/vr/</guid>
       <description>
         
           
@@ -358,10 +358,10 @@
     
     <item>
       <title>wimp</title>
-      <link>https://dantealighierin.github.io/post/tags/wimp/</link>
+      <link>https://dantealighierin.github.io/tags/wimp/</link>
       <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/wimp/</guid>
+      <guid>https://dantealighierin.github.io/tags/wimp/</guid>
       <description>
         
           
@@ -376,10 +376,10 @@
     
     <item>
       <title>zui</title>
-      <link>https://dantealighierin.github.io/post/tags/zui/</link>
+      <link>https://dantealighierin.github.io/tags/zui/</link>
       <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/zui/</guid>
+      <guid>https://dantealighierin.github.io/tags/zui/</guid>
       <description>
         
           
@@ -394,10 +394,10 @@
     
     <item>
       <title>messanger</title>
-      <link>https://dantealighierin.github.io/post/tags/messanger/</link>
+      <link>https://dantealighierin.github.io/tags/messanger/</link>
       <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/messanger/</guid>
+      <guid>https://dantealighierin.github.io/tags/messanger/</guid>
       <description>
         
           
@@ -412,10 +412,10 @@
     
     <item>
       <title>threading</title>
-      <link>https://dantealighierin.github.io/post/tags/threading/</link>
+      <link>https://dantealighierin.github.io/tags/threading/</link>
       <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/threading/</guid>
+      <guid>https://dantealighierin.github.io/tags/threading/</guid>
       <description>
         
           
@@ -430,10 +430,10 @@
     
     <item>
       <title>tkinter</title>
-      <link>https://dantealighierin.github.io/post/tags/tkinter/</link>
+      <link>https://dantealighierin.github.io/tags/tkinter/</link>
       <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/tkinter/</guid>
+      <guid>https://dantealighierin.github.io/tags/tkinter/</guid>
       <description>
         
           
@@ -448,10 +448,10 @@
     
     <item>
       <title>JIT</title>
-      <link>https://dantealighierin.github.io/post/tags/jit/</link>
+      <link>https://dantealighierin.github.io/tags/jit/</link>
       <pubDate>Mon, 10 Feb 2020 17:25:04 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/jit/</guid>
+      <guid>https://dantealighierin.github.io/tags/jit/</guid>
       <description>
         
           
@@ -466,10 +466,10 @@
     
     <item>
       <title>PyPy</title>
-      <link>https://dantealighierin.github.io/post/tags/pypy/</link>
+      <link>https://dantealighierin.github.io/tags/pypy/</link>
       <pubDate>Mon, 10 Feb 2020 17:25:04 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/pypy/</guid>
+      <guid>https://dantealighierin.github.io/tags/pypy/</guid>
       <description>
         
           
@@ -484,10 +484,10 @@
     
     <item>
       <title>rpython</title>
-      <link>https://dantealighierin.github.io/post/tags/rpython/</link>
+      <link>https://dantealighierin.github.io/tags/rpython/</link>
       <pubDate>Mon, 10 Feb 2020 17:25:04 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/rpython/</guid>
+      <guid>https://dantealighierin.github.io/tags/rpython/</guid>
       <description>
         
           
@@ -502,10 +502,10 @@
     
     <item>
       <title>pyqrcode</title>
-      <link>https://dantealighierin.github.io/post/tags/pyqrcode/</link>
+      <link>https://dantealighierin.github.io/tags/pyqrcode/</link>
       <pubDate>Mon, 03 Feb 2020 20:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/pyqrcode/</guid>
+      <guid>https://dantealighierin.github.io/tags/pyqrcode/</guid>
       <description>
         
           
@@ -520,10 +520,10 @@
     
     <item>
       <title>qr</title>
-      <link>https://dantealighierin.github.io/post/tags/qr/</link>
+      <link>https://dantealighierin.github.io/tags/qr/</link>
       <pubDate>Mon, 03 Feb 2020 20:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/qr/</guid>
+      <guid>https://dantealighierin.github.io/tags/qr/</guid>
       <description>
         
           
@@ -538,10 +538,10 @@
     
     <item>
       <title>bash</title>
-      <link>https://dantealighierin.github.io/post/tags/bash/</link>
+      <link>https://dantealighierin.github.io/tags/bash/</link>
       <pubDate>Sun, 05 Jan 2020 18:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/bash/</guid>
+      <guid>https://dantealighierin.github.io/tags/bash/</guid>
       <description>
         
           
@@ -556,10 +556,10 @@
     
     <item>
       <title>oh_my_bash</title>
-      <link>https://dantealighierin.github.io/post/tags/oh_my_bash/</link>
+      <link>https://dantealighierin.github.io/tags/oh_my_bash/</link>
       <pubDate>Sun, 05 Jan 2020 18:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/oh_my_bash/</guid>
+      <guid>https://dantealighierin.github.io/tags/oh_my_bash/</guid>
       <description>
         
           
@@ -574,10 +574,10 @@
     
     <item>
       <title>shell</title>
-      <link>https://dantealighierin.github.io/post/tags/shell/</link>
+      <link>https://dantealighierin.github.io/tags/shell/</link>
       <pubDate>Sun, 05 Jan 2020 18:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/shell/</guid>
+      <guid>https://dantealighierin.github.io/tags/shell/</guid>
       <description>
         
           
@@ -592,10 +592,10 @@
     
     <item>
       <title>terminal</title>
-      <link>https://dantealighierin.github.io/post/tags/terminal/</link>
+      <link>https://dantealighierin.github.io/tags/terminal/</link>
       <pubDate>Sun, 05 Jan 2020 18:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/terminal/</guid>
+      <guid>https://dantealighierin.github.io/tags/terminal/</guid>
       <description>
         
           
@@ -610,10 +610,10 @@
     
     <item>
       <title>zsh</title>
-      <link>https://dantealighierin.github.io/post/tags/zsh/</link>
+      <link>https://dantealighierin.github.io/tags/zsh/</link>
       <pubDate>Sun, 05 Jan 2020 18:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/zsh/</guid>
+      <guid>https://dantealighierin.github.io/tags/zsh/</guid>
       <description>
         
           
@@ -628,10 +628,10 @@
     
     <item>
       <title>ai</title>
-      <link>https://dantealighierin.github.io/post/tags/ai/</link>
+      <link>https://dantealighierin.github.io/tags/ai/</link>
       <pubDate>Sat, 21 Dec 2019 17:32:04 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/ai/</guid>
+      <guid>https://dantealighierin.github.io/tags/ai/</guid>
       <description>
         
           
@@ -646,10 +646,10 @@
     
     <item>
       <title>thinking</title>
-      <link>https://dantealighierin.github.io/post/tags/thinking/</link>
+      <link>https://dantealighierin.github.io/tags/thinking/</link>
       <pubDate>Sat, 21 Dec 2019 17:32:04 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/thinking/</guid>
+      <guid>https://dantealighierin.github.io/tags/thinking/</guid>
       <description>
         
           
@@ -664,10 +664,10 @@
     
     <item>
       <title>chrome</title>
-      <link>https://dantealighierin.github.io/post/tags/chrome/</link>
+      <link>https://dantealighierin.github.io/tags/chrome/</link>
       <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/chrome/</guid>
+      <guid>https://dantealighierin.github.io/tags/chrome/</guid>
       <description>
         
           
@@ -682,10 +682,10 @@
     
     <item>
       <title>chromium</title>
-      <link>https://dantealighierin.github.io/post/tags/chromium/</link>
+      <link>https://dantealighierin.github.io/tags/chromium/</link>
       <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/chromium/</guid>
+      <guid>https://dantealighierin.github.io/tags/chromium/</guid>
       <description>
         
           
@@ -700,10 +700,10 @@
     
     <item>
       <title>css</title>
-      <link>https://dantealighierin.github.io/post/tags/css/</link>
+      <link>https://dantealighierin.github.io/tags/css/</link>
       <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/css/</guid>
+      <guid>https://dantealighierin.github.io/tags/css/</guid>
       <description>
         
           
@@ -718,10 +718,10 @@
     
     <item>
       <title>firefox</title>
-      <link>https://dantealighierin.github.io/post/tags/firefox/</link>
+      <link>https://dantealighierin.github.io/tags/firefox/</link>
       <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/firefox/</guid>
+      <guid>https://dantealighierin.github.io/tags/firefox/</guid>
       <description>
         
           
@@ -736,10 +736,10 @@
     
     <item>
       <title>html</title>
-      <link>https://dantealighierin.github.io/post/tags/html/</link>
+      <link>https://dantealighierin.github.io/tags/html/</link>
       <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/html/</guid>
+      <guid>https://dantealighierin.github.io/tags/html/</guid>
       <description>
         
           
@@ -754,10 +754,10 @@
     
     <item>
       <title>web</title>
-      <link>https://dantealighierin.github.io/post/tags/web/</link>
+      <link>https://dantealighierin.github.io/tags/web/</link>
       <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/web/</guid>
+      <guid>https://dantealighierin.github.io/tags/web/</guid>
       <description>
         
           
@@ -772,10 +772,10 @@
     
     <item>
       <title>pyinstaller</title>
-      <link>https://dantealighierin.github.io/post/tags/pyinstaller/</link>
+      <link>https://dantealighierin.github.io/tags/pyinstaller/</link>
       <pubDate>Fri, 20 Sep 2019 20:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/pyinstaller/</guid>
+      <guid>https://dantealighierin.github.io/tags/pyinstaller/</guid>
       <description>
         
           
@@ -790,10 +790,10 @@
     
     <item>
       <title>pytube</title>
-      <link>https://dantealighierin.github.io/post/tags/pytube/</link>
+      <link>https://dantealighierin.github.io/tags/pytube/</link>
       <pubDate>Fri, 20 Sep 2019 20:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tags/pytube/</guid>
+      <guid>https://dantealighierin.github.io/tags/pytube/</guid>
       <description>
         
           

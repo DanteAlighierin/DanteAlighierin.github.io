@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/post/tags/messanger/</link>
+    <link>https://dantealighierin.github.io/tags/messanger/</link>
     <description>Recent content in messanger on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sun, 23 Feb 2020 15:10:00 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/post/tags/messanger/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dantealighierin.github.io/tags/messanger/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Простой мессенджер на tkinter,socket и threading</title>
-      <link>https://dantealighierin.github.io/post/post/chat/</link>
+      <link>https://dantealighierin.github.io/post/chat/</link>
       <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/post/chat/</guid>
+      <guid>https://dantealighierin.github.io/post/chat/</guid>
       <description>
         
           
@@ -27,7 +27,7 @@
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/chat.png/&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/chat.png/&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;В этой статье я бы хотел показать как написать простое приложение мессенджер менее чем в 150 строк.&lt;/p&gt;
 &lt;h3 id=&#34;серверная-часть&#34;&gt;Серверная часть&lt;/h3&gt;
 &lt;p&gt;Начнём с сервера(наше  приложение будет состоять из скриптов сервера и клиента), через который можно получать входящие запросы от клиентов, желающих общаться.  Традиционно указываем путь до интерпретатора и импортируем необходимые модули. Конкретно socket и threading. Первый отвечает непосредственно за &amp;ldquo;общение&amp;rdquo; процесссов между собой, второй за многопоточность. О этих модулях подробно можно почитать например здесь - &lt;a href=&#34;https://habr.com/ru/post/149077/&#34;&gt;socket&lt;/a&gt; , &lt;a href=&#34;https://habr.com/ru/post/149420/&#34;&gt;threading&lt;/a&gt;.&lt;/p&gt;
@@ -214,7 +214,7 @@ ADDR &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (HOST, PORT)
 client_socket &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; socket(AF_INET, SOCK_STREAM)
 client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connect(ADDR)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Как только мы получаем адрес и создаем сокет для подключения к нему, мы запускаем поток для получения сообщений, а затем основной цикл для нашего приложения с графическим интерфейсом:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/chat.gif&#34; alt=&#34;chat_app_gif&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/chat.gif&#34; alt=&#34;chat_app_gif&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;receive_thread &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;receive)
 receive_thread&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()
 tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()

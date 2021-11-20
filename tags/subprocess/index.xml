@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/post/tags/subprocess/</link>
+    <link>https://dantealighierin.github.io/tags/subprocess/</link>
     <description>Recent content in subprocess on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Fri, 01 May 2020 21:00:00 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/post/tags/subprocess/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dantealighierin.github.io/tags/subprocess/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Пишем клон neofetch на python</title>
-      <link>https://dantealighierin.github.io/post/post/neofetch/</link>
+      <link>https://dantealighierin.github.io/post/neofetch/</link>
       <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/post/neofetch/</guid>
+      <guid>https://dantealighierin.github.io/post/neofetch/</guid>
       <description>
         
           
@@ -34,7 +34,7 @@
 &lt;p&gt;K примеру в ubuntu она ставиться следующим образом:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt update
 sudo apt install neofetch
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/neofetch_pro.gif&#34; alt=&#34;neofetch_pro&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/neofetch_pro.gif&#34; alt=&#34;neofetch_pro&#34;&gt;&lt;/p&gt;
 &lt;p&gt;На гифке выше - neofetch выводит название ОС, имя хоста, shell, разрешение экрана, оконный менеджер, gtk тему, иконки и название терминала. Чуть ниже расположена полоска с цветами, отображающая цветовую схему терминала.  Однако можно вывести куда больше информации, и на этом этапе вы можете начать разбираться с конфигурационным файлом. Как правило он лежит в директории ~/.config/neofetch . Если такой директории нет, то создайте её и в ней пропишите конфиг в файле config.conf.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;vim ~ /.config/neofetch/config.conf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Однако мне захотелось сделать свою версию на python. И для начала я отправился на github и нашёл там уже готовое решение,правда для MacOs.  И естественно оно не заработало на linux, даже не смотря то, что это схожие системы с точки зрения UNIX.  И потому было принято решение переписать эту программу.&lt;/p&gt;
@@ -174,7 +174,7 @@ sudo apt install neofetch
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;и-что-в-итоге&#34;&gt;И что в итоге?&lt;/h3&gt;
 &lt;p&gt;Сохранив скрипт и запустив его, мы получаем следующий результат:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/neo_py.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/neo_py.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Ну и по традиции прилагаю репозиторий на &lt;a href=&#34;https://github.com/DanteAlighierin/PyQr&#34;&gt;GitHub&amp;rsquo;е&lt;/a&gt; .&lt;/p&gt;
 
         

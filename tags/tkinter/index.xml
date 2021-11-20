@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/post/tags/tkinter/</link>
+    <link>https://dantealighierin.github.io/tags/tkinter/</link>
     <description>Recent content in tkinter on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sun, 23 Feb 2020 15:10:00 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/post/tags/tkinter/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dantealighierin.github.io/tags/tkinter/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Простой мессенджер на tkinter,socket и threading</title>
-      <link>https://dantealighierin.github.io/post/post/chat/</link>
+      <link>https://dantealighierin.github.io/post/chat/</link>
       <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/post/chat/</guid>
+      <guid>https://dantealighierin.github.io/post/chat/</guid>
       <description>
         
           
@@ -27,7 +27,7 @@
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/chat.png/&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/chat.png/&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;В этой статье я бы хотел показать как написать простое приложение мессенджер менее чем в 150 строк.&lt;/p&gt;
 &lt;h3 id=&#34;серверная-часть&#34;&gt;Серверная часть&lt;/h3&gt;
 &lt;p&gt;Начнём с сервера(наше  приложение будет состоять из скриптов сервера и клиента), через который можно получать входящие запросы от клиентов, желающих общаться.  Традиционно указываем путь до интерпретатора и импортируем необходимые модули. Конкретно socket и threading. Первый отвечает непосредственно за &amp;ldquo;общение&amp;rdquo; процесссов между собой, второй за многопоточность. О этих модулях подробно можно почитать например здесь - &lt;a href=&#34;https://habr.com/ru/post/149077/&#34;&gt;socket&lt;/a&gt; , &lt;a href=&#34;https://habr.com/ru/post/149420/&#34;&gt;threading&lt;/a&gt;.&lt;/p&gt;
@@ -214,7 +214,7 @@ ADDR &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (HOST, PORT)
 client_socket &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; socket(AF_INET, SOCK_STREAM)
 client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connect(ADDR)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Как только мы получаем адрес и создаем сокет для подключения к нему, мы запускаем поток для получения сообщений, а затем основной цикл для нашего приложения с графическим интерфейсом:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/chat.gif&#34; alt=&#34;chat_app_gif&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/chat.gif&#34; alt=&#34;chat_app_gif&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;receive_thread &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;receive)
 receive_thread&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()
 tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
@@ -293,10 +293,10 @@ tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
     
     <item>
       <title>Qr генератор на python</title>
-      <link>https://dantealighierin.github.io/post/post/qrcode/</link>
+      <link>https://dantealighierin.github.io/post/qrcode/</link>
       <pubDate>Mon, 03 Feb 2020 20:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/post/qrcode/</guid>
+      <guid>https://dantealighierin.github.io/post/qrcode/</guid>
       <description>
         
           
@@ -304,7 +304,7 @@ tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/qr.jpg&#34; alt=&#34;qr.jpg&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/qr.jpg&#34; alt=&#34;qr.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Некоторое время назад я написал статью, где показывал построение простого виджета часов на tkinter. Если кто-то не помнит, то tkinter - это кроссплатформенная библиотека для разработки графического интерфейса на языке Python.&lt;/p&gt;
 &lt;p&gt;И в то или иное время у меня возникает потребность в написании простых программ, и неважно, будь это прямая потребность или просто желание постучать пальцами по клавиатуре. По мимо этого я люблю копаться в репозитории библиотек python.&lt;/p&gt;
 &lt;p&gt;Среди всего этого разнообразия пакетов мне приглянулся PyQRCode. Из названия очевидно, что этот пакет предназначен для работы с qr кодами. Потому давайте напишем простую программу для генерирования qr по введённому url. Сразу скажу, что напишем  две версии: консольную и с графическим интерфейсом.&lt;/p&gt;
@@ -323,7 +323,7 @@ url &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; create(input(&lt;sp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;И создаём рамки вокруг кода, если это необходимо:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;print(url&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;terminal(quiet_zone&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Должно получиться примерно вот так:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/cli.gif&#34; alt=&#34;cliqr&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/cli.gif&#34; alt=&#34;cliqr&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Закончив с консольной версией, приступим к построению графического интерфейса. Сделаем это в отдельном файле, во благо удобства. Судя по началу статьи очевидно, что будем использовать tk.&lt;/p&gt;
 &lt;p&gt;Импортируем библиотеки&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; tkinter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;
@@ -383,7 +383,7 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;И естественно прописываем mainloop:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;window&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;В итоге получаем следующее:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/gui.gif&#34; alt=&#34;gui_qr&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/gui.gif&#34; alt=&#34;gui_qr&#34;&gt;&lt;/p&gt;
 &lt;p&gt;А что если пользователю предоставить возможность выбирать режим? Рациональнее предложить интерфейс выбора, чем вручную выбирать необходимый файлик. Потому давайте создадим этот интерфейс, в файле choise.py напишем следующее:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;choise &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;CLI/gui mode?; Type C to use cli or type g to use gui:  &amp;#39;&lt;/span&gt;)
 
@@ -406,10 +406,10 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
     
     <item>
       <title>Простые часы  на tkinter</title>
-      <link>https://dantealighierin.github.io/post/post/tko/</link>
+      <link>https://dantealighierin.github.io/post/tko/</link>
       <pubDate>Fri, 13 Sep 2019 18:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/post/tko/</guid>
+      <guid>https://dantealighierin.github.io/post/tko/</guid>
       <description>
         
           
@@ -417,7 +417,7 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/clock.png&#34; alt=&#34;f375a21a.png&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/clock.png&#34; alt=&#34;f375a21a.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Tkinter – это кроссплатформенная библиотека для разработки графического интерфейса на языке Python (начиная с Python 3.0 переименована в tkinter). Tkinter расшифровывается как Tool kit interface, и является интерфейсом для языка програмирования Tcl и графической  для него привязки tk.Не вдаваясь в подробности, Tkinter можно охарактеризовать как переводчик с языка Python на язык Tcl. Вы пишете программу на Python, а код модуля tkinter у вас за спиной переводит ваши инструкции на язык Tcl(тикль-токль), который понимает библиотека Tk (tool kit).&lt;/p&gt;
 &lt;p&gt;Конечно для python есть и другие более мощные и интересные библиотеки графического интерфейса такие как: pygame и qiwi, qt и gtk.Однако pygame расчитан больше на разработку видео игр, qiwi лучше использовать для мобильных платформ , qt и gtk несколько сложнее в изучении и могут иметь много не нужного на первых этапах . А вот tkinter хорош для протипирования и быстрой разработки,а потому он идеально подходит для начинающих. В плюсы данной библиотеке можно записать её наличие в стандартном дистрибутиве python,в то время,как другие библиотеки для создания графического интерфейса требует отдельной установки через внутренний менеджер пакетов питона pip.&lt;/p&gt;
 &lt;p&gt;Под графическим интерфейсом пользователя (GUI или graphical user interfase) подразумеваются все  окна, кнопки, текстовые поля для ввода, скроллеры, списки, флаги. Через них пользователь взаимодействует с программой и управляет ею. Все эти элементы интерфейса называются виджетами (widgets).&lt;/p&gt;

@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/post/tags/pyqrcode/</link>
+    <link>https://dantealighierin.github.io/tags/pyqrcode/</link>
     <description>Recent content in pyqrcode on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Mon, 03 Feb 2020 20:30:00 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/post/tags/pyqrcode/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dantealighierin.github.io/tags/pyqrcode/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Qr генератор на python</title>
-      <link>https://dantealighierin.github.io/post/post/qrcode/</link>
+      <link>https://dantealighierin.github.io/post/qrcode/</link>
       <pubDate>Mon, 03 Feb 2020 20:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/post/qrcode/</guid>
+      <guid>https://dantealighierin.github.io/post/qrcode/</guid>
       <description>
         
           
@@ -27,7 +27,7 @@
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/qr.jpg&#34; alt=&#34;qr.jpg&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/qr.jpg&#34; alt=&#34;qr.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Некоторое время назад я написал статью, где показывал построение простого виджета часов на tkinter. Если кто-то не помнит, то tkinter - это кроссплатформенная библиотека для разработки графического интерфейса на языке Python.&lt;/p&gt;
 &lt;p&gt;И в то или иное время у меня возникает потребность в написании простых программ, и неважно, будь это прямая потребность или просто желание постучать пальцами по клавиатуре. По мимо этого я люблю копаться в репозитории библиотек python.&lt;/p&gt;
 &lt;p&gt;Среди всего этого разнообразия пакетов мне приглянулся PyQRCode. Из названия очевидно, что этот пакет предназначен для работы с qr кодами. Потому давайте напишем простую программу для генерирования qr по введённому url. Сразу скажу, что напишем  две версии: консольную и с графическим интерфейсом.&lt;/p&gt;
@@ -46,7 +46,7 @@ url &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; create(input(&lt;sp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;И создаём рамки вокруг кода, если это необходимо:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;print(url&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;terminal(quiet_zone&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Должно получиться примерно вот так:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/cli.gif&#34; alt=&#34;cliqr&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/cli.gif&#34; alt=&#34;cliqr&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Закончив с консольной версией, приступим к построению графического интерфейса. Сделаем это в отдельном файле, во благо удобства. Судя по началу статьи очевидно, что будем использовать tk.&lt;/p&gt;
 &lt;p&gt;Импортируем библиотеки&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; tkinter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;
@@ -106,7 +106,7 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;И естественно прописываем mainloop:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;window&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;В итоге получаем следующее:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/gui.gif&#34; alt=&#34;gui_qr&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/gui.gif&#34; alt=&#34;gui_qr&#34;&gt;&lt;/p&gt;
 &lt;p&gt;А что если пользователю предоставить возможность выбирать режим? Рациональнее предложить интерфейс выбора, чем вручную выбирать необходимый файлик. Потому давайте создадим этот интерфейс, в файле choise.py напишем следующее:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;choise &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;CLI/gui mode?; Type C to use cli or type g to use gui:  &amp;#39;&lt;/span&gt;)
 

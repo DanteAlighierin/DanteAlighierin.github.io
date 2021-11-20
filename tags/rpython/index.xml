@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/post/tags/rpython/</link>
+    <link>https://dantealighierin.github.io/tags/rpython/</link>
     <description>Recent content in rpython on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Mon, 10 Feb 2020 17:25:04 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/post/tags/rpython/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dantealighierin.github.io/tags/rpython/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title> &#39;Я скорость&#39; или что такое rPython</title>
-      <link>https://dantealighierin.github.io/post/post/rpython/</link>
+      <link>https://dantealighierin.github.io/post/rpython/</link>
       <pubDate>Mon, 10 Feb 2020 17:25:04 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/post/rpython/</guid>
+      <guid>https://dantealighierin.github.io/post/rpython/</guid>
       <description>
         
           
@@ -27,12 +27,12 @@
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/speed_py.png&#34; alt=&#34;python_speed&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/speed_py.png&#34; alt=&#34;python_speed&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Python существует уже много лет и за всё это время Гвидо ван Россум и другие разработчики этого языка стремились к созданию чистого дизайна языка. Для этого нужно было описать язык его же терминами. И по понятным причинам интерпретаторы на C(Cpython - самая популярная и на данный момент эталонная реализация) , Java(Jython) , на стеке .NET(IronPython)не подходят. Собственно нужна была реализация на самом питоне. И тут миру явился PyPy.&lt;/p&gt;
 &lt;p&gt;Проект PyPy реализован не на самом python , как это может показаться на первый взгляд, а на его подмножестве rPython. По своей задумке PyPy  можно назвать средой исполнения к которой можно подключать любой другой язык. К примеру для повышения производительности можно создавать эффективные и низкоуровневые оптимизаторы, средством JIT(just in time compilation). Данная технология используется не только в питоне, но и в Java.&lt;/p&gt;
 &lt;p&gt;Однако в этой статье я бы хотел поговорить не о самом PyPy, а о том на чём непосредственно написан PyPy - подмножестве rPython. И не смотря на всего его преимущества, понять и начать работать с rPython не так уж и просто. По тому давайте рассмотрим пару примеров.&lt;/p&gt;
 &lt;h1 id=&#34;cтатическая-типизация&#34;&gt;Cтатическая типизация&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/type_py.png&#34; alt=&#34;Type_py&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/type_py.png&#34; alt=&#34;Type_py&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Не смотря на то, что с python я столкнулся раньше других языков. На статическую типизацию я впервые обратил внимание в TypeScript - расширении языка JavaScript для работы со статически типизированными данными. Но тем не менее давайте перейдём к нашему основному пациенту.&lt;/p&gt;
 &lt;p&gt;Основной код пишем в теле главной функции, остальные функции пишем вне тела.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(argv):
@@ -74,7 +74,7 @@ print add(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span styl
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;А вот:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bird&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;)&lt;span style=&#34;color:#75715e&#34;&gt;#Будет работать в rPython&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;а-что-на-счёт-лямбды&#34;&gt;А что на счёт лямбды?&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/lambda_py.png&#34; alt=&#34;py_lambda&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/lambda_py.png&#34; alt=&#34;py_lambda&#34;&gt;
 К сожалению или к счастью лямбды в rPython работать не будут. В место них нужно использовать  классические функции.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;map&lt;/span&gt;(fun,ls):
   nls &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
@@ -87,7 +87,7 @@ print add(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span styl
 
 map(add_one, [&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;])
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;операторы&#34;&gt;Операторы&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/operartorpy.png&#34; alt=&#34;operator_py&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/operartorpy.png&#34; alt=&#34;operator_py&#34;&gt;
 Следует внимательно работать в этой реализации и с операторами.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hello&lt;/span&gt;()
   &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;hi&amp;#39;&lt;/span&gt;
