@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/tags/web/</link>
+    <link>https://dantealighierin.github.io/post/tags/web/</link>
     <description>Recent content in web on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sat, 14 Dec 2019 23:00:00 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dantealighierin.github.io/post/tags/web/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Кастомная стартовая страница для браузера</title>
-      <link>https://dantealighierin.github.io/post/custom_page/</link>
+      <link>https://dantealighierin.github.io/post/post/custom_page/</link>
       <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/custom_page/</guid>
+      <guid>https://dantealighierin.github.io/post/post/custom_page/</guid>
       <description>
         
           
@@ -37,7 +37,7 @@
 &lt;p&gt;Однако на мой взгляд всё это выглядит слишком перегружено,а потому хотелось бы чего-нибудь более минималистичного. Но ничего не мешает написать свою собственную.К тому же, стартовая страница браузера - это всего-лишь web страничка, а значит состоит всего лишь из html файла и заданых стилей в css
 А потому открывайте свой любимый текстовый редактор или IDE, и начинайте писать.&lt;/p&gt;
 &lt;p&gt;Капитан Очевидность подсказывает,что надо указать стандартные теги,задать title,прописать линки на css файл и задать кодировку.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
 &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt;&amp;gt;
    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;head&lt;/span&gt;&amp;gt;
@@ -48,7 +48,7 @@
    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt;&amp;gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Далее создаём контейнеры со страницами. Каждый контейнер тематический,со своим содержимым.Для примера пропишем контейнер с социальными сетями,при этом не забудь заменить стандартные ссылки на те ,которые необходимы лично тебе.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;
 
      &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;container&amp;#34;&lt;/span&gt;&amp;gt;
         &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;table1&amp;#34;&lt;/span&gt;&amp;gt;
@@ -68,7 +68,7 @@
 &lt;p&gt;Картинка:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;./assets/1.png&#34; alt=&#34;./assets/1.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Вот этот кусочек кода запишем в самом начале в header.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;
 &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;img&amp;#34;&lt;/span&gt;&amp;gt;
        &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;img&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;../1.png&amp;#34;&lt;/span&gt; /&amp;gt;
      &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt;&amp;gt;
@@ -79,7 +79,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Пока это выглядит вот так:
 ![Снимок экрана_2019-10-18_17-35-21.png](./assets/Снимок экрана_2019-10-18_17-35-21.png)&lt;/p&gt;
 &lt;p&gt;Осталось дело за малым,будем прописывать стили.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;
 .&lt;span style=&#34;color:#a6e22e&#34;&gt;img&lt;/span&gt; {
   &lt;span style=&#34;color:#66d9ef&#34;&gt;display&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;flex&lt;/span&gt;;
   &lt;span style=&#34;color:#66d9ef&#34;&gt;justify-content&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;center&lt;/span&gt;;
@@ -150,7 +150,7 @@ ca}
   &lt;span style=&#34;color:#66d9ef&#34;&gt;display&lt;/span&gt;:&lt;span style=&#34;color:#66d9ef&#34;&gt;flex&lt;/span&gt;;
   &lt;span style=&#34;color:#66d9ef&#34;&gt;flex-direction&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;row&lt;/span&gt;;
   &lt;span style=&#34;color:#66d9ef&#34;&gt;flex-wrap&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;nowrap&lt;/span&gt;;
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;justify-content&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;space&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;around;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;justify-content&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;space-around&lt;/span&gt;;
   &lt;span style=&#34;color:#66d9ef&#34;&gt;margin-top&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;px&lt;/span&gt;;
 }
 

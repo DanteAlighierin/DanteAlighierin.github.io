@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/tags/rucaptcha/</link>
+    <link>https://dantealighierin.github.io/post/tags/rucaptcha/</link>
     <description>Recent content in rucaptcha on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Tue, 31 Mar 2020 17:10:00 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/tags/rucaptcha/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dantealighierin.github.io/post/tags/rucaptcha/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Автоматизируем решение капчи</title>
-      <link>https://dantealighierin.github.io/post/rucaptcha/</link>
+      <link>https://dantealighierin.github.io/post/post/rucaptcha/</link>
       <pubDate>Tue, 31 Mar 2020 17:10:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/rucaptcha/</guid>
+      <guid>https://dantealighierin.github.io/post/post/rucaptcha/</guid>
       <description>
         
           
@@ -28,7 +28,7 @@
         
         
         &lt;p&gt;&lt;strong&gt;НА ПРАВАХ РЕКЛАМЫ&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/captcha.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/captcha.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Привет! Думаю, что тебя раздражает каждый раз вводить капчу при входе на любимый сайт. И было бы логично предположить, что существует сервис  для решения этой проблемы.  И действительно, такой есть.&lt;/p&gt;
 &lt;p&gt;Согласно описанию на сайте:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -51,33 +51,33 @@
 &lt;p&gt;найди форму для текста&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;textarea&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;g-recaptcha-response&amp;#34;&lt;/span&gt; 
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;textarea&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;g-recaptcha-response&amp;#34;&lt;/span&gt; 
 &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;g-recaptcha-response&amp;#34;&lt;/span&gt; 
 &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;g-recaptcha-response&amp;#34;&lt;/span&gt; 
 &lt;span style=&#34;color:#a6e22e&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;width: 250px; height: 40px;
 &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;border: 1px solid #c1c1c1; margin: 10px 25px; 
 &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;padding: 0px; resize: none; &amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;textarea&lt;/span&gt;&amp;gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/gkey.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/gkey.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Сюда тебе нужно будет вставить ответ от сервиса.&lt;/p&gt;
 &lt;h3 id=&#34;установка&#34;&gt;Установка&lt;/h3&gt;
 &lt;p&gt;Но всё это не &amp;ldquo;торт&amp;rdquo;. Настоящие программисты всё автоматизируют. Потому давайте напишем программу антикапчу на python, используя соответствующую библиотеку.
-&lt;img src=&#34;https://dantealighierin.github.io/images/robot_captcha.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://dantealighierin.github.io/post/images/robot_captcha.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Установить модуль можно следующими методами:&lt;/p&gt;
 &lt;h4 id=&#34;через-pip&#34;&gt;Через pip&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pip3 install python-rucaptcha
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pip3 install python-rucaptcha
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Хотя на страничке github указан pip, у меня он не нашёл соответствующий пакет. Потому я всё сделал через pip3(видимо разработчики решили использовать актуальную ветку python, а не устаревшую).&lt;/p&gt;
 &lt;h4 id=&#34;или-собрав-из-исходников&#34;&gt;Или собрав из исходников&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone https://github.com/AndreiDrang/python-rucaptcha.git
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone https://github.com/AndreiDrang/python-rucaptcha.git
 cd python-rucaptcha
 python setup.py install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;примеры-работы&#34;&gt;Примеры работы&lt;/h3&gt;
 &lt;p&gt;Как вариант можно воспользоваться Callback API.
 Однако в таком случае  тесты проводяться на локальном сервере, эмулируя POST-запросы от RuCaptcha при помощи локального клиента. Принцип работы ты можешь увидеть на схеме ниже&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/rest.svg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/rest.svg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Однако этот способ не рационален, т.к для решения небольшой проблемы мы поднимаем сервер, пускай и небольшой.&lt;/p&gt;
 &lt;p&gt;Всё можно сделать гораздо проще:&lt;/p&gt;
 &lt;h4 id=&#34;простая-капча&#34;&gt;Простая капча&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; ImageCaptcha
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; ImageCaptcha
 &lt;span style=&#34;color:#75715e&#34;&gt;# Введите ключ от сервиса RuCaptcha, из своего аккаунта&lt;/span&gt;
 RUCAPTCHA_KEY &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# Ссылка на изображения для расшифровки&lt;/span&gt;
@@ -87,14 +87,14 @@ user_answer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ImageCaptch
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# решение капчи&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
 &lt;span style=&#34;color:#66d9ef&#34;&gt;elif&lt;/span&gt; user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# Тело ошибки, если есть&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;])
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;keycaptcha&#34;&gt;KeyCaptcha&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; KeyCaptcha
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; KeyCaptcha
 &lt;span style=&#34;color:#75715e&#34;&gt;# Введите ключ от сервиса RuCaptcha, из своего аккаунта&lt;/span&gt;
 RUCAPTCHA_KEY &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
 
@@ -111,14 +111,14 @@ answer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; KeyCaptcha&lt;sp
 &lt;span style=&#34;color:#75715e&#34;&gt;# капча решена верно, ошибка = 0&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# решение капчи&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
+	print(answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
+	print(answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
 &lt;span style=&#34;color:#75715e&#34;&gt;# во время решения капчи возникли ошибки, ошибка = 1&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;elif&lt;/span&gt; answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# Тело ошибки, если есть&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;])
+	print(answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;])
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;recaptcha-v2&#34;&gt;ReCaptcha v.2&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; ReCaptchaV2
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; ReCaptchaV2
 &lt;span style=&#34;color:#75715e&#34;&gt;# Введите ключ от сервиса RuCaptcha, из своего аккаунта&lt;/span&gt;
 RUCAPTCHA_KEY &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# G-ReCaptcha ключ сайта&lt;/span&gt;
@@ -131,15 +131,15 @@ user_answer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ReCaptchaV2
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# решение капчи&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
 &lt;span style=&#34;color:#66d9ef&#34;&gt;elif&lt;/span&gt; user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# Тело ошибки, если есть&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;])
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;recaptcha-v3&#34;&gt;ReCaptcha v.3&lt;/h4&gt;
 &lt;p&gt;До этого момента я не показывал работу на реальных примерах. Т.к у всех решений схожая структура: вы вводите URL, ключ, который вы получили на сайте. Я решил показать решение реальной задачи на капче третей версии:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; ReCaptchaV3
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; ReCaptchaV3
 &lt;span style=&#34;color:#75715e&#34;&gt;# Введите ключ от сервиса RuCaptcha, из своего аккаунта&lt;/span&gt;
 RUCAPTCHA_KEY &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# G-ReCaptcha ключ сайта&lt;/span&gt;
@@ -158,21 +158,21 @@ user_answer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ReCaptchaV3
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# решение капчи&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user_check&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user_score&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user_check&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user_score&amp;#39;&lt;/span&gt;])
 &lt;span style=&#34;color:#66d9ef&#34;&gt;elif&lt;/span&gt; user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# Тело ошибки, если есть&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;])
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;В качестве тестового полигона будем использовать
 &lt;a href=&#34;https://patrickhlauke.github.io/recaptcha/&#34;&gt;следующий сайт&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/site_captcha.png&#34; alt=&#34;&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/site_captcha.png&#34; alt=&#34;&#34;&gt;
 Подставим необходимые данные в наш код:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/blur_key.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/blur_key.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Задача решена:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/cheers.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/cheers.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;цена-вопроса&#34;&gt;Цена вопроса&lt;/h3&gt;
 &lt;p&gt;Отдельно стоит отметить, что стоимость распознавания очень низка, от $0,0005 за одну капчу. Для удобства, все цены указываются за распознавание 1000 капч, но биллинг в системе происходит отдельно по каждой капче. Разные типы капч распознаются по разной цене.&lt;/p&gt;
 &lt;ul&gt;

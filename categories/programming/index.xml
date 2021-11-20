@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/categories/programming/</link>
+    <link>https://dantealighierin.github.io/post/categories/programming/</link>
     <description>Recent content in Programming on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Fri, 01 May 2020 21:00:00 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dantealighierin.github.io/post/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Пишем клон neofetch на python</title>
-      <link>https://dantealighierin.github.io/post/neofetch/</link>
+      <link>https://dantealighierin.github.io/post/post/neofetch/</link>
       <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/neofetch/</guid>
+      <guid>https://dantealighierin.github.io/post/post/neofetch/</guid>
       <description>
         
           
@@ -32,11 +32,11 @@
 &lt;p&gt;Думаю, что каждому пользователю UNIX-подобных систем знакома утилита &lt;strong&gt;neofetch&lt;/strong&gt; и её аналоги (pfetch,screenfetch и некоторые другие). Эта маленькая программа позволяет вывести  информацию о системе и аппаратной части компьютера в удобном формате.&lt;/p&gt;
 &lt;p&gt;Neofetch есть в большинстве дистрибутивов, (и даже есть возможность установки в windows и haiku), да и собрать из исходников никто не мешает.&lt;/p&gt;
 &lt;p&gt;K примеру в ubuntu она ставиться следующим образом:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt update
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt update
 sudo apt install neofetch
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/neofetch_pro.gif&#34; alt=&#34;neofetch_pro&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/neofetch_pro.gif&#34; alt=&#34;neofetch_pro&#34;&gt;&lt;/p&gt;
 &lt;p&gt;На гифке выше - neofetch выводит название ОС, имя хоста, shell, разрешение экрана, оконный менеджер, gtk тему, иконки и название терминала. Чуть ниже расположена полоска с цветами, отображающая цветовую схему терминала.  Однако можно вывести куда больше информации, и на этом этапе вы можете начать разбираться с конфигурационным файлом. Как правило он лежит в директории ~/.config/neofetch . Если такой директории нет, то создайте её и в ней пропишите конфиг в файле config.conf.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;vim ~ /.config/neofetch/config.conf
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;vim ~ /.config/neofetch/config.conf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Однако мне захотелось сделать свою версию на python. И для начала я отправился на github и нашёл там уже готовое решение,правда для MacOs.  И естественно оно не заработало на linux, даже не смотря то, что это схожие системы с точки зрения UNIX.  И потому было принято решение переписать эту программу.&lt;/p&gt;
 &lt;p&gt;Я не стал менять архитектуру скрипта, а просто изменил системные вызовы , подходящиe для linux систем.&lt;/p&gt;
 &lt;h3 id=&#34;модули&#34;&gt;Модули&lt;/h3&gt;
@@ -44,108 +44,108 @@ sudo apt install neofetch
 &lt;p&gt;Давайте определим локальный ip адрес. Сделаем мы это при помощи модуля socket.&lt;/p&gt;
 &lt;p&gt;Создаём функцию &lt;strong&gt;local_ip&lt;/strong&gt;, ищем локальный адрес, открывая localhost и перебирая порты. Функция сохраняет значение, которые в последствии мы выведем пользователю на экран. Если же по каким-то причинам нам это не удалось, то функция сохраняет значение &lt;strong&gt;None&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;По такому же принципу работают и остальные модули, которые обозначены ниже.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;local_ip&lt;/span&gt;():
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;local_ip&lt;/span&gt;():
    &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
        s &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;socket(socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;AF_INET, socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;SOCK_DGRAM)
        s&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connect((&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;8.8.8.8&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;))
        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; s&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;getsockname()[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]
    &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
-       &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+       &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;имя-хоста&#34;&gt;Имя хоста&lt;/h4&gt;
 &lt;p&gt;В функции &lt;strong&gt;host_name&lt;/strong&gt; через &lt;strong&gt;socket.gethostname()&lt;/strong&gt; определяем имя хоста.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;host_name&lt;/span&gt;():
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;host_name&lt;/span&gt;():
     &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;gethostname()
     &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;операционная-система&#34;&gt;Операционная система&lt;/h4&gt;
 &lt;p&gt;Чтобы определить операционную систему воспользуемся специальной библиотекой - platform.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;os_version&lt;/span&gt;():
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;os_version&lt;/span&gt;():
     &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; platform&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;linux_distribution(distname&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;, version&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;, id&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;, supported_dists&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;SuSE&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;debian&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;redhat&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mandrake&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;), full_distribution_name&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
 
 
     &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;разрешение-экрана&#34;&gt;Разрешение экрана&lt;/h4&gt;
 &lt;p&gt;Давайте теперь узнаем разрешение экрана. Сделаем мы это при помощи библиотеки subprocess, которой мы воспользуемся ещё не раз. Главным для нас являтся &lt;strong&gt;subprocess.check_output&lt;/strong&gt; , который позволяет прямо из python выполнять команды &lt;strong&gt;sh&lt;/strong&gt;. Чтобы выяснить разрешение в терминале можно ввести команду :&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;xrandr
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;xrandr
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;А в своём python скрипте мы напишем следущее:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;screen_size&lt;/span&gt;():
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;screen_size&lt;/span&gt;():
     &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; subprocess&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;check_output([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xrandr | grep &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;], shell&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;True)
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; subprocess&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;check_output([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xrandr | grep &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;], shell&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)
     &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Однако в выводе терминала мы получаем следущее&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt; b&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;   1280x1024     60.02*+  75.02  \n&amp;#39;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt; b&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;   1280x1024     60.02*+  75.02  \n&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;На мой взгляд это выглядит некрасиво. Потому давайте поправим эту ситуацию. Мы просто декодируем вывод  в удобо-читаемый формат.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Итоговая конструкции выглядит следующим образом:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;screen_size&lt;/span&gt;():
     &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; subprocess&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;check_output([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xrandr | grep &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;], shell&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;True)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;)
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; subprocess&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;check_output([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;xrandr | grep &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;], shell&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;)
     &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;uptime&#34;&gt;Uptime&lt;/h4&gt;
 &lt;p&gt;Через тот же модуль узнаем uptime - время проведённое за текущей сессией. Команда uptime выведет нам крайне много информации, которая на мой взгляд лишняя. Потому я добавил префикс -p , что является сокращением от pretty. Основываясь на опыте написания предыдущего модуля, добавляем &lt;strong&gt;.decode(&amp;lsquo;utf-8&amp;rsquo;)&lt;/strong&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;uptime&lt;/span&gt;():
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;uptime&lt;/span&gt;():
     &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; subprocess&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;check_output([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;uptime -p&amp;#34;&lt;/span&gt;], shell&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;True)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;)
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; subprocess&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;check_output([&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;uptime -p&amp;#34;&lt;/span&gt;], shell&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;utf-8&amp;#39;&lt;/span&gt;)
     &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;shell&#34;&gt;Shell&lt;/h4&gt;
 &lt;p&gt;Название shell узнаем при помощи библиотеки &lt;strong&gt;os&lt;/strong&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;shell&lt;/span&gt;():
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;shell&lt;/span&gt;():
     &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;environ&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;SHELL&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;)
     &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;ядро&#34;&gt;Ядро&lt;/h4&gt;
 &lt;p&gt;Версию ядра можно вывести при помощи &lt;strong&gt;platform&lt;/strong&gt; - библиотеки,которая может нам рассказать много интересного об установленном билде python, платформе на которую установлен язык. Также эта библиотека может показать нам версию ядра, и неважно будет оно &amp;ldquo;ванильным&amp;rdquo; или пропатченным каким-либо мейнтейнером.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;kernel&lt;/span&gt;():
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;kernel&lt;/span&gt;():
     &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; platform&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;release()
     &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;архитектура-процессора&#34;&gt;Архитектура процессора&lt;/h4&gt;
 &lt;p&gt;Скажу честно, адекватно выводить название процессора и его поколение я не научился (я работаю над этим). Однако без каких-либо проблем я могу выводить название архитектуры процессора. Так как в наличии у меня только компьютер с архитектурой &lt;strong&gt;x86_64&lt;/strong&gt;, то и тестировалась эта функция на предмет вывода &lt;strong&gt;x86_64&lt;/strong&gt;. Если у вас есть устройства на базе других архитектур: &lt;em&gt;arm&lt;/em&gt;, &lt;em&gt;powerpc&lt;/em&gt; и прочих, то прошу вас протестировать. В случае проблем откройте тикет на github в &lt;a href=&#34;https://github.com/DanteAlighierin/PyQr&#34;&gt;соотвествующем репозитории&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cpu_spec&lt;/span&gt;():
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;cpu_spec&lt;/span&gt;():
     &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; platform&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;processor()
     &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;dewm&#34;&gt;DE/WM&lt;/h4&gt;
 &lt;p&gt;Теперь выведем &lt;strong&gt;Desktop environment(DE)&lt;/strong&gt; и &lt;strong&gt;window manager(WM)&lt;/strong&gt;.  &lt;strong&gt;os.environ.get()&lt;/strong&gt; позволит нам узнать, что же у нас за окружение.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;de&lt;/span&gt;():
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;de&lt;/span&gt;():
     &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
         &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; os&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;environ&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;DESKTOP_SESSION&amp;#39;&lt;/span&gt;)
     &lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; None
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;шаблон&#34;&gt;Шаблон&lt;/h3&gt;
 &lt;p&gt;Теперь самое вкусное - шаблон. Здесь в виде &lt;em&gt;ascii&lt;/em&gt; мы нарисуем пингвинчика &lt;strong&gt;Tux&lt;/strong&gt; - символа linux,  гапсы для вывода информации,которыю мы собирали модулями, а также цветовую палитру.&lt;/p&gt;
 &lt;p&gt;Создаём константу &lt;strong&gt;TEMPLATE&lt;/strong&gt; в которой мы выводим информацию на экран. Однако вы зададитесь вопросом, что за  &lt;strong&gt;\033[92m&lt;/strong&gt; . А я вам отвечу - это комманда позволяющая окрашивать терминал в различные цвета. Она работает и без python, можете попробовать её в  своём терминале. Её используют для проверки цветового покрытия терминала . Можете почитать об этом подробнее &lt;a href=&#34;https://stackoverflow.com/questions/287871/how-to-print-colored-text-in-terminal-in-python&#34;&gt;тут&lt;/a&gt; .&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt; TEMPLATE &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt; TEMPLATE &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;
 &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[92m       a88888.       {hostname} &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[92m      d888888b.   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m   {hostname_sep}
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[92m      d888888b.   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  OS: {os_version}
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[92m      8P&amp;#34;YP&amp;#34;Y88   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Kernel:{kernel}
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m      8|o||o|88   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Cpu architecture: {cpu}
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m      8&amp;#39;    .88   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Shell: {shell}
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m      8&amp;#39;    .88   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  DE(WM): {de}
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m      8`._.&amp;#39; Y8   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Uptime: {uptime}
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[91m     d/      `8b. &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Resolution: {size}
-&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[91m   .dP   .     Y8b&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Local IP: {local_ip}
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[92m       a88888.       &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{hostname}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[92m      d888888b.   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m   &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{hostname_sep}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[92m      d888888b.   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  OS: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{os_version}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[92m      8P&amp;#34;YP&amp;#34;Y88   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Kernel:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{kernel}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m      8|o||o|88   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Cpu architecture: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{cpu}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m      8&amp;#39;    .88   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Shell: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{shell}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m      8&amp;#39;    .88   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  DE(WM): &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{de}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m      8`._.&amp;#39; Y8   &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Uptime: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{uptime}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[91m     d/      `8b. &lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Resolution: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{size}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[91m   .dP   .     Y8b&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[0m&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[93m  Local IP: &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{local_ip}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[91m   d8:&amp;#39;   &amp;#34;   `::88b.
 &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[95m  d8&amp;#34;           `Y88b
 &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[95m :8P     &amp;#39;       :888
@@ -160,7 +160,7 @@ sudo apt install neofetch
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;вывод-информации&#34;&gt;Вывод информации&lt;/h3&gt;
 &lt;p&gt;Ну и на последок нам стоит привести выше изложенный &lt;em&gt;template&lt;/em&gt; в работоспособное состояние. Просто обозначаем команду вывода в которой указываем что хотим вывести - сохранённые значения функций и &lt;em&gt;сепаратор&lt;/em&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(TEMPLATE&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;format(hostname &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; host_name(),
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;print(TEMPLATE&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;format(hostname &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; host_name(),
        hostname_sep &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;-&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; len(host_name()),
        os_version&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;os_version(),
        kernel&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;kernel(),
@@ -174,7 +174,7 @@ sudo apt install neofetch
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;и-что-в-итоге&#34;&gt;И что в итоге?&lt;/h3&gt;
 &lt;p&gt;Сохранив скрипт и запустив его, мы получаем следующий результат:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/neo_py.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/neo_py.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Ну и по традиции прилагаю репозиторий на &lt;a href=&#34;https://github.com/DanteAlighierin/PyQr&#34;&gt;GitHub&amp;rsquo;е&lt;/a&gt; .&lt;/p&gt;
 
         
@@ -183,10 +183,10 @@ sudo apt install neofetch
     
     <item>
       <title>Автоматизируем решение капчи</title>
-      <link>https://dantealighierin.github.io/post/rucaptcha/</link>
+      <link>https://dantealighierin.github.io/post/post/rucaptcha/</link>
       <pubDate>Tue, 31 Mar 2020 17:10:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/rucaptcha/</guid>
+      <guid>https://dantealighierin.github.io/post/post/rucaptcha/</guid>
       <description>
         
           
@@ -195,7 +195,7 @@ sudo apt install neofetch
         
         
         &lt;p&gt;&lt;strong&gt;НА ПРАВАХ РЕКЛАМЫ&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/captcha.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/captcha.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Привет! Думаю, что тебя раздражает каждый раз вводить капчу при входе на любимый сайт. И было бы логично предположить, что существует сервис  для решения этой проблемы.  И действительно, такой есть.&lt;/p&gt;
 &lt;p&gt;Согласно описанию на сайте:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -218,33 +218,33 @@ sudo apt install neofetch
 &lt;p&gt;найди форму для текста&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;textarea&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;g-recaptcha-response&amp;#34;&lt;/span&gt; 
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;textarea&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;id&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;g-recaptcha-response&amp;#34;&lt;/span&gt; 
 &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;g-recaptcha-response&amp;#34;&lt;/span&gt; 
 &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;g-recaptcha-response&amp;#34;&lt;/span&gt; 
 &lt;span style=&#34;color:#a6e22e&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;width: 250px; height: 40px;
 &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;border: 1px solid #c1c1c1; margin: 10px 25px; 
 &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;padding: 0px; resize: none; &amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;textarea&lt;/span&gt;&amp;gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/gkey.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/gkey.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Сюда тебе нужно будет вставить ответ от сервиса.&lt;/p&gt;
 &lt;h3 id=&#34;установка&#34;&gt;Установка&lt;/h3&gt;
 &lt;p&gt;Но всё это не &amp;ldquo;торт&amp;rdquo;. Настоящие программисты всё автоматизируют. Потому давайте напишем программу антикапчу на python, используя соответствующую библиотеку.
-&lt;img src=&#34;https://dantealighierin.github.io/images/robot_captcha.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://dantealighierin.github.io/post/images/robot_captcha.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Установить модуль можно следующими методами:&lt;/p&gt;
 &lt;h4 id=&#34;через-pip&#34;&gt;Через pip&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pip3 install python-rucaptcha
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pip3 install python-rucaptcha
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Хотя на страничке github указан pip, у меня он не нашёл соответствующий пакет. Потому я всё сделал через pip3(видимо разработчики решили использовать актуальную ветку python, а не устаревшую).&lt;/p&gt;
 &lt;h4 id=&#34;или-собрав-из-исходников&#34;&gt;Или собрав из исходников&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone https://github.com/AndreiDrang/python-rucaptcha.git
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git clone https://github.com/AndreiDrang/python-rucaptcha.git
 cd python-rucaptcha
 python setup.py install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;примеры-работы&#34;&gt;Примеры работы&lt;/h3&gt;
 &lt;p&gt;Как вариант можно воспользоваться Callback API.
 Однако в таком случае  тесты проводяться на локальном сервере, эмулируя POST-запросы от RuCaptcha при помощи локального клиента. Принцип работы ты можешь увидеть на схеме ниже&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/rest.svg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/rest.svg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Однако этот способ не рационален, т.к для решения небольшой проблемы мы поднимаем сервер, пускай и небольшой.&lt;/p&gt;
 &lt;p&gt;Всё можно сделать гораздо проще:&lt;/p&gt;
 &lt;h4 id=&#34;простая-капча&#34;&gt;Простая капча&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; ImageCaptcha
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; ImageCaptcha
 &lt;span style=&#34;color:#75715e&#34;&gt;# Введите ключ от сервиса RuCaptcha, из своего аккаунта&lt;/span&gt;
 RUCAPTCHA_KEY &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# Ссылка на изображения для расшифровки&lt;/span&gt;
@@ -254,14 +254,14 @@ user_answer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ImageCaptch
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# решение капчи&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
 &lt;span style=&#34;color:#66d9ef&#34;&gt;elif&lt;/span&gt; user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# Тело ошибки, если есть&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;])
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;keycaptcha&#34;&gt;KeyCaptcha&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; KeyCaptcha
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; KeyCaptcha
 &lt;span style=&#34;color:#75715e&#34;&gt;# Введите ключ от сервиса RuCaptcha, из своего аккаунта&lt;/span&gt;
 RUCAPTCHA_KEY &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
 
@@ -278,14 +278,14 @@ answer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; KeyCaptcha&lt;sp
 &lt;span style=&#34;color:#75715e&#34;&gt;# капча решена верно, ошибка = 0&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# решение капчи&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
+	print(answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
+	print(answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
 &lt;span style=&#34;color:#75715e&#34;&gt;# во время решения капчи возникли ошибки, ошибка = 1&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;elif&lt;/span&gt; answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# Тело ошибки, если есть&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;])
+	print(answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;])
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;recaptcha-v2&#34;&gt;ReCaptcha v.2&lt;/h4&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; ReCaptchaV2
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; ReCaptchaV2
 &lt;span style=&#34;color:#75715e&#34;&gt;# Введите ключ от сервиса RuCaptcha, из своего аккаунта&lt;/span&gt;
 RUCAPTCHA_KEY &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# G-ReCaptcha ключ сайта&lt;/span&gt;
@@ -298,15 +298,15 @@ user_answer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ReCaptchaV2
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# решение капчи&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
 &lt;span style=&#34;color:#66d9ef&#34;&gt;elif&lt;/span&gt; user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# Тело ошибки, если есть&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;])
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;recaptcha-v3&#34;&gt;ReCaptcha v.3&lt;/h4&gt;
 &lt;p&gt;До этого момента я не показывал работу на реальных примерах. Т.к у всех решений схожая структура: вы вводите URL, ключ, который вы получили на сайте. Я решил показать решение реальной задачи на капче третей версии:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; ReCaptchaV3
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; python_rucaptcha &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; ReCaptchaV3
 &lt;span style=&#34;color:#75715e&#34;&gt;# Введите ключ от сервиса RuCaptcha, из своего аккаунта&lt;/span&gt;
 RUCAPTCHA_KEY &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# G-ReCaptcha ключ сайта&lt;/span&gt;
@@ -325,21 +325,21 @@ user_answer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ReCaptchaV3
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# решение капчи&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user_check&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user_score&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;captchaSolve&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;taskId&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user_check&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;user_score&amp;#39;&lt;/span&gt;])
 &lt;span style=&#34;color:#66d9ef&#34;&gt;elif&lt;/span&gt; user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;error&amp;#39;&lt;/span&gt;]:
 	&lt;span style=&#34;color:#75715e&#34;&gt;# Тело ошибки, если есть&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;])
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;])
+	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;])
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;В качестве тестового полигона будем использовать
 &lt;a href=&#34;https://patrickhlauke.github.io/recaptcha/&#34;&gt;следующий сайт&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/site_captcha.png&#34; alt=&#34;&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/site_captcha.png&#34; alt=&#34;&#34;&gt;
 Подставим необходимые данные в наш код:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/blur_key.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/blur_key.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Задача решена:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/cheers.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/cheers.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;цена-вопроса&#34;&gt;Цена вопроса&lt;/h3&gt;
 &lt;p&gt;Отдельно стоит отметить, что стоимость распознавания очень низка, от $0,0005 за одну капчу. Для удобства, все цены указываются за распознавание 1000 капч, но биллинг в системе происходит отдельно по каждой капче. Разные типы капч распознаются по разной цене.&lt;/p&gt;
 &lt;ul&gt;
@@ -361,10 +361,10 @@ user_answer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ReCaptchaV3
     
     <item>
       <title>Простой мессенджер на tkinter,socket и threading</title>
-      <link>https://dantealighierin.github.io/post/chat/</link>
+      <link>https://dantealighierin.github.io/post/post/chat/</link>
       <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/chat/</guid>
+      <guid>https://dantealighierin.github.io/post/post/chat/</guid>
       <description>
         
           
@@ -372,16 +372,16 @@ user_answer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ReCaptchaV3
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/chat.png/&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/chat.png/&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;В этой статье я бы хотел показать как написать простое приложение мессенджер менее чем в 150 строк.&lt;/p&gt;
 &lt;h3 id=&#34;серверная-часть&#34;&gt;Серверная часть&lt;/h3&gt;
 &lt;p&gt;Начнём с сервера(наше  приложение будет состоять из скриптов сервера и клиента), через который можно получать входящие запросы от клиентов, желающих общаться.  Традиционно указываем путь до интерпретатора и импортируем необходимые модули. Конкретно socket и threading. Первый отвечает непосредственно за &amp;ldquo;общение&amp;rdquo; процесссов между собой, второй за многопоточность. О этих модулях подробно можно почитать например здесь - &lt;a href=&#34;https://habr.com/ru/post/149077/&#34;&gt;socket&lt;/a&gt; , &lt;a href=&#34;https://habr.com/ru/post/149420/&#34;&gt;threading&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Использование фреймворков, таких как Twisted и SocketServer, было возможным, но мне показалось это излишним для такого простого программного обеспечения, как наше.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; socket &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; AF_INET, socket, SOCK_STREAM
 &lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; threading &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Thread
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Давайте обозначим константы, отвечающие например за адрес порта и размер буфера.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;clients &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {}
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;clients &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {}
 addresses &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {}
 HOST &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
 PORT &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;33000&lt;/span&gt;
@@ -390,43 +390,43 @@ ADDR &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (HOST, PORT)
 SERVER &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; socket(AF_INET, SOCK_STREAM)
 SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bind(ADDR)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Теперь мы разбиваем нашу задачу на прием новых соединений, рассылку сообщений и обработку определенных клиентов. Давайте начнем с принятия соединений:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;accept_incoming_connections&lt;/span&gt;():
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;accept_incoming_connections&lt;/span&gt;():
     &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Настраивает обработку для входящих клиентов.&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; True:
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;:
         client, client_address &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;accept()
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; присоединился к переписке&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; client_address)
+        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; присоединился к переписке&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; client_address)
         client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Привет!&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;
                           &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Введи своё имя и нажми Enter&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
         addresses[client] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client_address
         Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;handle_client, args&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;(client,))&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Это просто цикл, который всегда ждет входящих соединений и, как только он его получает, регистрирует соединение (печатает некоторые сведения о соединении) и отправляет подключенному клиенту приветствие. Затем он сохраняет адрес клиента и позже запускает поток обработки для этого клиента. Конечно, мы еще не определили для этого целевую функцию &lt;em&gt;handle_client ()&lt;/em&gt;, но вот как мы это сделаем:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;handle_client&lt;/span&gt;(client):
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;handle_client&lt;/span&gt;(client):
      name &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;recv(BUFSIZ)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;)
-    welcome &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Добро пожаловать &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;! если желаете покинуть чат то, нажмите {quit} чтобы выйти.&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; name
+    welcome &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Добро пожаловать &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;! если желаете покинуть чат то, нажмите &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{quit}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; чтобы выйти.&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; name
     client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(welcome, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
     msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; Теперь в переписке&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; name
     broadcast(bytes(msg, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
     clients[client] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; name
-     &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; True:
+     &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;:
         msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;recv(BUFSIZ)
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; msg &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;):
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; msg &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{quit}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;):
             broadcast(msg, name&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;: &amp;#34;&lt;/span&gt;)
         &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
-            client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
+            client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{quit}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
             client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;close()
             &lt;span style=&#34;color:#66d9ef&#34;&gt;del&lt;/span&gt; clients[client]
             broadcast(bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; покинул переписку.&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; name, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
             &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Естественно, после того, как мы отправим новому клиенту приветственное сообщение, он ответит именем, которое он хочет использовать для дальнейшего общения. В функции &lt;em&gt;handle_client ()&lt;/em&gt; первая задача, которую мы делаем, - мы сохраняем это имя, а затем отправляем клиенту еще одно сообщение о дальнейших инструкциях. После этого идет основной цикл: здесь мы получаем дополнительные сообщения от клиента и, если сообщение не содержит инструкций для выхода, мы просто передаем сообщение другим подключенным клиентам (мы определим метод широковещания через минуту ). Если мы сталкиваемся с сообщением с инструкциями выхода (то есть клиент отправляет &lt;em&gt;{quit}&lt;/em&gt;), мы возвращаем то же самое сообщение клиенту, а затем мы закрываем сокет подключения для него. Затем мы делаем очистку, удаляя запись для клиента, и, наконец, сообщаем другим связанным людям, что этот конкретный человек покинул чат.&lt;/p&gt;
 &lt;p&gt;Теперь пропишем функцию &lt;em&gt;broadcast ()&lt;/em&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;broadcast&lt;/span&gt;(msg, prefix&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;):
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;broadcast&lt;/span&gt;(msg, prefix&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;):
      &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; sock &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; clients:
         sock&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(prefix, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;msg)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Эта функция просто отправляет сообщение всем подключенным клиентам и при необходимости добавляет дополнительный префикс. Мы передаем префикс для &lt;em&gt;broadcast ()&lt;/em&gt; в нашей функции &lt;em&gt;handle_client ()&lt;/em&gt; и делаем это так, чтобы люди могли точно знать, кто является отправителем конкретного сообщения.
 Это были все необходимые функции для нашего сервера. Наконец, мы добавили код для запуска нашего сервера и прослушивания входящих соединений:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;__main__&amp;#34;&lt;/span&gt;:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;__main__&amp;#34;&lt;/span&gt;:
     SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;listen(&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;)
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Ожидание соединения&amp;#34;&lt;/span&gt;)
+    print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Ожидание соединения&amp;#34;&lt;/span&gt;)
     ACCEPT_THREAD &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;accept_incoming_connections)
     ACCEPT_THREAD&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()  &lt;span style=&#34;color:#75715e&#34;&gt;# Бесконечный цикл.&lt;/span&gt;
     ACCEPT_THREAD&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join()
@@ -434,14 +434,14 @@ SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bind(ADDR)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Мы присоединяемся к &lt;em&gt;ACCEPT_THREAD&lt;/em&gt;, чтобы основной скрипт ожидал его завершения и не переходил на следующую строку, которая закрывает сервер.
 Это завершает наш серверный скрипт.&lt;/p&gt;
 &lt;p&gt;В итоге получаем вот такой код для серверной части:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; socket &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; AF_INET, socket, SOCK_STREAM
 &lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; threading &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Thread
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;accept_incoming_connections&lt;/span&gt;():
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; True:
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;:
         client, client_address &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;accept()
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; соединено&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; client_address)
+        print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;:&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; соединено&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; client_address)
         client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Добро пожаловать , введите своё имя и нажмите Enter&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
         addresses[client] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client_address
         Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;handle_client, args&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;(client,))&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()
@@ -449,18 +449,18 @@ SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bind(ADDR)
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;handle_client&lt;/span&gt;(client):  
     name &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;recv(BUFSIZ)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;)
-    welcome &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Добро пожаловать &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;! Если желаете выйти,то нажмите {quit} чтобы выйти.&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; name
+    welcome &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Добро пожаловать &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;! Если желаете выйти,то нажмите &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{quit}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; чтобы выйти.&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; name
     client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(welcome, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
     msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; вступил в переписку&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; name
     broadcast(bytes(msg, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
     clients[client] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; name
 
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; True:
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;:
         msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;recv(BUFSIZ)
-        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; msg &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;):
+        &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; msg &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{quit}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;):
             broadcast(msg, name&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;: &amp;#34;&lt;/span&gt;)
         &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
-            client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
+            client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{quit}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
             client&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;close()
             &lt;span style=&#34;color:#66d9ef&#34;&gt;del&lt;/span&gt; clients[client]
             broadcast(bytes(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; покинул переписку&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt; name, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
@@ -486,22 +486,22 @@ SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bind(ADDR)
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;__main__&amp;#34;&lt;/span&gt;:
     SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;listen(&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;)
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ожидание соединения&amp;#34;&lt;/span&gt;)
+    print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ожидание соединения&amp;#34;&lt;/span&gt;)
     ACCEPT_THREAD &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;accept_incoming_connections)
     ACCEPT_THREAD&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()
     ACCEPT_THREAD&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;join()
     SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;close()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;клиентская-часть&#34;&gt;Клиентская часть###&lt;/h3&gt;
 &lt;p&gt;Теперь приступим к наиболее интересной части нашего приложения - к клиенту. В качестве gui будем использовать tkinter, т.к в нём довольно легко построить несложное приложение. Традиционно импортируем модуль tkinter, а также модули использовавшиеся ранее при написании серверной части программы.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
 
 &lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; socket &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; AF_INET, socket, SOCK_STREAM
 &lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; threading &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Thread
 &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; tkinter
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Теперь мы напишем функции для обработки отправки и получения сообщений. Начнем с получения:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;receive&lt;/span&gt;():
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;receive&lt;/span&gt;():
     &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;обработка получения сообщений&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; True:
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;:
         &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
             msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;recv(BUFSIZ)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;)&lt;span style=&#34;color:#75715e&#34;&gt;# декодируем,чтобы не получить кракозябры&lt;/span&gt;
             msg_list&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;insert(tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;END, msg)
@@ -510,30 +510,30 @@ SERVER&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bind(ADDR)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Почему  мы снова используем бесконечный цикл? Потому что мы будем получать сообщения совершенно независимо от того, как и когда мы отправляем сообщения. Мы не хотим, чтобы это было приложение для чата с функциональностью уровня рации. Мы хотим приложение в котором можно отправлять или получать сообщения одновременно; мы хотим получать сообщения, когда сами того пожелаем, и отправлять их, когда захотим.&lt;/p&gt;
 &lt;p&gt;Функциональность внутри цикла довольно проста; &lt;em&gt;recv ()&lt;/em&gt; является блокирующей частью. Он останавливает выполнение до тех пор, пока не получит сообщение, а когда это произойдет, мы продвигаемся вперед и добавляем сообщение в &lt;em&gt;msglist&lt;/em&gt;. Затем мы определяем &lt;em&gt;msg_list&lt;/em&gt;, который является функцией Tkinter для отображения списка сообщений на экране.
 Далее мы определим функцию &lt;em&gt;send ()&lt;/em&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;send&lt;/span&gt;(event&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;None):
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;send&lt;/span&gt;(event&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;):
     &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;обработка отправленных сообщений&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
     msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get()
     my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;)  &lt;span style=&#34;color:#75715e&#34;&gt;# очищаем поле.&lt;/span&gt;
     client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(msg, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; msg &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;:
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; msg &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{quit}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;:
         client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;close()
         top&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;quit()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;my_msg&lt;/em&gt; - это поле ввода в графическом интерфейсе, и поэтому мы извлекаем сообщение для отправки с помощью &lt;em&gt;msg = my_msg.get ()&lt;/em&gt;. После этого мы очищаем поле ввода и затем отправляем сообщение на сервер, который, как мы видели ранее, передает это сообщение всем клиентам (если это не сообщение о выходе). Если это сообщение о выходе, мы закрываем сокет, а затем приложение с графическим интерфейсом (через &lt;em&gt;top.close ()&lt;/em&gt;)&lt;/p&gt;
 &lt;p&gt;Мы определяем еще одну функцию, которая будет вызываться, когда мы решим закрыть окно с GUI. Это своего рода функция очистки до закрытия, которая закрывает соединение с сокетом до закрытия графического интерфейса:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;on_closing&lt;/span&gt;(event&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;None):
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;on_closing&lt;/span&gt;(event&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;):
     &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Эта функция вызывается когда закрывается окно&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-    my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;)
+    my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{quit}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
     send()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Это устанавливает в поле ввода значение &lt;em&gt;{quit}&lt;/em&gt;, а затем вызывает &lt;em&gt;send ()&lt;/em&gt;. Начнем с определения виджета верхнего уровня и установки его заголовка, как и в любой другой программе на tkinter:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;top &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Tk()
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;top &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Tk()
 top&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;title(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;TkMessenger&amp;#34;&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Затем создаём фрейм со списком сообщений, поле для ввода сообщений и скроллбар для перемещения по истории переписки&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;messages_frame &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Frame(top)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;messages_frame &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Frame(top)
 my_msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;StringVar()
 my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Введите ваше сообщение здесь.&amp;#34;&lt;/span&gt;)
 scrollbar &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Scrollbar(messages_frame)&lt;span style=&#34;color:#75715e&#34;&gt;#скроллбар&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&amp;ldquo;Упаковываем&amp;rdquo; наши элементы и размечаем их расположение в окне:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;msg_list &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Listbox(messages_frame, height&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;, width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;, yscrollcommand&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;scrollbar&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;msg_list &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Listbox(messages_frame, height&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt;, width&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;50&lt;/span&gt;, yscrollcommand&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;scrollbar&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set)
 scrollbar&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack(side&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;RIGHT, fill&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Y)
 msg_list&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack(side&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;LEFT, fill&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;BOTH)
 msg_list&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack()
@@ -541,14 +541,14 @@ messages_frame&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;После этого мы создаем поле ввода для пользователя, чтобы ввести свое сообщение, и привязать его к строковой переменной, определенной выше. Мы также привязываем его к функции &lt;em&gt;send ()&lt;/em&gt;, чтобы всякий раз, когда пользователь нажимает &lt;em&gt;return&lt;/em&gt;, сообщение отправлялось на сервер.&lt;/p&gt;
 &lt;p&gt;Далее мы создаем кнопку отправки, если пользователь желает отправить свои сообщения, нажав на нее. Опять же, мы связываем нажатие этой кнопки с функцией &lt;em&gt;send ()&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;И да, мы также упаковываем все то, что создали только сейчас. Кроме того, не забудьте использовать функцию очистки &lt;em&gt;on_closing ()&lt;/em&gt;, которая должна вызываться, когда пользователь хочет закрыть окно GUI:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;entry_field &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Entry(top, textvariable&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;my_msg)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;entry_field &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Entry(top, textvariable&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;my_msg)
 entry_field&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;bind(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;lt;Return&amp;gt;&amp;#34;&lt;/span&gt;, send)
 entry_field&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack()
 send_button &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Button(top, text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;отправить&amp;#34;&lt;/span&gt;, command&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;send)
 send_button&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack()
 top&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;protocol(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;WM_DELETE_WINDOW&amp;#34;&lt;/span&gt;, on_closing)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;И вот мы подходим к завершению. Мы еще не написали код для подключения к серверу. Для этого мы должны запросить у пользователя адрес сервера. Я сделал это, просто используя &lt;em&gt;input ()&lt;/em&gt;, чтобы пользователь встретился с подсказкой командной строки, запрашивающей адрес хоста перед запуском окна с графическим интерфейсом. В будущем можно добавить виджет для этой цели. А пока вот так:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;HOST &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Введите хост: &amp;#39;&lt;/span&gt;)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;HOST &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Введите хост: &amp;#39;&lt;/span&gt;)
 PORT &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;Введите порт: &amp;#39;&lt;/span&gt;)
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; PORT:
     PORT &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;33000&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Стандартный порт&lt;/span&gt;
@@ -559,19 +559,19 @@ ADDR &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (HOST, PORT)
 client_socket &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; socket(AF_INET, SOCK_STREAM)
 client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connect(ADDR)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Как только мы получаем адрес и создаем сокет для подключения к нему, мы запускаем поток для получения сообщений, а затем основной цикл для нашего приложения с графическим интерфейсом:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/chat.gif&#34; alt=&#34;chat_app_gif&#34;&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;receive_thread &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;receive)
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/chat.gif&#34; alt=&#34;chat_app_gif&#34;&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;receive_thread &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;receive)
 receive_thread&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()
 tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Вот и всё! Теперь наш скрипт клиентской части выглядит вот так:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/env python3&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; socket &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; AF_INET, socket, SOCK_STREAM
 &lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; threading &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Thread
 &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; tkinter
 
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;receive&lt;/span&gt;():
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; True:
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;True&lt;/span&gt;:
         &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt;:
             msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;recv(BUFSIZ)&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;decode(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;)
             msg_list&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;insert(tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;END, msg)
@@ -579,17 +579,17 @@ tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
             &lt;span style=&#34;color:#66d9ef&#34;&gt;break&lt;/span&gt;
 
 
-&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;send&lt;/span&gt;(event&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;None):
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;send&lt;/span&gt;(event&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;):
     msg &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get()
     my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;)
     client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;send(bytes(msg, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;utf8&amp;#34;&lt;/span&gt;))
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; msg &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;:
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; msg &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{quit}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;:
         client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;close()
         top&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;quit()
 
 
-&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;on_closing&lt;/span&gt;(event&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;None):
-    my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;{quit}&amp;#34;&lt;/span&gt;)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;on_closing&lt;/span&gt;(event&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;):
+    my_msg&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;set(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;{quit}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;)
     send()
 
 top &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Tk()
@@ -638,10 +638,10 @@ tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
     
     <item>
       <title> &#39;Я скорость&#39; или что такое rPython</title>
-      <link>https://dantealighierin.github.io/post/rpython/</link>
+      <link>https://dantealighierin.github.io/post/post/rpython/</link>
       <pubDate>Mon, 10 Feb 2020 17:25:04 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/rpython/</guid>
+      <guid>https://dantealighierin.github.io/post/post/rpython/</guid>
       <description>
         
           
@@ -649,26 +649,26 @@ tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/speed_py.png&#34; alt=&#34;python_speed&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/speed_py.png&#34; alt=&#34;python_speed&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Python существует уже много лет и за всё это время Гвидо ван Россум и другие разработчики этого языка стремились к созданию чистого дизайна языка. Для этого нужно было описать язык его же терминами. И по понятным причинам интерпретаторы на C(Cpython - самая популярная и на данный момент эталонная реализация) , Java(Jython) , на стеке .NET(IronPython)не подходят. Собственно нужна была реализация на самом питоне. И тут миру явился PyPy.&lt;/p&gt;
 &lt;p&gt;Проект PyPy реализован не на самом python , как это может показаться на первый взгляд, а на его подмножестве rPython. По своей задумке PyPy  можно назвать средой исполнения к которой можно подключать любой другой язык. К примеру для повышения производительности можно создавать эффективные и низкоуровневые оптимизаторы, средством JIT(just in time compilation). Данная технология используется не только в питоне, но и в Java.&lt;/p&gt;
 &lt;p&gt;Однако в этой статье я бы хотел поговорить не о самом PyPy, а о том на чём непосредственно написан PyPy - подмножестве rPython. И не смотря на всего его преимущества, понять и начать работать с rPython не так уж и просто. По тому давайте рассмотрим пару примеров.&lt;/p&gt;
 &lt;h1 id=&#34;cтатическая-типизация&#34;&gt;Cтатическая типизация&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/type_py.png&#34; alt=&#34;Type_py&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/type_py.png&#34; alt=&#34;Type_py&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Не смотря на то, что с python я столкнулся раньше других языков. На статическую типизацию я впервые обратил внимание в TypeScript - расширении языка JavaScript для работы со статически типизированными данными. Но тем не менее давайте перейдём к нашему основному пациенту.&lt;/p&gt;
 &lt;p&gt;Основной код пишем в теле главной функции, остальные функции пишем вне тела.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(argv):
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(argv):
   &lt;span style=&#34;color:#75715e&#34;&gt;#пиши весь код сюда&lt;/span&gt;
   &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;target&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;args):
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; main, None
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; main, &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; __name__ &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;:
   &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; sys
   main(sys&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;argv)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Cкомпилировать код можно после установки PyPy:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd Downloads/
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;cd Downloads/
 wget https://bitbucket.org/pypy/pypy/downloads/pypy-1.6-linux.tar.bz2
 cd ../.local
 tar jxvf ~/Downloads/pypy-1.6-linux.tar.bz2
@@ -677,28 +677,28 @@ ln -s ~/.local/pypy-1.6/bin/pypy ~/.local/bin/
 &lt;p&gt;Затем желательно установить pip, если он еще не инсталлирован у вас в системе.&lt;/p&gt;
 &lt;p&gt;Как опцию, можно использовать и виртуальное окружение venv, но в маленьких и простых примерах кода я считаю это неуместным. Однако в чём-то крупном я бы его задействовал.&lt;/p&gt;
 &lt;p&gt;Давайте напишем простую функцию по подсчёту чисел.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Функция&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#Функция&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;add&lt;/span&gt;(x,y):
   &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; x &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; y
   
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt; add(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
+print add(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Однако если мы подставим данные неправильного типа(&amp;lsquo;сat&amp;rsquo;,&amp;lsquo;dog&amp;rsquo;), то получим ошибку:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;[translation:ERROR] In &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;FunctionGraph of (rptest:&lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt;)main at &lt;span style=&#34;color:#ae81ff&#34;&gt;0x103f7dc58&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;[translation:ERROR] In &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt;FunctionGraph of (rptest:&lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt;)main at &lt;span style=&#34;color:#ae81ff&#34;&gt;0x103f7dc58&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;:
 [translation:ERROR] Happened at file rptest&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;py line &lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt;
 [translation:ERROR]
-[translation:ERROR]       &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt; add(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
-[translation:ERROR] &lt;span style=&#34;color:#f92672&#34;&gt;==&amp;gt;&lt;/span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt; add(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;cat&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;dog&amp;#39;&lt;/span&gt;)
+[translation:ERROR]       print add(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
+[translation:ERROR] &lt;span style=&#34;color:#f92672&#34;&gt;==&amp;gt;&lt;/span&gt;   print add(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;cat&amp;#39;&lt;/span&gt;,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;dog&amp;#39;&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Затем удалив &lt;em&gt;add(1,2)&lt;/em&gt;, снова произойдёт компиляция. Это происходит потому, что rPython генерирует статически типизированные данные на лету, но если введённые данные отличаются от ожидаемых, то компилятор выведет вам ошибку.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Совет: &lt;strong&gt;Запоминай и правильно используй типы данных&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Функции&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Многие стандартные функции представленные в стандартной реализации могут не работать в rPython.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bird&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split()&lt;span style=&#34;color:#75715e&#34;&gt;#Работать в rPython не будет&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bird&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split()&lt;span style=&#34;color:#75715e&#34;&gt;#Работать в rPython не будет&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;А вот:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bird&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;)&lt;span style=&#34;color:#75715e&#34;&gt;#Будет работать в rPython&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bird&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;)&lt;span style=&#34;color:#75715e&#34;&gt;#Будет работать в rPython&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;а-что-на-счёт-лямбды&#34;&gt;А что на счёт лямбды?&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/lambda_py.png&#34; alt=&#34;py_lambda&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/lambda_py.png&#34; alt=&#34;py_lambda&#34;&gt;
 К сожалению или к счастью лямбды в rPython работать не будут. В место них нужно использовать  классические функции.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;map&lt;/span&gt;(fun,ls):
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;map&lt;/span&gt;(fun,ls):
   nls &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
   &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; l &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; ls:
     nls&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(fun(l))
@@ -709,12 +709,12 @@ ln -s ~/.local/pypy-1.6/bin/pypy ~/.local/bin/
 
 map(add_one, [&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;])
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;операторы&#34;&gt;Операторы&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/operartorpy.png&#34; alt=&#34;operator_py&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/operartorpy.png&#34; alt=&#34;operator_py&#34;&gt;
 Следует внимательно работать в этой реализации и с операторами.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hello&lt;/span&gt;()
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hello&lt;/span&gt;()
   &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;hi&amp;#39;&lt;/span&gt;
 
-hello() &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; None
+hello() &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Если запустить этот код,то всё это дело завершиться ошибкой: *&lt;em&gt;&lt;strong&gt;MissingRTypeOperation: unimplemented operation: &amp;lsquo;eq&amp;rsquo; on (&lt;!-- raw HTML omitted --&gt;, &lt;!-- raw HTML omitted --&gt;)&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Вы можете исправить эту ошибку заменив конструкцию &lt;em&gt;==&lt;/em&gt; на &lt;em&gt;is&lt;/em&gt;.&lt;/p&gt;
 &lt;h1 id=&#34;грамотная-работа-с-rpython&#34;&gt;Грамотная работа с rPython&lt;/h1&gt;
@@ -741,10 +741,10 @@ hello() &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; None
 &lt;h1 id=&#34;cахарочку-не-желаете&#34;&gt;Cахарочку не желаете?&lt;/h1&gt;
 &lt;p&gt;&lt;img src=&#34;assets/sugarpy.png&#34; alt=&#34;sugar_py&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Думаю, что кто-то может назвать rPython проектом , привносящим синтаксический сахар. Утверждение спорное, однако некоторые вещи действительно выглядят более дружелюбно в *R реализации.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; (x &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; y) &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; hasattr(x, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__lt__&amp;#39;&lt;/span&gt;) 
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; (x &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; y) &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; hasattr(x, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;__lt__&amp;#39;&lt;/span&gt;) 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; (&lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; y &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;=&lt;/span&gt; x) &lt;span style=&#34;color:#75715e&#34;&gt;#python&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;А вот более дружелюбная версия на rPython :&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; x&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;heur() &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; y&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;heur() &lt;span style=&#34;color:#75715e&#34;&gt;#rPython&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; x&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;heur() &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; y&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;heur() &lt;span style=&#34;color:#75715e&#34;&gt;#rPython&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;бенчмарки&#34;&gt;Бенчмарки&lt;/h1&gt;
 &lt;p&gt;Согласно бенчмаркам PyPy действительно быстрее стандатного змея.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;assets/bench.png&#34; alt=&#34;bench&#34;&gt;&lt;/p&gt;
@@ -757,10 +757,10 @@ hello() &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; None
     
     <item>
       <title>Qr генератор на python</title>
-      <link>https://dantealighierin.github.io/post/qrcode/</link>
+      <link>https://dantealighierin.github.io/post/post/qrcode/</link>
       <pubDate>Mon, 03 Feb 2020 20:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/qrcode/</guid>
+      <guid>https://dantealighierin.github.io/post/post/qrcode/</guid>
       <description>
         
           
@@ -768,36 +768,36 @@ hello() &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; None
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/qr.jpg&#34; alt=&#34;qr.jpg&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/qr.jpg&#34; alt=&#34;qr.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Некоторое время назад я написал статью, где показывал построение простого виджета часов на tkinter. Если кто-то не помнит, то tkinter - это кроссплатформенная библиотека для разработки графического интерфейса на языке Python.&lt;/p&gt;
 &lt;p&gt;И в то или иное время у меня возникает потребность в написании простых программ, и неважно, будь это прямая потребность или просто желание постучать пальцами по клавиатуре. По мимо этого я люблю копаться в репозитории библиотек python.&lt;/p&gt;
 &lt;p&gt;Среди всего этого разнообразия пакетов мне приглянулся PyQRCode. Из названия очевидно, что этот пакет предназначен для работы с qr кодами. Потому давайте напишем простую программу для генерирования qr по введённому url. Сразу скажу, что напишем  две версии: консольную и с графическим интерфейсом.&lt;/p&gt;
 &lt;p&gt;Для начала давайте инсталлируем необходимый пакет:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pip install pyqrcode
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pip install pyqrcode
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Теперь перейдём непосредственно к написанию кода. Импортируем необходимые модули, при этом не забыв в начале файла прописать путь для интерпретатора:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/python3&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/usr/bin/python3&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; pyqrcode &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; create
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Прописываем приглашение в командной строке. Затем создаём переменную URL, где мы можем указать необходимый адрес, для последующей генерации qr. В данном кусочке кода create отвечает за непосредственную генерацию.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;please,type url:&amp;#34;&lt;/span&gt;)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;please,type url:&amp;#34;&lt;/span&gt;)
 url &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; create(input(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;))
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;К примеру достаточно вот такой строчки для генерации qr кода гугла:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;url &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pyqrcode&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;create(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;https://google.com&amp;#39;&lt;/span&gt;)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;url &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pyqrcode&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;create(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;https://google.com&amp;#39;&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Затем задаём параметры(например размер) отображения:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;url&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;svg(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;code.svg&amp;#39;&lt;/span&gt;, scale&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;url&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;svg(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;code.svg&amp;#39;&lt;/span&gt;, scale&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;И создаём рамки вокруг кода, если это необходимо:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(url&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;terminal(quiet_zone&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;print(url&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;terminal(quiet_zone&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Должно получиться примерно вот так:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/cli.gif&#34; alt=&#34;cliqr&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/cli.gif&#34; alt=&#34;cliqr&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Закончив с консольной версией, приступим к построению графического интерфейса. Сделаем это в отдельном файле, во благо удобства. Судя по началу статьи очевидно, что будем использовать tk.&lt;/p&gt;
 &lt;p&gt;Импортируем библиотеки&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; tkinter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; tkinter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; tkinter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; messagebox
 &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; pyqrcode
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Инициализируем окно и заголовок:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;window &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Tk() &lt;span style=&#34;color:#75715e&#34;&gt;#init&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;window &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Tk() &lt;span style=&#34;color:#75715e&#34;&gt;#init&lt;/span&gt;
 window&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;title(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;PyQr&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;#title&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Создаём функцию, где указываем все параметры, такой подход необходим для возможного дальнейшего масштабирования программы. По мимо аргументов в функции генерации создадим вывод сообщения об ошибке:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;generate&lt;/span&gt;():
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;generate&lt;/span&gt;():
 	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; len(subject&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get()) &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;:
 		&lt;span style=&#34;color:#66d9ef&#34;&gt;global&lt;/span&gt; myQr
 		myQr&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pyqrcode&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;create(subject&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get())
@@ -811,12 +811,12 @@ window&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;title(&lt;span sty
 	&lt;span style=&#34;color:#66d9ef&#34;&gt;except&lt;/span&gt;:
 		&lt;span style=&#34;color:#66d9ef&#34;&gt;pass&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Сгенерированые данные передадим функции showCode. Её задача проста - выводить qr код с введённым url:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;showCode&lt;/span&gt;():
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;showCode&lt;/span&gt;():
 	&lt;span style=&#34;color:#66d9ef&#34;&gt;global&lt;/span&gt; photo
 	notificationLabel&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;config(image&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; photo)
 	subLabel&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;config(text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Showing QR Code for: &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;subject&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get())
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Зададим формы и элементы:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;lab1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Label(window, text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Enter Subject&amp;#34;&lt;/span&gt;,  font&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;( &lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt;))
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;lab1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Label(window, text&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Enter Subject&amp;#34;&lt;/span&gt;,  font&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;( &lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt;))
 lab1&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;grid(row&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, column&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, sticky&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; N&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;S&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;E&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;W)
 
 
@@ -845,11 +845,11 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; col &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; range(totalCols&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;):
 	window&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;grid_columnconfigure(col, weight&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;И естественно прописываем mainloop:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;window&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;window&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;В итоге получаем следующее:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/gui.gif&#34; alt=&#34;gui_qr&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/gui.gif&#34; alt=&#34;gui_qr&#34;&gt;&lt;/p&gt;
 &lt;p&gt;А что если пользователю предоставить возможность выбирать режим? Рациональнее предложить интерфейс выбора, чем вручную выбирать необходимый файлик. Потому давайте создадим этот интерфейс, в файле choise.py напишем следующее:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;choise &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;CLI/gui mode?; Type C to use cli or type g to use gui:  &amp;#39;&lt;/span&gt;)
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;choise &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;CLI/gui mode?; Type C to use cli or type g to use gui:  &amp;#39;&lt;/span&gt;)
 
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; choise &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;c&amp;#34;&lt;/span&gt;:
     &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; cli
@@ -860,7 +860,7 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
 &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; choise &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;G&amp;#34;&lt;/span&gt;:
     &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; main
 &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;please, enter a valid letter&amp;#34;&lt;/span&gt;)
+    print(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;please, enter a valid letter&amp;#34;&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;А именно: делаем инпут по вопросу о выборе режима. В зависимости от выбранной буквы(в не зависимости от регистра) импортируем код либо терминальной версии  ,либо графической. В качестве cli-версии импортируем файл cli без префикса &amp;ldquo;.py&amp;rdquo;, аналогично импортируется gui(пакет main). А в случае неправильно введённой переменной просим пользователя ввести правильную букву.&lt;/p&gt;
 &lt;p&gt;Думаю, что получилось неплохо. Традиционно код программы расположен в моём &lt;a href=&#34;https://github.com/DanteAlighierin/PyQr&#34;&gt;GitHub аккаунте&lt;/a&gt;. Буду рад любым предложениям и критике , как в комментариях, так и в issues или pull request.&lt;/p&gt;
 
@@ -870,10 +870,10 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
     
     <item>
       <title>Кастомная стартовая страница для браузера</title>
-      <link>https://dantealighierin.github.io/post/custom_page/</link>
+      <link>https://dantealighierin.github.io/post/post/custom_page/</link>
       <pubDate>Sat, 14 Dec 2019 23:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/custom_page/</guid>
+      <guid>https://dantealighierin.github.io/post/post/custom_page/</guid>
       <description>
         
           
@@ -891,7 +891,7 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
 &lt;p&gt;Однако на мой взгляд всё это выглядит слишком перегружено,а потому хотелось бы чего-нибудь более минималистичного. Но ничего не мешает написать свою собственную.К тому же, стартовая страница браузера - это всего-лишь web страничка, а значит состоит всего лишь из html файла и заданых стилей в css
 А потому открывайте свой любимый текстовый редактор или IDE, и начинайте писать.&lt;/p&gt;
 &lt;p&gt;Капитан Очевидность подсказывает,что надо указать стандартные теги,задать title,прописать линки на css файл и задать кодировку.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
 &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;html&lt;/span&gt;&amp;gt;
    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;head&lt;/span&gt;&amp;gt;
@@ -902,7 +902,7 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
    &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt;&amp;gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Далее создаём контейнеры со страницами. Каждый контейнер тематический,со своим содержимым.Для примера пропишем контейнер с социальными сетями,при этом не забудь заменить стандартные ссылки на те ,которые необходимы лично тебе.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;
 
      &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;container&amp;#34;&lt;/span&gt;&amp;gt;
         &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;table1&amp;#34;&lt;/span&gt;&amp;gt;
@@ -922,7 +922,7 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
 &lt;p&gt;Картинка:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;./assets/1.png&#34; alt=&#34;./assets/1.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Вот этот кусочек кода запишем в самом начале в header.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;
 &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;img&amp;#34;&lt;/span&gt;&amp;gt;
        &amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;img&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;src&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;../1.png&amp;#34;&lt;/span&gt; /&amp;gt;
      &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt;&amp;gt;
@@ -933,7 +933,7 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Пока это выглядит вот так:
 ![Снимок экрана_2019-10-18_17-35-21.png](./assets/Снимок экрана_2019-10-18_17-35-21.png)&lt;/p&gt;
 &lt;p&gt;Осталось дело за малым,будем прописывать стили.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;
 .&lt;span style=&#34;color:#a6e22e&#34;&gt;img&lt;/span&gt; {
   &lt;span style=&#34;color:#66d9ef&#34;&gt;display&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;flex&lt;/span&gt;;
   &lt;span style=&#34;color:#66d9ef&#34;&gt;justify-content&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;center&lt;/span&gt;;
@@ -1004,7 +1004,7 @@ ca}
   &lt;span style=&#34;color:#66d9ef&#34;&gt;display&lt;/span&gt;:&lt;span style=&#34;color:#66d9ef&#34;&gt;flex&lt;/span&gt;;
   &lt;span style=&#34;color:#66d9ef&#34;&gt;flex-direction&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;row&lt;/span&gt;;
   &lt;span style=&#34;color:#66d9ef&#34;&gt;flex-wrap&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;nowrap&lt;/span&gt;;
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;justify-content&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;space&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;around;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;justify-content&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;space-around&lt;/span&gt;;
   &lt;span style=&#34;color:#66d9ef&#34;&gt;margin-top&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;px&lt;/span&gt;;
 }
 
@@ -1023,10 +1023,10 @@ ca}
     
     <item>
       <title>Не очень хороший python</title>
-      <link>https://dantealighierin.github.io/post/python_found/</link>
+      <link>https://dantealighierin.github.io/post/post/python_found/</link>
       <pubDate>Fri, 20 Sep 2019 20:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/python_found/</guid>
+      <guid>https://dantealighierin.github.io/post/post/python_found/</guid>
       <description>
         
           
@@ -1034,7 +1034,7 @@ ca}
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/rating.png&#34; alt=&#34;rating&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/rating.png&#34; alt=&#34;rating&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Python безусловно прекрасный язык программирования. Он идеально подходит для новичков,благодаря простому синтаксису, богатой библиотеке( в том числе идущей &amp;ldquo;из коробки&amp;rdquo; ), профилированию. Да и сам я заметил,что любая статья про python начинается с перечисления его достоинств.
 А вот называть недостатки языка не принято. Не понятно почему так сложилось,ведь абсолютно у всего в этом мире есть свои достоинства и недостатки. Думаю,что читателю будет полезно знать про плохие стороны змеиного языка.&lt;/p&gt;
 &lt;p&gt;Нет,я не буду упоминать про медлительность стандартного интерпретатора на Си. Во-первых большинству этой скорости будет за глаза. Во-вторых никто не мешает использовать другие реализации,по типу: Jython, IronPython, PyPy. Или вообще отказаться от стека вызовов и перейти на собственный стек с микропотоками, используя Stackless.&lt;/p&gt;
@@ -1045,11 +1045,11 @@ ca}
 &lt;p&gt;Но уделить внимание я хотел бы совсем другому. Скорее имеющее отношение не к самому языку, а к его окружению . А потому речь пойдет про хвалённые модули &amp;ldquo;на все случаи жизни&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;Для себя я отметил ,что различные модули могут зависеть от версии языка. К примеру,python славится кроссплатформенностью. Это верно,т.к интерпретатор есть под все ОС . Но допустим мне необходимо завести софт без него, в контексте UNIX систем это не проблема, т.к интепретатор идет ,как правило, в составе дистрибутива. Другая ситуация в семействе NT(windows), и по идее в такой ситуации выручит pyinstaller(или ему подобные),однако работает честно говоря криво.К примеру он может не собрать необходимые модули или просто откажется собирать проект.&lt;/p&gt;
 &lt;p&gt;После мучений с Pyinstaller я захотел поскачивать видосики с youtube. Чтобы автоматизировать данный процесс(python славится, как прекрасное средство для автоматизации рутинных задач). Пошел на официальный сайт. С официальной документацией - там ничего не нашлось ( что, кстати, уже бывало не раз).&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/python+documentation.jpg&#34; alt=&#34;documentation&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/python+documentation.jpg&#34; alt=&#34;documentation&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Вопрос зачем тогда этот сайт вообще нужен? Не понятно&amp;hellip; Сделал help(&amp;ldquo;pytube&amp;rdquo;) - в качестве исчерпывающей информации получил какую-то мутную справочку, в которой не содержалось ничего полезного.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/ssets/help.jpg&#34; alt=&#34;help&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/ssets/help.jpg&#34; alt=&#34;help&#34;&gt;&lt;/p&gt;
 &lt;p&gt;В конце концов мне всё это окончательно надоело и я снёс эту библиотеку куда подальше, настроение испортилось и программу так и не написал в итоге.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/code_error.jpg&#34; alt=&#34;error&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/code_error.jpg&#34; alt=&#34;error&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Кто же виноват? Что делать? Эти извечные вопросы.. Они всегда возникают у тех, кто пытается использовать Python в полезных для себя целях, а в результате теряет время и нервы. И хочется сказать тем, кто там выпускает все эти новые версии постоянно: Ребята, сделайте так, что всё работало уже наконец! Можно возразить ,что за стандартные модули работают прекрасно, а вот за сторонние либы отвечаеют эти самые разработчики сторонних библиотек. Однако за окружение языка,да и не только языка программирования,но и в целом любого продукта, отвечают всё же разработчики целевого продукта. Каков сам продукт,таково и его окружение. А потому сделайте нормальную документацию, пофиксите баги в своем  языке. А то все классно и безотказно работает только пока решаешь задачки из учебника, а как доходит до практических задач, то ваш замечательный питон сворачивается в кольца и его даже пинком не заставишь что-то делать. На этом всё.&lt;/p&gt;
 
         
@@ -1058,10 +1058,10 @@ ca}
     
     <item>
       <title>Простые часы  на tkinter</title>
-      <link>https://dantealighierin.github.io/post/tko/</link>
+      <link>https://dantealighierin.github.io/post/post/tko/</link>
       <pubDate>Fri, 13 Sep 2019 18:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tko/</guid>
+      <guid>https://dantealighierin.github.io/post/post/tko/</guid>
       <description>
         
           
@@ -1069,7 +1069,7 @@ ca}
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/clock.png&#34; alt=&#34;f375a21a.png&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/clock.png&#34; alt=&#34;f375a21a.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Tkinter – это кроссплатформенная библиотека для разработки графического интерфейса на языке Python (начиная с Python 3.0 переименована в tkinter). Tkinter расшифровывается как Tool kit interface, и является интерфейсом для языка програмирования Tcl и графической  для него привязки tk.Не вдаваясь в подробности, Tkinter можно охарактеризовать как переводчик с языка Python на язык Tcl. Вы пишете программу на Python, а код модуля tkinter у вас за спиной переводит ваши инструкции на язык Tcl(тикль-токль), который понимает библиотека Tk (tool kit).&lt;/p&gt;
 &lt;p&gt;Конечно для python есть и другие более мощные и интересные библиотеки графического интерфейса такие как: pygame и qiwi, qt и gtk.Однако pygame расчитан больше на разработку видео игр, qiwi лучше использовать для мобильных платформ , qt и gtk несколько сложнее в изучении и могут иметь много не нужного на первых этапах . А вот tkinter хорош для протипирования и быстрой разработки,а потому он идеально подходит для начинающих. В плюсы данной библиотеке можно записать её наличие в стандартном дистрибутиве python,в то время,как другие библиотеки для создания графического интерфейса требует отдельной установки через внутренний менеджер пакетов питона pip.&lt;/p&gt;
 &lt;p&gt;Под графическим интерфейсом пользователя (GUI или graphical user interfase) подразумеваются все  окна, кнопки, текстовые поля для ввода, скроллеры, списки, флаги. Через них пользователь взаимодействует с программой и управляет ею. Все эти элементы интерфейса называются виджетами (widgets).&lt;/p&gt;
@@ -1092,16 +1092,16 @@ ca}
 &lt;p&gt;Последовательность не обязательно такая, но первый и последний пункты всегда остаются на своих местах. Достаточно следовать этому плану и всё получится!&lt;/p&gt;
 &lt;p&gt;В качестве учебного проекта можно написать свою реализацию стандартного ПО. Для примера я написал простые часы. Простые и без наворотов. Но при желании всегда можно расширить функционал. Благо софт находится под свободной лицензией GNU GPL v2. Исходный код программы лежит &lt;a href=&#34;https://github.com/DanteAlighierin/tkClock&#34;&gt;на Github&lt;/a&gt;. Вы можете спокойно почитать исходный код программы , сделать code-review, внести правки или вовсе создать ответвление(fork).&lt;/p&gt;
 &lt;p&gt;Для начала импортируем необходимые для работы программы модули , а именно time(отвечает за операции связанные со времинем и манипуляциями над ним) и собственно tkinter:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;	&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; tkinter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;	&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; tkinter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;
 	&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; time
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Следующая часть кода отвечает за отображение заголовка,шрифт,цвет текста&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;	root &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Tk()
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;	root &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Tk()
 	root&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;title(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tkClock&amp;#34;&lt;/span&gt;)
 	time1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
 	clock &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Label(root, font&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bold&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bold&amp;#39;&lt;/span&gt;), bg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;white&amp;#39;&lt;/span&gt;)
 	clock&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pack(fill&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;BOTH, expand&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Далее мы создаем функцию ,которая при помощи &lt;code&gt;time.strftime&lt;/code&gt; узнает текущее системное время. Далее оно передаётся в тело программы. Сразу как только системное время изменяется,происходит обновление фрейма. При этом проверка времени происходит каждые 200 милисекунд,что позволяет поддерживать баланс между производительностью и точностью:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;tick&lt;/span&gt;():
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;	&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;tick&lt;/span&gt;():
     	&lt;span style=&#34;color:#66d9ef&#34;&gt;global&lt;/span&gt; time1
     	&lt;span style=&#34;color:#75715e&#34;&gt;# узнаем время &lt;/span&gt;
     	time2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; time&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;strftime(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;%H:%M:%S&amp;#39;&lt;/span&gt;) 
@@ -1112,7 +1112,7 @@ ca}
         	&lt;span style=&#34;color:#75715e&#34;&gt;# вызовы идут каждые 200 милисекунд&lt;/span&gt;
     	clock&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;after(&lt;span style=&#34;color:#ae81ff&#34;&gt;200&lt;/span&gt;, tick)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Последние строчки закрывают цикл &amp;ldquo;clock&amp;rdquo; и позволяют закрыть окно,если того пожелает пользователь:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;	tick()
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;	tick()
 	root&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Программа вышла очень простой , однако никто не мешает доработать её или вообще переписать полностью. Благо open source.&lt;/p&gt;
 &lt;p&gt;Вот и всё. Tkinter – это, безусловно, мощная и удобная библиотека.&lt;/p&gt;

@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/tags/setup/</link>
+    <link>https://dantealighierin.github.io/post/tags/setup/</link>
     <description>Recent content in setup on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Thu, 31 Dec 2020 17:25:04 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/tags/setup/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dantealighierin.github.io/post/tags/setup/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Vim в массы</title>
-      <link>https://dantealighierin.github.io/post/vim/</link>
+      <link>https://dantealighierin.github.io/post/post/vim/</link>
       <pubDate>Thu, 31 Dec 2020 17:25:04 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/vim/</guid>
+      <guid>https://dantealighierin.github.io/post/post/vim/</guid>
       <description>
         
           
@@ -27,11 +27,11 @@
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/comfyvim.png&#34; alt=&#34;comfyvim&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/comfyvim.png&#34; alt=&#34;comfyvim&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Не буду в тысячный раз описывать преимущества vim&amp;rsquo;a, их и так все знают, да и на эту тему есть вагон и маленькая тележка статей и видео.&lt;/p&gt;
 &lt;p&gt;Предположим,что вы всё же решились. И вот, наконец, вы открыли терминал, через пакетный менеджер провели установку, открывайте программу и видите примерно следующую картину:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/shittyvim.png&#34; alt=&#34;shittyvim&#34;&gt;
-&lt;img src=&#34;https://dantealighierin.github.io/images/shittyvim2.png&#34; alt=&#34;shittyvim_with_text&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/shittyvim.png&#34; alt=&#34;shittyvim&#34;&gt;
+&lt;img src=&#34;https://dantealighierin.github.io/post/images/shittyvim2.png&#34; alt=&#34;shittyvim_with_text&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Не очень красиво,правда? И это еще не зашла речь про функциональность и какие-либо плюшки. Уже внешний вид может отпугнуть потенциального пользователя, ведь он хочет удобную и красивую рабочую среду, а не просто кусок терминала с текстом.&lt;/p&gt;
 &lt;h2 id=&#34;usecase&#34;&gt;Usecase&lt;/h2&gt;
 &lt;p&gt;Давайте сразу решим что мы хотим от vim&amp;rsquo;a. На мой вгляд, большинству необходима адекватная подсветка синтаксиса и автокомплит.Также многие пишут тексты в формате Markdown, а для этого желательно иметь настроенный предпросмотр отрендеренного контента.&lt;/p&gt;
@@ -39,20 +39,20 @@
 &lt;p&gt;Для vim существует огромное количество плагинов на любой вкус и цвет.&lt;/p&gt;
 &lt;p&gt;Ставить их можно как вручную(плагины представляют из себя,как правило, файлик vim-script), так и при помощи специальных утилит(менеджеров). Их для vi improved так же предостаточно.&lt;/p&gt;
 &lt;p&gt;Для себя я выбрал vim-plug. Так давайте его установим!&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sh -c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;curl -fLo &amp;#34;${XDG_DATA_HOME:-$HOME/.local/share}&amp;#34;/nvim/site/autoload/plug.vim --create-dirs \
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sh -c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;curl -fLo &amp;#34;${XDG_DATA_HOME:-$HOME/.local/share}&amp;#34;/nvim/site/autoload/plug.vim --create-dirs \
 &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Либо же можно сразу прописать автозагрузку менеджера в конфиг.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;vim .vimrc
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;vim .vimrc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Прописываем следующее:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-vimscript&#34; data-lang=&#34;vimscript&#34;&gt;if empty(glob(&#39;~/.vim/autoload/plug.vim&#39;))
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-vimscript&#34; data-lang=&#34;vimscript&#34;&gt;if empty(glob(&#39;~/.vim/autoload/plug.vim&#39;))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/gobrr.png&#34; alt=&#34;vimplug go brr&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/gobrr.png&#34; alt=&#34;vimplug go brr&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;пишем-код-красиво&#34;&gt;Пишем код красиво!&lt;/h3&gt;
 &lt;p&gt;Ставить плагины очень просто. Давайте поставим какую-нибудь тему,а также бар с полезной информацией. Всё в том же .vimrc пишем следующее:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;call plug#begin&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;~/.vim/plugged&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;call plug#begin&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;~/.vim/plugged&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 
 Plug &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;vim-airline/vim-airline&amp;#39;&lt;/span&gt;
 Plug &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;vim-airline/vim-airline-themes&amp;#39;&lt;/span&gt; 
@@ -61,53 +61,53 @@ Plug &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;w0ng/vim-hybrid&amp;#39;
 call plug#end&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Между первой и последней строчкой прописываются плагины,которыми мы хотим пользоваться.&lt;/p&gt;
 &lt;p&gt;Также укажем vim&amp;rsquo;у использовать 256 цветов,если ваш эмулятор терминала поддерживает это.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;set t_Co&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;256&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;set t_Co&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;256&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Также можно указать собственно тему и бэкграунд:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;set background&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;dark
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;set background&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;dark
 colorscheme hybrid
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Тема для бара:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;let g:airline_theme&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bubblegum&amp;#39;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;let g:airline_theme&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bubblegum&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Если ваша душа изволит прозрачности:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;hi Normal guibg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;NONE ctermbg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;NONE
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;hi Normal guibg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;NONE ctermbg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;NONE
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Вот что мы получаем:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/beauty.png&#34; alt=&#34;beauty&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/beauty.png&#34; alt=&#34;beauty&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Красота!&lt;/p&gt;
 &lt;h3 id=&#34;кодировка&#34;&gt;Кодировка&lt;/h3&gt;
 &lt;p&gt;Кракозябры нам не нужны,потому, не забудем про настройку кодировок:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;set encoding&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;utf-8
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;set encoding&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;utf-8
 set fileencodings&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;utf8,cp1251
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;файловый-браузер&#34;&gt;Файловый браузер&lt;/h3&gt;
 &lt;p&gt;Как правило ваш проект состоит из нескольких файлов и директорий. И чтобы не городить костыли, стоит в боковой панели разместить файловый браузер. На данный момент самым популярным и наверное самым лучшим  является NerdTree.&lt;/p&gt;
 &lt;p&gt;Через vim-plug устанавливаем:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;Plug &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;preservim/nerdtree&amp;#39;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;Plug &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;preservim/nerdtree&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Далее биндим шорткаты: по Ctrl+N открываем, по Ctrl+T закрываем, по Ctrl+F раскрываем директории. Перемещаемся либо стрелочками(что конечно же не ТруЪ), либо стандартными вимовскими J и K.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;nnoremap &amp;lt;leader&amp;gt;n :NERDTreeFocus&amp;lt;CR&amp;gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;nnoremap &amp;lt;leader&amp;gt;n :NERDTreeFocus&amp;lt;CR&amp;gt;
 nnoremap &amp;lt;C-n&amp;gt; :NERDTree&amp;lt;CR&amp;gt;
 nnoremap &amp;lt;C-t&amp;gt; :NERDTreeToggle&amp;lt;CR&amp;gt;
 nnoremap &amp;lt;C-f&amp;gt; :NERDTreeFind&amp;lt;CR&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Автозапуск NerdTree, чтобы не запускать его каждый раз вручную:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;let g:neocomplcache_enable_at_startup &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;let g:neocomplcache_enable_at_startup &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Также давайте настроим детект типа файла:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;filetype plugin on
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;filetype plugin on
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;подсветка-синтаксиса&#34;&gt;Подсветка синтаксиса&lt;/h3&gt;
 &lt;p&gt;Лично я пишу на python и golang, потому поставил следующие пакеты:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;Plug &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;hdima/python-syntax&amp;#39;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;Plug &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;hdima/python-syntax&amp;#39;&lt;/span&gt;
 Plug &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;fatih/vim-go&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;do&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;:GoUpdateBinaries&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Настроим табы. Вы же не используете пробелы,верно?&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;set showtabline&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;set showtabline&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;автокомплит&#34;&gt;Автокомплит&lt;/h3&gt;
 &lt;p&gt;Достаточно одного плагина:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;
 Plug &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;shougo/neocomplcache.vim&amp;#39;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/complete.png&#34; alt=&#34;autocomplete&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/complete.png&#34; alt=&#34;autocomplete&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Довольно интуитивно, как и в других текстовых редакторах и IDEA.&lt;/p&gt;
 &lt;h3 id=&#34;markdown-preview&#34;&gt;Markdown Preview&lt;/h3&gt;
 &lt;p&gt;Ставим плагин:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;Plug &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;suan/vim-instant-markdown&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;for&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;markdown&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;Plug &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;suan/vim-instant-markdown&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;for&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;markdown&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;На этом собственно всё. Достаточно будет открыть файлик в формате .md и сразу же откроется окно браузера c отрендеренным контентом на localhost:8000&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/markdown.png&#34; alt=&#34;markdown&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/markdown.png&#34; alt=&#34;markdown&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Однако же вы можете указать специфичные настройки, где 0 - запретить, 1 - разрешить:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;--------------Указываем порт на локалхосте----------
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;--------------Указываем порт на локалхосте----------
 let g:instant_markdown_port &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &amp;lt;/port&amp;gt;
 --------------Разрешаем/запрещаем автоскролл--------
 let g:instant_markdown_autoscroll &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0/1
@@ -118,13 +118,13 @@ let g:instant_markdown_allow_external_content &lt;span style=&#34;color:#f92672&
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;в-одном-из-режимов-vim-пищит-а-в-другом--всё-портит&#34;&gt;В одном из режимов vim пищит, а в другом — всё портит&lt;/h3&gt;
 &lt;p&gt;Vim имеет противную особенность пищать,особенно в TTY.&lt;/p&gt;
 &lt;p&gt;Исправим это:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;set t_vb&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;set t_vb&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;
 set visualbell t_vb&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;последний-шаг&#34;&gt;Последний шаг&lt;/h2&gt;
 &lt;p&gt;Если вы не прописали автозагрузку vim-plug, то установите плагины командой:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;:PlugInstall
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;:PlugInstall
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;После перезагрузки vim, получаем следующий сетап:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/vimwow.png&#34; alt=&#34;wow vim&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/vimwow.png&#34; alt=&#34;wow vim&#34;&gt;&lt;/p&gt;
 
         
         </description>

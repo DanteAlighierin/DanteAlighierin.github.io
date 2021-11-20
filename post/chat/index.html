@@ -19,31 +19,31 @@
   content=""
 />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://dantealighierin.github.io/post/chat/" />
+<link rel="canonical" href="https://dantealighierin.github.io/post/post/chat/" />
 
 
 
 
 
-<link rel="stylesheet" href="https://dantealighierin.github.io/assets/style.css" />
+<link rel="stylesheet" href="https://dantealighierin.github.io/post/assets/style.css" />
 
-<link rel="stylesheet" href="https://dantealighierin.github.io/style.css" />
+<link rel="stylesheet" href="https://dantealighierin.github.io/post/style.css" />
 
 
 <link
   rel="apple-touch-icon-precomposed"
   sizes="144x144"
-  href="https://dantealighierin.github.io/img/apple-touch-icon-144-precomposed.png"
+  href="https://dantealighierin.github.io/post/img/apple-touch-icon-144-precomposed.png"
 />
-<link rel="shortcut icon" href="https://dantealighierin.github.io/images/favicon.ico" />
+<link rel="shortcut icon" href="https://dantealighierin.github.io/post/images/favicon.ico" />
 
 
-<link href="https://dantealighierin.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="https://dantealighierin.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="https://dantealighierin.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="https://dantealighierin.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="https://dantealighierin.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="https://dantealighierin.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://dantealighierin.github.io/post/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://dantealighierin.github.io/post/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://dantealighierin.github.io/post/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://dantealighierin.github.io/post/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://dantealighierin.github.io/post/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="https://dantealighierin.github.io/post/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
 
 
 <meta name="twitter:card" content="summary"/>
@@ -57,9 +57,10 @@
 <meta property="og:description" content="В этой статье я бы хотел показать как написать простое приложение мессенджер менее чем в 150 строк.
 Серверная часть Начнём с сервера(наше приложение будет состоять из скриптов сервера и клиента), через который можно получать входящие запросы от клиентов, желающих общаться. Традиционно указываем путь до интерпретатора и импортируем необходимые модули. Конкретно socket и threading. Первый отвечает непосредственно за &ldquo;общение&rdquo; процесссов между собой, второй за многопоточность. О этих модулях подробно можно почитать например здесь - socket , threading." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dantealighierin.github.io/post/chat/" />
+<meta property="og:url" content="https://dantealighierin.github.io/post/post/chat/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-02-23T15:10:00+03:00" />
 <meta property="article:modified_time" content="2020-02-23T15:10:00+03:00" /><meta property="og:site_name" content="Dante&#39;s blog" />
+
 
 
 
@@ -95,7 +96,7 @@
     
       
         
-          <li><a href="/about">About</a></li>
+          <li><a href="/post/about">About</a></li>
         
       
         
@@ -103,7 +104,7 @@
         
       
         
-          <li><a href="/index.xml">rss</a></li>
+          <li><a href="/post/index.xml">rss</a></li>
         
       
         
@@ -117,7 +118,7 @@
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/about">About</a></li>
+        <li><a href="/post/about">About</a></li>
       
     
       
@@ -125,7 +126,7 @@
       
     
       
-        <li><a href="/index.xml">rss</a></li>
+        <li><a href="/post/index.xml">rss</a></li>
       
     
       
@@ -198,15 +199,15 @@
     
       <span class="post-tags">
         
-          <a href="https://dantealighierin.github.io/tags/python/">#python</a>&nbsp;
+          <a href="https://dantealighierin.github.io/post/tags/python/">#python</a>&nbsp;
         
-          <a href="https://dantealighierin.github.io/tags/tkinter/">#tkinter</a>&nbsp;
+          <a href="https://dantealighierin.github.io/post/tags/tkinter/">#tkinter</a>&nbsp;
         
-          <a href="https://dantealighierin.github.io/tags/messanger/">#messanger</a>&nbsp;
+          <a href="https://dantealighierin.github.io/post/tags/messanger/">#messanger</a>&nbsp;
         
-          <a href="https://dantealighierin.github.io/tags/socket/">#socket</a>&nbsp;
+          <a href="https://dantealighierin.github.io/post/tags/socket/">#socket</a>&nbsp;
         
-          <a href="https://dantealighierin.github.io/tags/threading/">#threading</a>&nbsp;
+          <a href="https://dantealighierin.github.io/post/tags/threading/">#threading</a>&nbsp;
         
       </span>
     
@@ -232,11 +233,11 @@
 <h3 id="серверная-часть">Серверная часть</h3>
 <p>Начнём с сервера(наше  приложение будет состоять из скриптов сервера и клиента), через который можно получать входящие запросы от клиентов, желающих общаться.  Традиционно указываем путь до интерпретатора и импортируем необходимые модули. Конкретно socket и threading. Первый отвечает непосредственно за &ldquo;общение&rdquo; процесссов между собой, второй за многопоточность. О этих модулях подробно можно почитать например здесь - <a href="https://habr.com/ru/post/149077/">socket</a> , <a href="https://habr.com/ru/post/149420/">threading</a>.</p>
 <p>Использование фреймворков, таких как Twisted и SocketServer, было возможным, но мне показалось это излишним для такого простого программного обеспечения, как наше.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
 <span style="color:#f92672">from</span> socket <span style="color:#f92672">import</span> AF_INET, socket, SOCK_STREAM
 <span style="color:#f92672">from</span> threading <span style="color:#f92672">import</span> Thread
 </code></pre></div><p>Давайте обозначим константы, отвечающие например за адрес порта и размер буфера.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">clients <span style="color:#f92672">=</span> {}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">clients <span style="color:#f92672">=</span> {}
 addresses <span style="color:#f92672">=</span> {}
 HOST <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
 PORT <span style="color:#f92672">=</span> <span style="color:#ae81ff">33000</span>
@@ -245,43 +246,43 @@ ADDR <span style="color:#f92672">=</span> (HOST, PORT)
 SERVER <span style="color:#f92672">=</span> socket(AF_INET, SOCK_STREAM)
 SERVER<span style="color:#f92672">.</span>bind(ADDR)
 </code></pre></div><p>Теперь мы разбиваем нашу задачу на прием новых соединений, рассылку сообщений и обработку определенных клиентов. Давайте начнем с принятия соединений:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">accept_incoming_connections</span>():
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">accept_incoming_connections</span>():
     <span style="color:#e6db74">&#34;&#34;&#34;Настраивает обработку для входящих клиентов.&#34;&#34;&#34;</span>
-    <span style="color:#66d9ef">while</span> True:
+    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
         client, client_address <span style="color:#f92672">=</span> SERVER<span style="color:#f92672">.</span>accept()
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">:</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> присоединился к переписке&#34;</span> <span style="color:#f92672">%</span> client_address)
+        print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">:</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> присоединился к переписке&#34;</span> <span style="color:#f92672">%</span> client_address)
         client<span style="color:#f92672">.</span>send(bytes(<span style="color:#e6db74">&#34;Привет!&#34;</span><span style="color:#f92672">+</span>
                           <span style="color:#e6db74">&#34;Введи своё имя и нажми Enter&#34;</span>, <span style="color:#e6db74">&#34;utf8&#34;</span>))
         addresses[client] <span style="color:#f92672">=</span> client_address
         Thread(target<span style="color:#f92672">=</span>handle_client, args<span style="color:#f92672">=</span>(client,))<span style="color:#f92672">.</span>start()
 </code></pre></div><p>Это просто цикл, который всегда ждет входящих соединений и, как только он его получает, регистрирует соединение (печатает некоторые сведения о соединении) и отправляет подключенному клиенту приветствие. Затем он сохраняет адрес клиента и позже запускает поток обработки для этого клиента. Конечно, мы еще не определили для этого целевую функцию <em>handle_client ()</em>, но вот как мы это сделаем:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">handle_client</span>(client):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">handle_client</span>(client):
      name <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>recv(BUFSIZ)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf8&#34;</span>)
-    welcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Добро пожаловать </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">! если желаете покинуть чат то, нажмите {quit} чтобы выйти.&#39;</span> <span style="color:#f92672">%</span> name
+    welcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Добро пожаловать </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">! если желаете покинуть чат то, нажмите </span><span style="color:#e6db74">{quit}</span><span style="color:#e6db74"> чтобы выйти.&#39;</span> <span style="color:#f92672">%</span> name
     client<span style="color:#f92672">.</span>send(bytes(welcome, <span style="color:#e6db74">&#34;utf8&#34;</span>))
     msg <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> Теперь в переписке&#34;</span> <span style="color:#f92672">%</span> name
     broadcast(bytes(msg, <span style="color:#e6db74">&#34;utf8&#34;</span>))
     clients[client] <span style="color:#f92672">=</span> name
-     <span style="color:#66d9ef">while</span> True:
+     <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
         msg <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>recv(BUFSIZ)
-        <span style="color:#66d9ef">if</span> msg <span style="color:#f92672">!=</span> bytes(<span style="color:#e6db74">&#34;{quit}&#34;</span>, <span style="color:#e6db74">&#34;utf8&#34;</span>):
+        <span style="color:#66d9ef">if</span> msg <span style="color:#f92672">!=</span> bytes(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{quit}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;utf8&#34;</span>):
             broadcast(msg, name<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;: &#34;</span>)
         <span style="color:#66d9ef">else</span>:
-            client<span style="color:#f92672">.</span>send(bytes(<span style="color:#e6db74">&#34;{quit}&#34;</span>, <span style="color:#e6db74">&#34;utf8&#34;</span>))
+            client<span style="color:#f92672">.</span>send(bytes(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{quit}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;utf8&#34;</span>))
             client<span style="color:#f92672">.</span>close()
             <span style="color:#66d9ef">del</span> clients[client]
             broadcast(bytes(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> покинул переписку.&#34;</span> <span style="color:#f92672">%</span> name, <span style="color:#e6db74">&#34;utf8&#34;</span>))
             <span style="color:#66d9ef">break</span>
 </code></pre></div><p>Естественно, после того, как мы отправим новому клиенту приветственное сообщение, он ответит именем, которое он хочет использовать для дальнейшего общения. В функции <em>handle_client ()</em> первая задача, которую мы делаем, - мы сохраняем это имя, а затем отправляем клиенту еще одно сообщение о дальнейших инструкциях. После этого идет основной цикл: здесь мы получаем дополнительные сообщения от клиента и, если сообщение не содержит инструкций для выхода, мы просто передаем сообщение другим подключенным клиентам (мы определим метод широковещания через минуту ). Если мы сталкиваемся с сообщением с инструкциями выхода (то есть клиент отправляет <em>{quit}</em>), мы возвращаем то же самое сообщение клиенту, а затем мы закрываем сокет подключения для него. Затем мы делаем очистку, удаляя запись для клиента, и, наконец, сообщаем другим связанным людям, что этот конкретный человек покинул чат.</p>
 <p>Теперь пропишем функцию <em>broadcast ()</em>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">broadcast</span>(msg, prefix<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">broadcast</span>(msg, prefix<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>):
      <span style="color:#66d9ef">for</span> sock <span style="color:#f92672">in</span> clients:
         sock<span style="color:#f92672">.</span>send(bytes(prefix, <span style="color:#e6db74">&#34;utf8&#34;</span>)<span style="color:#f92672">+</span>msg)
 </code></pre></div><p>Эта функция просто отправляет сообщение всем подключенным клиентам и при необходимости добавляет дополнительный префикс. Мы передаем префикс для <em>broadcast ()</em> в нашей функции <em>handle_client ()</em> и делаем это так, чтобы люди могли точно знать, кто является отправителем конкретного сообщения.
 Это были все необходимые функции для нашего сервера. Наконец, мы добавили код для запуска нашего сервера и прослушивания входящих соединений:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
     SERVER<span style="color:#f92672">.</span>listen(<span style="color:#ae81ff">5</span>)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Ожидание соединения&#34;</span>)
+    print(<span style="color:#e6db74">&#34;Ожидание соединения&#34;</span>)
     ACCEPT_THREAD <span style="color:#f92672">=</span> Thread(target<span style="color:#f92672">=</span>accept_incoming_connections)
     ACCEPT_THREAD<span style="color:#f92672">.</span>start()  <span style="color:#75715e"># Бесконечный цикл.</span>
     ACCEPT_THREAD<span style="color:#f92672">.</span>join()
@@ -289,14 +290,14 @@ SERVER<span style="color:#f92672">.</span>bind(ADDR)
 </code></pre></div><p>Мы присоединяемся к <em>ACCEPT_THREAD</em>, чтобы основной скрипт ожидал его завершения и не переходил на следующую строку, которая закрывает сервер.
 Это завершает наш серверный скрипт.</p>
 <p>В итоге получаем вот такой код для серверной части:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
 <span style="color:#f92672">from</span> socket <span style="color:#f92672">import</span> AF_INET, socket, SOCK_STREAM
 <span style="color:#f92672">from</span> threading <span style="color:#f92672">import</span> Thread
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">accept_incoming_connections</span>():
-    <span style="color:#66d9ef">while</span> True:
+    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
         client, client_address <span style="color:#f92672">=</span> SERVER<span style="color:#f92672">.</span>accept()
-        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">:</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> соединено&#34;</span> <span style="color:#f92672">%</span> client_address)
+        print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">:</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> соединено&#34;</span> <span style="color:#f92672">%</span> client_address)
         client<span style="color:#f92672">.</span>send(bytes(<span style="color:#e6db74">&#34;Добро пожаловать , введите своё имя и нажмите Enter&#34;</span>, <span style="color:#e6db74">&#34;utf8&#34;</span>))
         addresses[client] <span style="color:#f92672">=</span> client_address
         Thread(target<span style="color:#f92672">=</span>handle_client, args<span style="color:#f92672">=</span>(client,))<span style="color:#f92672">.</span>start()
@@ -304,18 +305,18 @@ SERVER<span style="color:#f92672">.</span>bind(ADDR)
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">handle_client</span>(client):  
     name <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>recv(BUFSIZ)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf8&#34;</span>)
-    welcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Добро пожаловать </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">! Если желаете выйти,то нажмите {quit} чтобы выйти.&#39;</span> <span style="color:#f92672">%</span> name
+    welcome <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Добро пожаловать </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">! Если желаете выйти,то нажмите </span><span style="color:#e6db74">{quit}</span><span style="color:#e6db74"> чтобы выйти.&#39;</span> <span style="color:#f92672">%</span> name
     client<span style="color:#f92672">.</span>send(bytes(welcome, <span style="color:#e6db74">&#34;utf8&#34;</span>))
     msg <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> вступил в переписку&#34;</span> <span style="color:#f92672">%</span> name
     broadcast(bytes(msg, <span style="color:#e6db74">&#34;utf8&#34;</span>))
     clients[client] <span style="color:#f92672">=</span> name
 
-    <span style="color:#66d9ef">while</span> True:
+    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
         msg <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span>recv(BUFSIZ)
-        <span style="color:#66d9ef">if</span> msg <span style="color:#f92672">!=</span> bytes(<span style="color:#e6db74">&#34;{quit}&#34;</span>, <span style="color:#e6db74">&#34;utf8&#34;</span>):
+        <span style="color:#66d9ef">if</span> msg <span style="color:#f92672">!=</span> bytes(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{quit}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;utf8&#34;</span>):
             broadcast(msg, name<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;: &#34;</span>)
         <span style="color:#66d9ef">else</span>:
-            client<span style="color:#f92672">.</span>send(bytes(<span style="color:#e6db74">&#34;{quit}&#34;</span>, <span style="color:#e6db74">&#34;utf8&#34;</span>))
+            client<span style="color:#f92672">.</span>send(bytes(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{quit}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;utf8&#34;</span>))
             client<span style="color:#f92672">.</span>close()
             <span style="color:#66d9ef">del</span> clients[client]
             broadcast(bytes(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> покинул переписку&#34;</span> <span style="color:#f92672">%</span> name, <span style="color:#e6db74">&#34;utf8&#34;</span>))
@@ -341,22 +342,22 @@ SERVER<span style="color:#f92672">.</span>bind(ADDR)
 
 <span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
     SERVER<span style="color:#f92672">.</span>listen(<span style="color:#ae81ff">5</span>)
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;ожидание соединения&#34;</span>)
+    print(<span style="color:#e6db74">&#34;ожидание соединения&#34;</span>)
     ACCEPT_THREAD <span style="color:#f92672">=</span> Thread(target<span style="color:#f92672">=</span>accept_incoming_connections)
     ACCEPT_THREAD<span style="color:#f92672">.</span>start()
     ACCEPT_THREAD<span style="color:#f92672">.</span>join()
     SERVER<span style="color:#f92672">.</span>close()
 </code></pre></div><h3 id="клиентская-часть">Клиентская часть###</h3>
 <p>Теперь приступим к наиболее интересной части нашего приложения - к клиенту. В качестве gui будем использовать tkinter, т.к в нём довольно легко построить несложное приложение. Традиционно импортируем модуль tkinter, а также модули использовавшиеся ранее при написании серверной части программы.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
 
 <span style="color:#f92672">from</span> socket <span style="color:#f92672">import</span> AF_INET, socket, SOCK_STREAM
 <span style="color:#f92672">from</span> threading <span style="color:#f92672">import</span> Thread
 <span style="color:#f92672">import</span> tkinter
 </code></pre></div><p>Теперь мы напишем функции для обработки отправки и получения сообщений. Начнем с получения:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">receive</span>():
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">receive</span>():
     <span style="color:#e6db74">&#34;&#34;&#34;обработка получения сообщений&#34;&#34;&#34;</span>
-    <span style="color:#66d9ef">while</span> True:
+    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
         <span style="color:#66d9ef">try</span>:
             msg <span style="color:#f92672">=</span> client_socket<span style="color:#f92672">.</span>recv(BUFSIZ)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf8&#34;</span>)<span style="color:#75715e"># декодируем,чтобы не получить кракозябры</span>
             msg_list<span style="color:#f92672">.</span>insert(tkinter<span style="color:#f92672">.</span>END, msg)
@@ -365,30 +366,30 @@ SERVER<span style="color:#f92672">.</span>bind(ADDR)
 </code></pre></div><p>Почему  мы снова используем бесконечный цикл? Потому что мы будем получать сообщения совершенно независимо от того, как и когда мы отправляем сообщения. Мы не хотим, чтобы это было приложение для чата с функциональностью уровня рации. Мы хотим приложение в котором можно отправлять или получать сообщения одновременно; мы хотим получать сообщения, когда сами того пожелаем, и отправлять их, когда захотим.</p>
 <p>Функциональность внутри цикла довольно проста; <em>recv ()</em> является блокирующей частью. Он останавливает выполнение до тех пор, пока не получит сообщение, а когда это произойдет, мы продвигаемся вперед и добавляем сообщение в <em>msglist</em>. Затем мы определяем <em>msg_list</em>, который является функцией Tkinter для отображения списка сообщений на экране.
 Далее мы определим функцию <em>send ()</em>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">send</span>(event<span style="color:#f92672">=</span>None):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">send</span>(event<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
     <span style="color:#e6db74">&#34;&#34;&#34;обработка отправленных сообщений&#34;&#34;&#34;</span>
     msg <span style="color:#f92672">=</span> my_msg<span style="color:#f92672">.</span>get()
     my_msg<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#34;&#34;</span>)  <span style="color:#75715e"># очищаем поле.</span>
     client_socket<span style="color:#f92672">.</span>send(bytes(msg, <span style="color:#e6db74">&#34;utf8&#34;</span>))
-    <span style="color:#66d9ef">if</span> msg <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;{quit}&#34;</span>:
+    <span style="color:#66d9ef">if</span> msg <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{quit}</span><span style="color:#e6db74">&#34;</span>:
         client_socket<span style="color:#f92672">.</span>close()
         top<span style="color:#f92672">.</span>quit()
 </code></pre></div><p><em>my_msg</em> - это поле ввода в графическом интерфейсе, и поэтому мы извлекаем сообщение для отправки с помощью <em>msg = my_msg.get ()</em>. После этого мы очищаем поле ввода и затем отправляем сообщение на сервер, который, как мы видели ранее, передает это сообщение всем клиентам (если это не сообщение о выходе). Если это сообщение о выходе, мы закрываем сокет, а затем приложение с графическим интерфейсом (через <em>top.close ()</em>)</p>
 <p>Мы определяем еще одну функцию, которая будет вызываться, когда мы решим закрыть окно с GUI. Это своего рода функция очистки до закрытия, которая закрывает соединение с сокетом до закрытия графического интерфейса:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_closing</span>(event<span style="color:#f92672">=</span>None):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_closing</span>(event<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
     <span style="color:#e6db74">&#34;&#34;&#34;Эта функция вызывается когда закрывается окно&#34;&#34;&#34;</span>
-    my_msg<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#34;{quit}&#34;</span>)
+    my_msg<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{quit}</span><span style="color:#e6db74">&#34;</span>)
     send()
 </code></pre></div><p>Это устанавливает в поле ввода значение <em>{quit}</em>, а затем вызывает <em>send ()</em>. Начнем с определения виджета верхнего уровня и установки его заголовка, как и в любой другой программе на tkinter:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">top <span style="color:#f92672">=</span> tkinter<span style="color:#f92672">.</span>Tk()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">top <span style="color:#f92672">=</span> tkinter<span style="color:#f92672">.</span>Tk()
 top<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;TkMessenger&#34;</span>)
 </code></pre></div><p>Затем создаём фрейм со списком сообщений, поле для ввода сообщений и скроллбар для перемещения по истории переписки</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">messages_frame <span style="color:#f92672">=</span> tkinter<span style="color:#f92672">.</span>Frame(top)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">messages_frame <span style="color:#f92672">=</span> tkinter<span style="color:#f92672">.</span>Frame(top)
 my_msg <span style="color:#f92672">=</span> tkinter<span style="color:#f92672">.</span>StringVar()
 my_msg<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#34;Введите ваше сообщение здесь.&#34;</span>)
 scrollbar <span style="color:#f92672">=</span> tkinter<span style="color:#f92672">.</span>Scrollbar(messages_frame)<span style="color:#75715e">#скроллбар</span>
 </code></pre></div><p>&ldquo;Упаковываем&rdquo; наши элементы и размечаем их расположение в окне:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">msg_list <span style="color:#f92672">=</span> tkinter<span style="color:#f92672">.</span>Listbox(messages_frame, height<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>, width<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>, yscrollcommand<span style="color:#f92672">=</span>scrollbar<span style="color:#f92672">.</span>set)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">msg_list <span style="color:#f92672">=</span> tkinter<span style="color:#f92672">.</span>Listbox(messages_frame, height<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>, width<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>, yscrollcommand<span style="color:#f92672">=</span>scrollbar<span style="color:#f92672">.</span>set)
 scrollbar<span style="color:#f92672">.</span>pack(side<span style="color:#f92672">=</span>tkinter<span style="color:#f92672">.</span>RIGHT, fill<span style="color:#f92672">=</span>tkinter<span style="color:#f92672">.</span>Y)
 msg_list<span style="color:#f92672">.</span>pack(side<span style="color:#f92672">=</span>tkinter<span style="color:#f92672">.</span>LEFT, fill<span style="color:#f92672">=</span>tkinter<span style="color:#f92672">.</span>BOTH)
 msg_list<span style="color:#f92672">.</span>pack()
@@ -396,14 +397,14 @@ messages_frame<span style="color:#f92672">.</span>pack()
 </code></pre></div><p>После этого мы создаем поле ввода для пользователя, чтобы ввести свое сообщение, и привязать его к строковой переменной, определенной выше. Мы также привязываем его к функции <em>send ()</em>, чтобы всякий раз, когда пользователь нажимает <em>return</em>, сообщение отправлялось на сервер.</p>
 <p>Далее мы создаем кнопку отправки, если пользователь желает отправить свои сообщения, нажав на нее. Опять же, мы связываем нажатие этой кнопки с функцией <em>send ()</em>.</p>
 <p>И да, мы также упаковываем все то, что создали только сейчас. Кроме того, не забудьте использовать функцию очистки <em>on_closing ()</em>, которая должна вызываться, когда пользователь хочет закрыть окно GUI:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">entry_field <span style="color:#f92672">=</span> tkinter<span style="color:#f92672">.</span>Entry(top, textvariable<span style="color:#f92672">=</span>my_msg)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">entry_field <span style="color:#f92672">=</span> tkinter<span style="color:#f92672">.</span>Entry(top, textvariable<span style="color:#f92672">=</span>my_msg)
 entry_field<span style="color:#f92672">.</span>bind(<span style="color:#e6db74">&#34;&lt;Return&gt;&#34;</span>, send)
 entry_field<span style="color:#f92672">.</span>pack()
 send_button <span style="color:#f92672">=</span> tkinter<span style="color:#f92672">.</span>Button(top, text<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;отправить&#34;</span>, command<span style="color:#f92672">=</span>send)
 send_button<span style="color:#f92672">.</span>pack()
 top<span style="color:#f92672">.</span>protocol(<span style="color:#e6db74">&#34;WM_DELETE_WINDOW&#34;</span>, on_closing)
 </code></pre></div><p>И вот мы подходим к завершению. Мы еще не написали код для подключения к серверу. Для этого мы должны запросить у пользователя адрес сервера. Я сделал это, просто используя <em>input ()</em>, чтобы пользователь встретился с подсказкой командной строки, запрашивающей адрес хоста перед запуском окна с графическим интерфейсом. В будущем можно добавить виджет для этой цели. А пока вот так:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">HOST <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;Введите хост: &#39;</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">HOST <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;Введите хост: &#39;</span>)
 PORT <span style="color:#f92672">=</span> input(<span style="color:#e6db74">&#39;Введите порт: &#39;</span>)
 <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> PORT:
     PORT <span style="color:#f92672">=</span> <span style="color:#ae81ff">33000</span>  <span style="color:#75715e"># Стандартный порт</span>
@@ -415,18 +416,18 @@ client_socket <span style="color:#f92672">=</span> socket(AF_INET, SOCK_STREAM)
 client_socket<span style="color:#f92672">.</span>connect(ADDR)
 </code></pre></div><p>Как только мы получаем адрес и создаем сокет для подключения к нему, мы запускаем поток для получения сообщений, а затем основной цикл для нашего приложения с графическим интерфейсом:</p>
 <p><img src="/images/chat.gif" alt="chat_app_gif"></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">receive_thread <span style="color:#f92672">=</span> Thread(target<span style="color:#f92672">=</span>receive)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">receive_thread <span style="color:#f92672">=</span> Thread(target<span style="color:#f92672">=</span>receive)
 receive_thread<span style="color:#f92672">.</span>start()
 tkinter<span style="color:#f92672">.</span>mainloop()
 </code></pre></div><p>Вот и всё! Теперь наш скрипт клиентской части выглядит вот так:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python3</span>
 <span style="color:#f92672">from</span> socket <span style="color:#f92672">import</span> AF_INET, socket, SOCK_STREAM
 <span style="color:#f92672">from</span> threading <span style="color:#f92672">import</span> Thread
 <span style="color:#f92672">import</span> tkinter
 
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">receive</span>():
-    <span style="color:#66d9ef">while</span> True:
+    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
         <span style="color:#66d9ef">try</span>:
             msg <span style="color:#f92672">=</span> client_socket<span style="color:#f92672">.</span>recv(BUFSIZ)<span style="color:#f92672">.</span>decode(<span style="color:#e6db74">&#34;utf8&#34;</span>)
             msg_list<span style="color:#f92672">.</span>insert(tkinter<span style="color:#f92672">.</span>END, msg)
@@ -434,17 +435,17 @@ tkinter<span style="color:#f92672">.</span>mainloop()
             <span style="color:#66d9ef">break</span>
 
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">send</span>(event<span style="color:#f92672">=</span>None):
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">send</span>(event<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
     msg <span style="color:#f92672">=</span> my_msg<span style="color:#f92672">.</span>get()
     my_msg<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#34;&#34;</span>)
     client_socket<span style="color:#f92672">.</span>send(bytes(msg, <span style="color:#e6db74">&#34;utf8&#34;</span>))
-    <span style="color:#66d9ef">if</span> msg <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;{quit}&#34;</span>:
+    <span style="color:#66d9ef">if</span> msg <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{quit}</span><span style="color:#e6db74">&#34;</span>:
         client_socket<span style="color:#f92672">.</span>close()
         top<span style="color:#f92672">.</span>quit()
 
 
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_closing</span>(event<span style="color:#f92672">=</span>None):
-    my_msg<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#34;{quit}&#34;</span>)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">on_closing</span>(event<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+    my_msg<span style="color:#f92672">.</span>set(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{quit}</span><span style="color:#e6db74">&#34;</span>)
     send()
 
 top <span style="color:#f92672">=</span> tkinter<span style="color:#f92672">.</span>Tk()
@@ -530,27 +531,12 @@ tkinter<span style="color:#f92672">.</span>mainloop()
   </div>
 </footer>
 
-<script src="https://dantealighierin.github.io/assets/main.js"></script>
-<script src="https://dantealighierin.github.io/assets/prism.js"></script>
+<script src="https://dantealighierin.github.io/post/assets/main.js"></script>
+<script src="https://dantealighierin.github.io/post/assets/prism.js"></script>
 
 
       
     </div>
-
-    
-      
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-140031759-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
 
     
   </body>

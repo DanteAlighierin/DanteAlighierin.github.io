@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/tags/bash/</link>
+    <link>https://dantealighierin.github.io/post/tags/bash/</link>
     <description>Recent content in bash on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sun, 05 Jan 2020 18:30:00 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://dantealighierin.github.io/post/tags/bash/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Oh My Bash</title>
-      <link>https://dantealighierin.github.io/post/ohbash/</link>
+      <link>https://dantealighierin.github.io/post/post/ohbash/</link>
       <pubDate>Sun, 05 Jan 2020 18:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/ohbash/</guid>
+      <guid>https://dantealighierin.github.io/post/post/ohbash/</guid>
       <description>
         
           
@@ -27,35 +27,35 @@
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/terminal.gif&#34; alt=&#34;terminal.gif&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/terminal.gif&#34; alt=&#34;terminal.gif&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Ни для кого не секрет , что под UNIX системы(в том числе и под Linux) существуют различные командные оболочки. Самой распостранённой из них является bash. Как правило он идёт в комплекте поставки почти каждого дистрибутива linux. Но не одним bash&amp;rsquo;ем единым наполняются репозитории операционных систем. Среди других ,как правило, выделяют fish shell, csh, ash и конечно же zsh. Последний становится всё более популярным в linux сообществе.&lt;/p&gt;
 &lt;p&gt;За что же любят zsh, чем же он лучше стандартного? Да практически ничем. Истинную мощь zsh приобретает лишь при установки фреймворка oh my zsh. Огромное количество плагинов и тем оформления - вещь крутая. То же автодополнение становится на много удобнее чем в классической оболочке. Еще одна фишка, которая мне понравилась - это git плагин. Можно узнать много полезного(если вы находитесь в папках с репозиторием), актуально ли текущее состояние репозитория, в какой ветке находимся, имеются ли новые изменения в файлах, есть ли коммиты или изменения. В общем всю необходимую информацию. Не нужно проверять ветку через :&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git branch -v
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git branch -v
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;, проверять есть ли изменения через:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git status
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git status
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Каждый найдёт то, что ему нужно при работе в терминале.&lt;/p&gt;
 &lt;p&gt;Но что если вы не хотите использовать zsh по тем или иным причинам? И для меня стало открытием, что для bash также существует фреймворк, расширяющий возможности вашей командной оболочки. И имя ему - &lt;a href=&#34;https://ohmybash.github.io/&#34;&gt;oh my bash&lt;/a&gt;. Именно о нём сегодня пойдёт речь.&lt;/p&gt;
 &lt;p&gt;Думаю,что стоит начать с установки. Она тут проходит очень просто, через curl:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sh -c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sh -c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;curl -fsSL https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;или через wget:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sh -c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;wget https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh -O -&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sh -c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;wget https://raw.github.com/ohmybash/oh-my-bash/master/tools/install.sh -O -&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Перезагружаемся командой:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;source ~/.bashrc
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;source ~/.bashrc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Всё, фреймворк установлен. Вся настройка происходит через конфигурационный файл &amp;ldquo;.bashrc&amp;rdquo;, который находится в домашней директории. Перейдем в него и сделаем парочку изменений.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;nano .bashrc
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;nano .bashrc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;К примеру давайте заменим стандартную цветовую палитру на что-нибудь по-интереснее.Меняем это:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;OSH_THEME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;powerline&amp;#34;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;OSH_THEME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;powerline&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;На это:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;OSH_THEME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;agnoster&amp;#34;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;OSH_THEME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;agnoster&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;После этого ваш терминал будет выглядеть примерно так(с учётом установленного git плагина):&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/example_powerline.png&#34; alt=&#34;example_powerline.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/example_powerline.png&#34; alt=&#34;example_powerline.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;В конфиге можно указать, чтобы oh my zsh менял тему на случайную:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;OSH_THEME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;random&amp;#34;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;OSH_THEME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;random&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Плагины устанавливаютя следующим образом:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;plugins&lt;span style=&#34;color:#f92672&#34;&gt;=(&lt;/span&gt;git bundler osx rake ruby&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;plugins&lt;span style=&#34;color:#f92672&#34;&gt;=(&lt;/span&gt;git bundler osx rake ruby&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Конфиг автора приведён ниже(к примеру был заменён стандартный редактор кода с vim на nano):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Path to your oh-my-bash installation.&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Path to your oh-my-bash installation.&lt;/span&gt;
 export OSH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;/home/dante/.oh-my-bash
 
 &lt;span style=&#34;color:#75715e&#34;&gt;# Set name of the theme to load. Optionally, if you set this to &amp;#34;random&amp;#34;&lt;/span&gt;
@@ -142,9 +142,9 @@ source $OSH/oh-my-bash.sh
 &lt;span style=&#34;color:#75715e&#34;&gt;# alias bashconfig=&amp;#34;mate ~/.bashrc&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# alias ohmybash=&amp;#34;mate ~/.oh-my-bash&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;У меня это выглядит вот так:
-&lt;img src=&#34;https://dantealighierin.github.io/images/author.png&#34; alt=&#34;author.png&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://dantealighierin.github.io/post/images/author.png&#34; alt=&#34;author.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Всего в репозитории присутствует 6 плагинов и 53 темы (на момент написания статьи).&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/progress.png&#34; alt=&#34;progress.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/post/images/progress.png&#34; alt=&#34;progress.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Да, честно сказать маловато. Однако никто не запрещает вам помочь проекту, разработчики будут лишь рады этому факту.&lt;/p&gt;
 &lt;p&gt;Цель этой статьи не заставить вас перейти на этот фреймворк. У него пока мало плагинов и это его главный недостаток. Думаю, что всё-же стоит остановить свой выбор на чём-то другом, на том же fish или zsh с его oh my zsh. Но если вас удовлетворят возможности oh my bash, то это будет не таким уж и плохим решением. Главная цель этой статьи показать то многообразиее решений применяемых в linux. Изучайте его, это здорово.&lt;/p&gt;
 
