@@ -2,332 +2,332 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dantealighierin.github.io/about/</loc>
+    <loc>/about/</loc>
     <lastmod>2021-02-12T23:14:28+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2020-12-31T17:25:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/</loc>
+    <loc>/</loc>
     <lastmod>2020-12-31T17:25:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/post/</loc>
+    <loc>/post/</loc>
     <lastmod>2020-12-31T17:25:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/categories/setup/</loc>
+    <loc>/categories/setup/</loc>
     <lastmod>2020-12-31T17:25:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/setup/</loc>
+    <loc>/tags/setup/</loc>
     <lastmod>2020-12-31T17:25:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2020-12-31T17:25:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/vim/</loc>
+    <loc>/tags/vim/</loc>
     <lastmod>2020-12-31T17:25:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/post/vim/</loc>
+    <loc>/post/vim/</loc>
     <lastmod>2020-12-31T17:25:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/vim-plug/</loc>
+    <loc>/tags/vim-plug/</loc>
     <lastmod>2020-12-31T17:25:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/clone/</loc>
+    <loc>/tags/clone/</loc>
     <lastmod>2020-05-01T21:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/neofetch/</loc>
+    <loc>/tags/neofetch/</loc>
     <lastmod>2020-05-01T21:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/os/</loc>
+    <loc>/tags/os/</loc>
     <lastmod>2020-05-01T21:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/platform/</loc>
+    <loc>/tags/platform/</loc>
     <lastmod>2020-05-01T21:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/categories/programming/</loc>
+    <loc>/categories/programming/</loc>
     <lastmod>2020-05-01T21:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/python/</loc>
+    <loc>/tags/python/</loc>
     <lastmod>2020-05-01T21:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/socket/</loc>
+    <loc>/tags/socket/</loc>
     <lastmod>2020-05-01T21:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/subprocess/</loc>
+    <loc>/tags/subprocess/</loc>
     <lastmod>2020-05-01T21:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/post/neofetch/</loc>
+    <loc>/post/neofetch/</loc>
     <lastmod>2020-05-01T21:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/2captcha/</loc>
+    <loc>/tags/2captcha/</loc>
     <lastmod>2020-03-31T17:10:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/automation/</loc>
+    <loc>/tags/automation/</loc>
     <lastmod>2020-03-31T17:10:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/captcha/</loc>
+    <loc>/tags/captcha/</loc>
     <lastmod>2020-03-31T17:10:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/rucaptcha/</loc>
+    <loc>/tags/rucaptcha/</loc>
     <lastmod>2020-03-31T17:10:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/post/rucaptcha/</loc>
+    <loc>/post/rucaptcha/</loc>
     <lastmod>2020-03-31T17:10:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/ar/</loc>
+    <loc>/tags/ar/</loc>
     <lastmod>2020-03-14T21:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/cli/</loc>
+    <loc>/tags/cli/</loc>
     <lastmod>2020-03-14T21:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/gui/</loc>
+    <loc>/tags/gui/</loc>
     <lastmod>2020-03-14T21:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/categories/ui/</loc>
+    <loc>/categories/ui/</loc>
     <lastmod>2020-03-14T21:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/ui/</loc>
+    <loc>/tags/ui/</loc>
     <lastmod>2020-03-14T21:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/vr/</loc>
+    <loc>/tags/vr/</loc>
     <lastmod>2020-03-14T21:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/wimp/</loc>
+    <loc>/tags/wimp/</loc>
     <lastmod>2020-03-14T21:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/zui/</loc>
+    <loc>/tags/zui/</loc>
     <lastmod>2020-03-14T21:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/post/ui/</loc>
+    <loc>/post/ui/</loc>
     <lastmod>2020-03-14T21:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/messanger/</loc>
+    <loc>/tags/messanger/</loc>
     <lastmod>2020-02-23T15:10:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/threading/</loc>
+    <loc>/tags/threading/</loc>
     <lastmod>2020-02-23T15:10:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/tkinter/</loc>
+    <loc>/tags/tkinter/</loc>
     <lastmod>2020-02-23T15:10:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/post/chat/</loc>
+    <loc>/post/chat/</loc>
     <lastmod>2020-02-23T15:10:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/post/rpython/</loc>
+    <loc>/post/rpython/</loc>
     <lastmod>2020-02-10T17:25:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/jit/</loc>
+    <loc>/tags/jit/</loc>
     <lastmod>2020-02-10T17:25:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/pypy/</loc>
+    <loc>/tags/pypy/</loc>
     <lastmod>2020-02-10T17:25:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/rpython/</loc>
+    <loc>/tags/rpython/</loc>
     <lastmod>2020-02-10T17:25:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/pyqrcode/</loc>
+    <loc>/tags/pyqrcode/</loc>
     <lastmod>2020-02-03T20:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/qr/</loc>
+    <loc>/tags/qr/</loc>
     <lastmod>2020-02-03T20:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/post/qrcode/</loc>
+    <loc>/post/qrcode/</loc>
     <lastmod>2020-02-03T20:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/bash/</loc>
+    <loc>/tags/bash/</loc>
     <lastmod>2020-01-05T18:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/categories/linux/</loc>
+    <loc>/categories/linux/</loc>
     <lastmod>2020-01-05T18:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/post/ohbash/</loc>
+    <loc>/post/ohbash/</loc>
     <lastmod>2020-01-05T18:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/oh_my_bash/</loc>
+    <loc>/tags/oh_my_bash/</loc>
     <lastmod>2020-01-05T18:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/shell/</loc>
+    <loc>/tags/shell/</loc>
     <lastmod>2020-01-05T18:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/terminal/</loc>
+    <loc>/tags/terminal/</loc>
     <lastmod>2020-01-05T18:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/zsh/</loc>
+    <loc>/tags/zsh/</loc>
     <lastmod>2020-01-05T18:30:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/ai/</loc>
+    <loc>/tags/ai/</loc>
     <lastmod>2019-12-21T17:32:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/thinking/</loc>
+    <loc>/tags/thinking/</loc>
     <lastmod>2019-12-21T17:32:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/categories/thinking-out-loud/</loc>
+    <loc>/categories/thinking-out-loud/</loc>
     <lastmod>2019-12-21T17:32:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/post/ai-copy/</loc>
+    <loc>/post/ai-copy/</loc>
     <lastmod>2019-12-21T17:32:04+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/chrome/</loc>
+    <loc>/tags/chrome/</loc>
     <lastmod>2019-12-14T23:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/chromium/</loc>
+    <loc>/tags/chromium/</loc>
     <lastmod>2019-12-14T23:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/css/</loc>
+    <loc>/tags/css/</loc>
     <lastmod>2019-12-14T23:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/firefox/</loc>
+    <loc>/tags/firefox/</loc>
     <lastmod>2019-12-14T23:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/html/</loc>
+    <loc>/tags/html/</loc>
     <lastmod>2019-12-14T23:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/web/</loc>
+    <loc>/tags/web/</loc>
     <lastmod>2019-12-14T23:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/post/custom_page/</loc>
+    <loc>/post/custom_page/</loc>
     <lastmod>2019-12-14T23:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/pyinstaller/</loc>
+    <loc>/tags/pyinstaller/</loc>
     <lastmod>2019-09-20T20:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/tags/pytube/</loc>
+    <loc>/tags/pytube/</loc>
     <lastmod>2019-09-20T20:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/post/python_found/</loc>
+    <loc>/post/python_found/</loc>
     <lastmod>2019-09-20T20:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>https://dantealighierin.github.io/post/tko/</loc>
+    <loc>/post/tko/</loc>
     <lastmod>2019-09-13T18:00:00+03:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

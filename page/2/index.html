@@ -18,31 +18,31 @@
   content=""
 />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://dantealighierin.github.io/" />
+<link rel="canonical" href="/" />
 
 
 
 
 
-<link rel="stylesheet" href="https://dantealighierin.github.io/assets/style.css" />
+<link rel="stylesheet" href="/assets/style.css" />
 
-<link rel="stylesheet" href="https://dantealighierin.github.io/style.css" />
+<link rel="stylesheet" href="/style.css" />
 
 
 <link
   rel="apple-touch-icon-precomposed"
   sizes="144x144"
-  href="https://dantealighierin.github.io/img/apple-touch-icon-144-precomposed.png"
+  href="/img/apple-touch-icon-144-precomposed.png"
 />
-<link rel="shortcut icon" href="https://dantealighierin.github.io/images/favicon.ico" />
+<link rel="shortcut icon" href="/img/favicon.png" />
 
 
-<link href="https://dantealighierin.github.io/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="https://dantealighierin.github.io/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="https://dantealighierin.github.io/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="https://dantealighierin.github.io/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="https://dantealighierin.github.io/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
-<link href="https://dantealighierin.github.io/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Italic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Regular.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Medium.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-MediumItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-Bold.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
+<link href="/assets/fonts/Inter-BoldItalic.woff2" rel="preload" type="font/woff2" as="font" crossorigin="">
 
 
 <meta name="twitter:card" content="summary"/>
@@ -54,7 +54,7 @@
 <meta property="og:title" content="Dante&#39;s blog" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://dantealighierin.github.io/" /><meta property="og:site_name" content="Dante&#39;s blog" />
+<meta property="og:url" content="/" /><meta property="og:site_name" content="Dante&#39;s blog" />
 
 
 
@@ -160,93 +160,289 @@
   </span>
 </header>
 
-      
-
 
       <div class="content">
         
+  
+  
+
+  
+  
+    
+  
+  
+
+  
+
   <div class="posts">
     
-      <div class="post on-list">
-        <h1 class="post-title"><a href="https://dantealighierin.github.io/about/">About</a></h1>
-        <div class="post-meta">
-          
-            <span class="post-date">
-              2021-02-12
-            </span>
-
-            
-          
-          
-
+    <div class="post on-list">
+      <h1 class="post-title"><a href="/post/rpython/">&lsquo;Я скорость&rsquo; или что такое rPython</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            2020-02-10
+          </span>
 
           
-            <span class="post-read-time"
-              >— 1 min read</span
-            >
-          
-        </div>
-
         
 
         
-
-        <div class="post-content">
-          
-            
-              Hello. I am Dante and I am an IT lover. I have been working with Python for about 4 years, and also with Golang for almost a year. I use the above languages to write application software and web services. To write web services, you also need to be able to write a frontend, respectively, I have the skills and knowledge in html, css and javascript. In addition to vanilla JS, I used a VueJS.
-            
-          
-        </div>
+          <span class="post-author">— Written by Dante</span>
         
-          <div>
-            <a class="read-more button" href="/about/"
-              >Read more →</a
-            >
-          </div>
+
+        
+          <span class="post-read-time">— 4 min read</span>
         
       </div>
+
+      
+        <span class="post-tags">
+          
+            <a href="/tags/python/">#python</a>&nbsp;
+          
+            <a href="/tags/jit/">#JIT</a>&nbsp;
+          
+            <a href="/tags/pypy/">#PyPy</a>&nbsp;
+          
+            <a href="/tags/rpython/">#rpython</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            Python существует уже много лет и за всё это время Гвидо ван Россум и другие разработчики этого языка стремились к созданию чистого дизайна языка. Для этого нужно было описать язык его же терминами. И по понятным причинам интерпретаторы на C(Cpython - самая популярная и на данный момент эталонная реализация) , Java(Jython) , на стеке .NET(IronPython)не подходят. Собственно нужна была реализация на самом питоне. И тут миру явился PyPy.
+Проект PyPy реализован не на самом python , как это может показаться на первый взгляд, а на его подмножестве rPython.
+          
+        
+      </div>
+      
+        <div><a class="read-more button" href="/post/rpython/">Read more →</a></div>
+      
+    </div>
     
-      <div class="post on-list">
-        <h1 class="post-title"><a href="https://dantealighierin.github.io/post/">Posts</a></h1>
-        <div class="post-meta">
-          
-            <span class="post-date">
-              2020-12-31
-            </span>
-
-            
-          
-          
-
+    <div class="post on-list">
+      <h1 class="post-title"><a href="/post/qrcode/">Qr генератор на python</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            2020-02-03
+          </span>
 
           
-            <span class="post-read-time"
-              >— 0 min read</span
-            >
-          
-        </div>
-
         
 
         
-
-        <div class="post-content">
-          
-            
-          
-        </div>
+          <span class="post-author">— Written by Dante</span>
         
-          <div>
-            <a class="read-more button" href="/post/"
-              >Read more →</a
-            >
-          </div>
+
+        
+          <span class="post-read-time">— 3 min read</span>
         
       </div>
+
+      
+        <span class="post-tags">
+          
+            <a href="/tags/python/">#python</a>&nbsp;
+          
+            <a href="/tags/tkinter/">#tkinter</a>&nbsp;
+          
+            <a href="/tags/qr/">#qr</a>&nbsp;
+          
+            <a href="/tags/pyqrcode/">#pyqrcode</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            Некоторое время назад я написал статью, где показывал построение простого виджета часов на tkinter. Если кто-то не помнит, то tkinter - это кроссплатформенная библиотека для разработки графического интерфейса на языке Python.
+И в то или иное время у меня возникает потребность в написании простых программ, и неважно, будь это прямая потребность или просто желание постучать пальцами по клавиатуре. По мимо этого я люблю копаться в репозитории библиотек python.
+Среди всего этого разнообразия пакетов мне приглянулся PyQRCode.
+          
+        
+      </div>
+      
+        <div><a class="read-more button" href="/post/qrcode/">Read more →</a></div>
+      
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="/post/ohbash/">Oh My Bash</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            2020-01-05
+          </span>
+
+          
+        
+
+        
+          <span class="post-author">— Written by Dante</span>
+        
+
+        
+          <span class="post-read-time">— 4 min read</span>
+        
+      </div>
+
+      
+        <span class="post-tags">
+          
+            <a href="/tags/shell/">#shell</a>&nbsp;
+          
+            <a href="/tags/bash/">#bash</a>&nbsp;
+          
+            <a href="/tags/zsh/">#zsh</a>&nbsp;
+          
+            <a href="/tags/oh_my_bash/">#oh_my_bash</a>&nbsp;
+          
+            <a href="/tags/terminal/">#terminal</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            Ни для кого не секрет , что под UNIX системы(в том числе и под Linux) существуют различные командные оболочки. Самой распостранённой из них является bash. Как правило он идёт в комплекте поставки почти каждого дистрибутива linux. Но не одним bash&rsquo;ем единым наполняются репозитории операционных систем. Среди других ,как правило, выделяют fish shell, csh, ash и конечно же zsh. Последний становится всё более популярным в linux сообществе.
+За что же любят zsh, чем же он лучше стандартного?
+          
+        
+      </div>
+      
+        <div><a class="read-more button" href="/post/ohbash/">Read more →</a></div>
+      
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="/post/ai-copy/">Об искусственном интеллекте</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            2019-12-21
+          </span>
+
+          
+        
+
+        
+          <span class="post-author">— Written by Dante</span>
+        
+
+        
+          <span class="post-read-time">— 3 min read</span>
+        
+      </div>
+
+      
+        <span class="post-tags">
+          
+            <a href="/tags/ai/">#ai</a>&nbsp;
+          
+            <a href="/tags/thinking/">#thinking</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            Лично меня раздражает тенденция маркетологов , когда они злоупотребляют в своём продукте такими словосочетаниями как &ldquo;нейронные сети&rdquo; и &ldquo;искусственный интеллект&rdquo;. И ладно ,если бы это соответстовало действительности,но на самом деле это, как правило,не так. Либо такие люди действительно заблуждаются и не понимают,что значат эти слова, либо просто считают, что эти триггеры помогут продукту развиваться.
+К примеру, бота в чате способного выдавать ответы на те или иные вопросы начинают считать искусственным интелектом.
+          
+        
+      </div>
+      
+        <div><a class="read-more button" href="/post/ai-copy/">Read more →</a></div>
+      
+    </div>
+    
+    <div class="post on-list">
+      <h1 class="post-title"><a href="/post/custom_page/">Кастомная стартовая страница для браузера</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            2019-12-14
+          </span>
+
+          
+        
+
+        
+          <span class="post-author">— Written by Dante</span>
+        
+
+        
+          <span class="post-read-time">— 3 min read</span>
+        
+      </div>
+
+      
+        <span class="post-tags">
+          
+            <a href="/tags/firefox/">#firefox</a>&nbsp;
+          
+            <a href="/tags/chrome/">#chrome</a>&nbsp;
+          
+            <a href="/tags/chromium/">#chromium</a>&nbsp;
+          
+            <a href="/tags/web/">#web</a>&nbsp;
+          
+            <a href="/tags/html/">#html</a>&nbsp;
+          
+            <a href="/tags/css/">#css</a>&nbsp;
+          
+        </span>
+      
+
+      
+
+      <div class="post-content">
+        
+          
+            XXI век - век информации,а потому очень важно уметь её искать и изучать. В этом нам помогают веб обозреватели, они же браузеры. И как только пользователь запускает заветный ярлычок, сразу же попадает на стартовую страницу. Как правило там расположены самые читаемые сайты, закладки и поисковая строка. В разных браузерах это выглядит по разному. К примеру в mozilla firefox это выглядит вот так:
+Safari: А вот так у меня выглядит chromium(chrome) !
+          
+        
+      </div>
+      
+        <div><a class="read-more button" href="/post/custom_page/">Read more →</a></div>
+      
+    </div>
     
     <div class="pagination">
- 
+  <div class="pagination__buttons">
+    
+      <span class="button previous">
+        <a href="/">
+          <span class="button__icon">←</span>
+          <span class="button__text">Newer posts</span>
+        </a>
+      </span>
+    
+    
+      <span class="button next">
+        <a href="/page/3/">
+          <span class="button__text">Older posts</span>
+          <span class="button__icon">→</span>
+        </a>
+      </span>
+    
+  </div>
 </div>
 
   </div>
@@ -277,15 +473,19 @@
       <div class="copyright">
         <span
           >© 2021 Powered by
-	  <b>Golang</b></span
+          <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a></span
+        >
+        <span
+          >Theme created by
+          <a href="https://twitter.com/panr" target="_blank" rel="noopener">panr</a></span
         >
       </div>
     
   </div>
 </footer>
 
-<script src="https://dantealighierin.github.io/assets/main.js"></script>
-<script src="https://dantealighierin.github.io/assets/prism.js"></script>
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
 
 
       

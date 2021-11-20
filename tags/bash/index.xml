@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/tags/bash/</link>
+    <link>/tags/bash/</link>
     <description>Recent content in bash on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sun, 05 Jan 2020 18:30:00 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/bash/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Oh My Bash</title>
-      <link>https://dantealighierin.github.io/post/ohbash/</link>
+      <link>/post/ohbash/</link>
       <pubDate>Sun, 05 Jan 2020 18:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/ohbash/</guid>
+      <guid>/post/ohbash/</guid>
       <description>
         
           
@@ -27,7 +27,7 @@
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/terminal.gif&#34; alt=&#34;terminal.gif&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;/images/terminal.gif&#34; alt=&#34;terminal.gif&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Ни для кого не секрет , что под UNIX системы(в том числе и под Linux) существуют различные командные оболочки. Самой распостранённой из них является bash. Как правило он идёт в комплекте поставки почти каждого дистрибутива linux. Но не одним bash&amp;rsquo;ем единым наполняются репозитории операционных систем. Среди других ,как правило, выделяют fish shell, csh, ash и конечно же zsh. Последний становится всё более популярным в linux сообществе.&lt;/p&gt;
 &lt;p&gt;За что же любят zsh, чем же он лучше стандартного? Да практически ничем. Истинную мощь zsh приобретает лишь при установки фреймворка oh my zsh. Огромное количество плагинов и тем оформления - вещь крутая. То же автодополнение становится на много удобнее чем в классической оболочке. Еще одна фишка, которая мне понравилась - это git плагин. Можно узнать много полезного(если вы находитесь в папках с репозиторием), актуально ли текущее состояние репозитория, в какой ветке находимся, имеются ли новые изменения в файлах, есть ли коммиты или изменения. В общем всю необходимую информацию. Не нужно проверять ветку через :&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;git branch -v
@@ -49,7 +49,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;На это:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;OSH_THEME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;agnoster&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;После этого ваш терминал будет выглядеть примерно так(с учётом установленного git плагина):&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/example_powerline.png&#34; alt=&#34;example_powerline.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/example_powerline.png&#34; alt=&#34;example_powerline.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;В конфиге можно указать, чтобы oh my zsh менял тему на случайную:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;OSH_THEME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;random&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Плагины устанавливаютя следующим образом:&lt;/p&gt;
@@ -142,9 +142,9 @@ source $OSH/oh-my-bash.sh
 &lt;span style=&#34;color:#75715e&#34;&gt;# alias bashconfig=&amp;#34;mate ~/.bashrc&amp;#34;&lt;/span&gt;
 &lt;span style=&#34;color:#75715e&#34;&gt;# alias ohmybash=&amp;#34;mate ~/.oh-my-bash&amp;#34;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;У меня это выглядит вот так:
-&lt;img src=&#34;https://dantealighierin.github.io/images/author.png&#34; alt=&#34;author.png&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;/images/author.png&#34; alt=&#34;author.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Всего в репозитории присутствует 6 плагинов и 53 темы (на момент написания статьи).&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/progress.png&#34; alt=&#34;progress.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/progress.png&#34; alt=&#34;progress.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Да, честно сказать маловато. Однако никто не запрещает вам помочь проекту, разработчики будут лишь рады этому факту.&lt;/p&gt;
 &lt;p&gt;Цель этой статьи не заставить вас перейти на этот фреймворк. У него пока мало плагинов и это его главный недостаток. Думаю, что всё-же стоит остановить свой выбор на чём-то другом, на том же fish или zsh с его oh my zsh. Но если вас удовлетворят возможности oh my bash, то это будет не таким уж и плохим решением. Главная цель этой статьи показать то многообразиее решений применяемых в linux. Изучайте его, это здорово.&lt;/p&gt;
 

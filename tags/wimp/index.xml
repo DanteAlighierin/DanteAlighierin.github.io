@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/tags/wimp/</link>
+    <link>/tags/wimp/</link>
     <description>Recent content in wimp on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Sat, 14 Mar 2020 21:30:00 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/tags/wimp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/wimp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Разновидности UI</title>
-      <link>https://dantealighierin.github.io/post/ui/</link>
+      <link>/post/ui/</link>
       <pubDate>Sat, 14 Mar 2020 21:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/ui/</guid>
+      <guid>/post/ui/</guid>
       <description>
         
           
@@ -28,7 +28,7 @@
         
         
         &lt;p&gt;Привет! Сегодня поговорим про пользовательские интерфейсы, а именно про их разновидности, положительные стороны и недостатки. Что-ж , приступим!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/ui_title.gif&#34; alt=&#34;ui_title&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/ui_title.gif&#34; alt=&#34;ui_title&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;окунёмся-в-историю&#34;&gt;Окунёмся в историю&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -43,13 +43,13 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;физические-устройства-как-способ-взаимодействия&#34;&gt;Физические устройства, как способ взаимодействия&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/turing.gif&#34; alt=&#34;turing&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/turing.gif&#34; alt=&#34;turing&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;преимущества&#34;&gt;Преимущества&lt;/h3&gt;
 &lt;p&gt;Взаимодействие с ЭВМ непосредственно через физические устройства не требуют дополнительных слоёв абстракции.&lt;/p&gt;
 &lt;h3 id=&#34;недостатки&#34;&gt;Недостатки&lt;/h3&gt;
 &lt;p&gt;Очевидно, что такой способ общения с компьютером не прост, особенно для рядового обывателя.&lt;/p&gt;
 &lt;h2 id=&#34;cli&#34;&gt;CLI&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/cli_ui.gif&#34; alt=&#34;cli_ui&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/cli_ui.gif&#34; alt=&#34;cli_ui&#34;&gt;&lt;/p&gt;
 &lt;p&gt;CLI или же Command Line Interface. В период с 1960 по 1980 был основным пользовательским интерфейсом. Представляет из себя набор команд с дополнительными флагами (параметрами).&lt;/p&gt;
 &lt;h3 id=&#34;преимущества-1&#34;&gt;Преимущества&lt;/h3&gt;
 &lt;ul&gt;
@@ -73,7 +73,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;wimp-или-gui&#34;&gt;WIMP или GUI&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/wimp.gif&#34; alt=&#34;wimp&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/wimp.gif&#34; alt=&#34;wimp&#34;&gt;&lt;/p&gt;
 &lt;p&gt;WIMP это аббревиатура от Windows, Icons, Menus, Pointer — окна, иконки, меню, указатель.
 WIMP-интерфейс — это графический пользовательский интерфейс, в котором пользователь передаёт компьютеру свои намерения взаимодействуя с окнами, иконками, меню и указателем.&lt;/p&gt;
 &lt;h3 id=&#34;основные-концепции-wimp&#34;&gt;Основные концепции WIMP&lt;/h3&gt;
@@ -92,7 +92,7 @@ WIMP-интерфейс — это графический пользовател
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Очевидность действий. В отличии от CLI, в gui все возможные действия представлены на экране. Однако с ростом функционала растёт и площадь экранного пространства, что не всегда хорошо и приводит к перегруженности интерфейса.
-&lt;img src=&#34;https://dantealighierin.github.io/images/hardui.png&#34; alt=&#34;hardui&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;/images/hardui.png&#34; alt=&#34;hardui&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;преимущества-2&#34;&gt;Преимущества&lt;/h3&gt;
@@ -121,19 +121,19 @@ WIMP-интерфейс — это графический пользовател
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Ярлыки. Это то,что вы привыкли видеть на рабочем столе. в основе лежит концепция point and click.
-&lt;img src=&#34;https://dantealighierin.github.io/images/click.gif&#34; alt=&#34;click&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;/images/click.gif&#34; alt=&#34;click&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Hotkeys(горячие клавиши) - сочетания клавиш для выполнения какого либо действия. Значительно ускоряют взаимодействие с компьютером.
-&lt;img src=&#34;https://dantealighierin.github.io/images/hotkey.gif&#34; alt=&#34;hotkey&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;/images/hotkey.gif&#34; alt=&#34;hotkey&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Жесты. Особую популярность снискали в мобильных интерфейсах, однако встречаются и на десктопе.
-&lt;img src=&#34;https://dantealighierin.github.io/images/iphone.gif&#34; alt=&#34;iphone&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;/images/iphone.gif&#34; alt=&#34;iphone&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Виртуальные рабочие столы. Увеличивают рабочее пространство и позволяют разграничивать юзеркейсы. Изначально появились на MacOs, затем и в Windows 10. Лично мне больше всего нравиться реализация в тайлинговых оконных менеджерах(i3WM,Awesome).
-&lt;img src=&#34;https://dantealighierin.github.io/images/virtul_spaces.gif&#34; alt=&#34;virtual_spaces&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;/images/virtul_spaces.gif&#34; alt=&#34;virtual_spaces&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;так-за-чем-же-будущее&#34;&gt;Так за чем же будущее?&lt;/h1&gt;
@@ -141,33 +141,33 @@ WIMP-интерфейс — это графический пользовател
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Голосовое взаимодействие. Думаю, что каждый знает о существовании голосовых ассистентов(Google Assistant, Alexa, Siri).
-&lt;img src=&#34;https://dantealighierin.github.io/images/assistant.gif&#34; alt=&#34;assistant_google&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;/images/assistant.gif&#34; alt=&#34;assistant_google&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;AR UI - взаимодействие с виртуальными элементами интерфейса в реальном окружении
-&lt;img src=&#34;https://dantealighierin.github.io/images/ar.gif&#34; alt=&#34;ar&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;/images/ar.gif&#34; alt=&#34;ar&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;VR UI. Сейчас активно развивается в игровой индустрии, но потихоньку переходит и в другие сферы нашей жизни. Хотите попробовать? Купите Oculus Rift, HTC Vive. Не хотите тратить денег? Склейте самостоятельно Cardboard из картона и скачайте приложение.
-&lt;img src=&#34;https://dantealighierin.github.io/images/vr.gif&#34; alt=&#34;vr&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;/images/vr.gif&#34; alt=&#34;vr&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Жесты. В первые я ознакомился с этим интерфейсом благодаря Motion Sense в Google Pixel 4.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/motion_sense.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/motion_sense.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Нейрокомпьютерный UI — передача команд компьютеру через мыслительные процессы.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/neuro.gif&#34; alt=&#34;neuro&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/neuro.gif&#34; alt=&#34;neuro&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Управление взглядом — замена компьютерной мыши.
-&lt;img src=&#34;https://dantealighierin.github.io/images/eye_tracking.gif&#34; alt=&#34;eye_tracking&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;/images/eye_tracking.gif&#34; alt=&#34;eye_tracking&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;ZUI (Zoomable User Interface) - на мой взгляд самый необычный пользовательский интерфейс и самое главное - помогает людям с ограничеными возможностями.
-&lt;img src=&#34;https://dantealighierin.github.io/images/zui.gif&#34; alt=&#34;zoomable user interface&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;/images/zui.gif&#34; alt=&#34;zoomable user interface&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;А какой тип интерфейсов вам по душе? Пишите в комментариях!&lt;/p&gt;

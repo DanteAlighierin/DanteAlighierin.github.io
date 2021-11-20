@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/tags/python/</link>
+    <link>/tags/python/</link>
     <description>Recent content in python on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Fri, 01 May 2020 21:00:00 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Пишем клон neofetch на python</title>
-      <link>https://dantealighierin.github.io/post/neofetch/</link>
+      <link>/post/neofetch/</link>
       <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/neofetch/</guid>
+      <guid>/post/neofetch/</guid>
       <description>
         
           
@@ -34,7 +34,7 @@
 &lt;p&gt;K примеру в ubuntu она ставиться следующим образом:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt update
 sudo apt install neofetch
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/neofetch_pro.gif&#34; alt=&#34;neofetch_pro&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/neofetch_pro.gif&#34; alt=&#34;neofetch_pro&#34;&gt;&lt;/p&gt;
 &lt;p&gt;На гифке выше - neofetch выводит название ОС, имя хоста, shell, разрешение экрана, оконный менеджер, gtk тему, иконки и название терминала. Чуть ниже расположена полоска с цветами, отображающая цветовую схему терминала.  Однако можно вывести куда больше информации, и на этом этапе вы можете начать разбираться с конфигурационным файлом. Как правило он лежит в директории ~/.config/neofetch . Если такой директории нет, то создайте её и в ней пропишите конфиг в файле config.conf.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;vim ~ /.config/neofetch/config.conf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Однако мне захотелось сделать свою версию на python. И для начала я отправился на github и нашёл там уже готовое решение,правда для MacOs.  И естественно оно не заработало на linux, даже не смотря то, что это схожие системы с точки зрения UNIX.  И потому было принято решение переписать эту программу.&lt;/p&gt;
@@ -174,7 +174,7 @@ sudo apt install neofetch
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;и-что-в-итоге&#34;&gt;И что в итоге?&lt;/h3&gt;
 &lt;p&gt;Сохранив скрипт и запустив его, мы получаем следующий результат:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/neo_py.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/neo_py.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Ну и по традиции прилагаю репозиторий на &lt;a href=&#34;https://github.com/DanteAlighierin/PyQr&#34;&gt;GitHub&amp;rsquo;е&lt;/a&gt; .&lt;/p&gt;
 
         
@@ -183,10 +183,10 @@ sudo apt install neofetch
     
     <item>
       <title>Автоматизируем решение капчи</title>
-      <link>https://dantealighierin.github.io/post/rucaptcha/</link>
+      <link>/post/rucaptcha/</link>
       <pubDate>Tue, 31 Mar 2020 17:10:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/rucaptcha/</guid>
+      <guid>/post/rucaptcha/</guid>
       <description>
         
           
@@ -195,7 +195,7 @@ sudo apt install neofetch
         
         
         &lt;p&gt;&lt;strong&gt;НА ПРАВАХ РЕКЛАМЫ&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/captcha.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/captcha.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Привет! Думаю, что тебя раздражает каждый раз вводить капчу при входе на любимый сайт. И было бы логично предположить, что существует сервис  для решения этой проблемы.  И действительно, такой есть.&lt;/p&gt;
 &lt;p&gt;Согласно описанию на сайте:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -224,11 +224,11 @@ sudo apt install neofetch
 &lt;span style=&#34;color:#a6e22e&#34;&gt;style&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;width: 250px; height: 40px;
 &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;border: 1px solid #c1c1c1; margin: 10px 25px; 
 &lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;padding: 0px; resize: none; &amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;textarea&lt;/span&gt;&amp;gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/gkey.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/gkey.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Сюда тебе нужно будет вставить ответ от сервиса.&lt;/p&gt;
 &lt;h3 id=&#34;установка&#34;&gt;Установка&lt;/h3&gt;
 &lt;p&gt;Но всё это не &amp;ldquo;торт&amp;rdquo;. Настоящие программисты всё автоматизируют. Потому давайте напишем программу антикапчу на python, используя соответствующую библиотеку.
-&lt;img src=&#34;https://dantealighierin.github.io/images/robot_captcha.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;/images/robot_captcha.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Установить модуль можно следующими методами:&lt;/p&gt;
 &lt;h4 id=&#34;через-pip&#34;&gt;Через pip&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;pip3 install python-rucaptcha
@@ -240,7 +240,7 @@ python setup.py install
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;примеры-работы&#34;&gt;Примеры работы&lt;/h3&gt;
 &lt;p&gt;Как вариант можно воспользоваться Callback API.
 Однако в таком случае  тесты проводяться на локальном сервере, эмулируя POST-запросы от RuCaptcha при помощи локального клиента. Принцип работы ты можешь увидеть на схеме ниже&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/rest.svg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/rest.svg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Однако этот способ не рационален, т.к для решения небольшой проблемы мы поднимаем сервер, пускай и небольшой.&lt;/p&gt;
 &lt;p&gt;Всё можно сделать гораздо проще:&lt;/p&gt;
 &lt;h4 id=&#34;простая-капча&#34;&gt;Простая капча&lt;/h4&gt;
@@ -335,11 +335,11 @@ user_answer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ReCaptchaV3
 	print(user_answer[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;errorBody&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;])
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;В качестве тестового полигона будем использовать
 &lt;a href=&#34;https://patrickhlauke.github.io/recaptcha/&#34;&gt;следующий сайт&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/site_captcha.png&#34; alt=&#34;&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;/images/site_captcha.png&#34; alt=&#34;&#34;&gt;
 Подставим необходимые данные в наш код:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/blur_key.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/blur_key.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Задача решена:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/cheers.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/cheers.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;цена-вопроса&#34;&gt;Цена вопроса&lt;/h3&gt;
 &lt;p&gt;Отдельно стоит отметить, что стоимость распознавания очень низка, от $0,0005 за одну капчу. Для удобства, все цены указываются за распознавание 1000 капч, но биллинг в системе происходит отдельно по каждой капче. Разные типы капч распознаются по разной цене.&lt;/p&gt;
 &lt;ul&gt;
@@ -361,10 +361,10 @@ user_answer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ReCaptchaV3
     
     <item>
       <title>Простой мессенджер на tkinter,socket и threading</title>
-      <link>https://dantealighierin.github.io/post/chat/</link>
+      <link>/post/chat/</link>
       <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/chat/</guid>
+      <guid>/post/chat/</guid>
       <description>
         
           
@@ -372,7 +372,7 @@ user_answer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ReCaptchaV3
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/chat.png/&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;/images/chat.png/&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;В этой статье я бы хотел показать как написать простое приложение мессенджер менее чем в 150 строк.&lt;/p&gt;
 &lt;h3 id=&#34;серверная-часть&#34;&gt;Серверная часть&lt;/h3&gt;
 &lt;p&gt;Начнём с сервера(наше  приложение будет состоять из скриптов сервера и клиента), через который можно получать входящие запросы от клиентов, желающих общаться.  Традиционно указываем путь до интерпретатора и импортируем необходимые модули. Конкретно socket и threading. Первый отвечает непосредственно за &amp;ldquo;общение&amp;rdquo; процесссов между собой, второй за многопоточность. О этих модулях подробно можно почитать например здесь - &lt;a href=&#34;https://habr.com/ru/post/149077/&#34;&gt;socket&lt;/a&gt; , &lt;a href=&#34;https://habr.com/ru/post/149420/&#34;&gt;threading&lt;/a&gt;.&lt;/p&gt;
@@ -559,7 +559,7 @@ ADDR &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (HOST, PORT)
 client_socket &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; socket(AF_INET, SOCK_STREAM)
 client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connect(ADDR)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Как только мы получаем адрес и создаем сокет для подключения к нему, мы запускаем поток для получения сообщений, а затем основной цикл для нашего приложения с графическим интерфейсом:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/chat.gif&#34; alt=&#34;chat_app_gif&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/chat.gif&#34; alt=&#34;chat_app_gif&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;receive_thread &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;receive)
 receive_thread&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()
 tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
@@ -638,10 +638,10 @@ tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
     
     <item>
       <title> &#39;Я скорость&#39; или что такое rPython</title>
-      <link>https://dantealighierin.github.io/post/rpython/</link>
+      <link>/post/rpython/</link>
       <pubDate>Mon, 10 Feb 2020 17:25:04 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/rpython/</guid>
+      <guid>/post/rpython/</guid>
       <description>
         
           
@@ -649,12 +649,12 @@ tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/speed_py.png&#34; alt=&#34;python_speed&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;/images/speed_py.png&#34; alt=&#34;python_speed&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Python существует уже много лет и за всё это время Гвидо ван Россум и другие разработчики этого языка стремились к созданию чистого дизайна языка. Для этого нужно было описать язык его же терминами. И по понятным причинам интерпретаторы на C(Cpython - самая популярная и на данный момент эталонная реализация) , Java(Jython) , на стеке .NET(IronPython)не подходят. Собственно нужна была реализация на самом питоне. И тут миру явился PyPy.&lt;/p&gt;
 &lt;p&gt;Проект PyPy реализован не на самом python , как это может показаться на первый взгляд, а на его подмножестве rPython. По своей задумке PyPy  можно назвать средой исполнения к которой можно подключать любой другой язык. К примеру для повышения производительности можно создавать эффективные и низкоуровневые оптимизаторы, средством JIT(just in time compilation). Данная технология используется не только в питоне, но и в Java.&lt;/p&gt;
 &lt;p&gt;Однако в этой статье я бы хотел поговорить не о самом PyPy, а о том на чём непосредственно написан PyPy - подмножестве rPython. И не смотря на всего его преимущества, понять и начать работать с rPython не так уж и просто. По тому давайте рассмотрим пару примеров.&lt;/p&gt;
 &lt;h1 id=&#34;cтатическая-типизация&#34;&gt;Cтатическая типизация&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/type_py.png&#34; alt=&#34;Type_py&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/type_py.png&#34; alt=&#34;Type_py&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Не смотря на то, что с python я столкнулся раньше других языков. На статическую типизацию я впервые обратил внимание в TypeScript - расширении языка JavaScript для работы со статически типизированными данными. Но тем не менее давайте перейдём к нашему основному пациенту.&lt;/p&gt;
 &lt;p&gt;Основной код пишем в теле главной функции, остальные функции пишем вне тела.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(argv):
@@ -696,7 +696,7 @@ print add(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span styl
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;А вот:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;bird&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;split(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;)&lt;span style=&#34;color:#75715e&#34;&gt;#Будет работать в rPython&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;а-что-на-счёт-лямбды&#34;&gt;А что на счёт лямбды?&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/lambda_py.png&#34; alt=&#34;py_lambda&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;/images/lambda_py.png&#34; alt=&#34;py_lambda&#34;&gt;
 К сожалению или к счастью лямбды в rPython работать не будут. В место них нужно использовать  классические функции.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;map&lt;/span&gt;(fun,ls):
   nls &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
@@ -709,7 +709,7 @@ print add(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span styl
 
 map(add_one, [&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;])
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;операторы&#34;&gt;Операторы&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/operartorpy.png&#34; alt=&#34;operator_py&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;/images/operartorpy.png&#34; alt=&#34;operator_py&#34;&gt;
 Следует внимательно работать в этой реализации и с операторами.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;hello&lt;/span&gt;()
   &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;hi&amp;#39;&lt;/span&gt;
@@ -757,10 +757,10 @@ hello() &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style
     
     <item>
       <title>Qr генератор на python</title>
-      <link>https://dantealighierin.github.io/post/qrcode/</link>
+      <link>/post/qrcode/</link>
       <pubDate>Mon, 03 Feb 2020 20:30:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/qrcode/</guid>
+      <guid>/post/qrcode/</guid>
       <description>
         
           
@@ -768,7 +768,7 @@ hello() &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/qr.jpg&#34; alt=&#34;qr.jpg&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;/images/qr.jpg&#34; alt=&#34;qr.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Некоторое время назад я написал статью, где показывал построение простого виджета часов на tkinter. Если кто-то не помнит, то tkinter - это кроссплатформенная библиотека для разработки графического интерфейса на языке Python.&lt;/p&gt;
 &lt;p&gt;И в то или иное время у меня возникает потребность в написании простых программ, и неважно, будь это прямая потребность или просто желание постучать пальцами по клавиатуре. По мимо этого я люблю копаться в репозитории библиотек python.&lt;/p&gt;
 &lt;p&gt;Среди всего этого разнообразия пакетов мне приглянулся PyQRCode. Из названия очевидно, что этот пакет предназначен для работы с qr кодами. Потому давайте напишем простую программу для генерирования qr по введённому url. Сразу скажу, что напишем  две версии: консольную и с графическим интерфейсом.&lt;/p&gt;
@@ -787,7 +787,7 @@ url &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; create(input(&lt;sp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;И создаём рамки вокруг кода, если это необходимо:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;print(url&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;terminal(quiet_zone&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Должно получиться примерно вот так:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/cli.gif&#34; alt=&#34;cliqr&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/cli.gif&#34; alt=&#34;cliqr&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Закончив с консольной версией, приступим к построению графического интерфейса. Сделаем это в отдельном файле, во благо удобства. Судя по началу статьи очевидно, что будем использовать tk.&lt;/p&gt;
 &lt;p&gt;Импортируем библиотеки&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; tkinter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;
@@ -847,7 +847,7 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;И естественно прописываем mainloop:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;window&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;В итоге получаем следующее:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/gui.gif&#34; alt=&#34;gui_qr&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/gui.gif&#34; alt=&#34;gui_qr&#34;&gt;&lt;/p&gt;
 &lt;p&gt;А что если пользователю предоставить возможность выбирать режим? Рациональнее предложить интерфейс выбора, чем вручную выбирать необходимый файлик. Потому давайте создадим этот интерфейс, в файле choise.py напишем следующее:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;choise &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;CLI/gui mode?; Type C to use cli or type g to use gui:  &amp;#39;&lt;/span&gt;)
 
@@ -870,10 +870,10 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
     
     <item>
       <title>Не очень хороший python</title>
-      <link>https://dantealighierin.github.io/post/python_found/</link>
+      <link>/post/python_found/</link>
       <pubDate>Fri, 20 Sep 2019 20:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/python_found/</guid>
+      <guid>/post/python_found/</guid>
       <description>
         
           
@@ -881,7 +881,7 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/rating.png&#34; alt=&#34;rating&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;/images/rating.png&#34; alt=&#34;rating&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Python безусловно прекрасный язык программирования. Он идеально подходит для новичков,благодаря простому синтаксису, богатой библиотеке( в том числе идущей &amp;ldquo;из коробки&amp;rdquo; ), профилированию. Да и сам я заметил,что любая статья про python начинается с перечисления его достоинств.
 А вот называть недостатки языка не принято. Не понятно почему так сложилось,ведь абсолютно у всего в этом мире есть свои достоинства и недостатки. Думаю,что читателю будет полезно знать про плохие стороны змеиного языка.&lt;/p&gt;
 &lt;p&gt;Нет,я не буду упоминать про медлительность стандартного интерпретатора на Си. Во-первых большинству этой скорости будет за глаза. Во-вторых никто не мешает использовать другие реализации,по типу: Jython, IronPython, PyPy. Или вообще отказаться от стека вызовов и перейти на собственный стек с микропотоками, используя Stackless.&lt;/p&gt;
@@ -892,11 +892,11 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
 &lt;p&gt;Но уделить внимание я хотел бы совсем другому. Скорее имеющее отношение не к самому языку, а к его окружению . А потому речь пойдет про хвалённые модули &amp;ldquo;на все случаи жизни&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;Для себя я отметил ,что различные модули могут зависеть от версии языка. К примеру,python славится кроссплатформенностью. Это верно,т.к интерпретатор есть под все ОС . Но допустим мне необходимо завести софт без него, в контексте UNIX систем это не проблема, т.к интепретатор идет ,как правило, в составе дистрибутива. Другая ситуация в семействе NT(windows), и по идее в такой ситуации выручит pyinstaller(или ему подобные),однако работает честно говоря криво.К примеру он может не собрать необходимые модули или просто откажется собирать проект.&lt;/p&gt;
 &lt;p&gt;После мучений с Pyinstaller я захотел поскачивать видосики с youtube. Чтобы автоматизировать данный процесс(python славится, как прекрасное средство для автоматизации рутинных задач). Пошел на официальный сайт. С официальной документацией - там ничего не нашлось ( что, кстати, уже бывало не раз).&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/python+documentation.jpg&#34; alt=&#34;documentation&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/python+documentation.jpg&#34; alt=&#34;documentation&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Вопрос зачем тогда этот сайт вообще нужен? Не понятно&amp;hellip; Сделал help(&amp;ldquo;pytube&amp;rdquo;) - в качестве исчерпывающей информации получил какую-то мутную справочку, в которой не содержалось ничего полезного.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/ssets/help.jpg&#34; alt=&#34;help&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/ssets/help.jpg&#34; alt=&#34;help&#34;&gt;&lt;/p&gt;
 &lt;p&gt;В конце концов мне всё это окончательно надоело и я снёс эту библиотеку куда подальше, настроение испортилось и программу так и не написал в итоге.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/code_error.jpg&#34; alt=&#34;error&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/code_error.jpg&#34; alt=&#34;error&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Кто же виноват? Что делать? Эти извечные вопросы.. Они всегда возникают у тех, кто пытается использовать Python в полезных для себя целях, а в результате теряет время и нервы. И хочется сказать тем, кто там выпускает все эти новые версии постоянно: Ребята, сделайте так, что всё работало уже наконец! Можно возразить ,что за стандартные модули работают прекрасно, а вот за сторонние либы отвечаеют эти самые разработчики сторонних библиотек. Однако за окружение языка,да и не только языка программирования,но и в целом любого продукта, отвечают всё же разработчики целевого продукта. Каков сам продукт,таково и его окружение. А потому сделайте нормальную документацию, пофиксите баги в своем  языке. А то все классно и безотказно работает только пока решаешь задачки из учебника, а как доходит до практических задач, то ваш замечательный питон сворачивается в кольца и его даже пинком не заставишь что-то делать. На этом всё.&lt;/p&gt;
 
         
@@ -905,10 +905,10 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
     
     <item>
       <title>Простые часы  на tkinter</title>
-      <link>https://dantealighierin.github.io/post/tko/</link>
+      <link>/post/tko/</link>
       <pubDate>Fri, 13 Sep 2019 18:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/tko/</guid>
+      <guid>/post/tko/</guid>
       <description>
         
           
@@ -916,7 +916,7 @@ totalCols &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span styl
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/clock.png&#34; alt=&#34;f375a21a.png&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;/images/clock.png&#34; alt=&#34;f375a21a.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Tkinter – это кроссплатформенная библиотека для разработки графического интерфейса на языке Python (начиная с Python 3.0 переименована в tkinter). Tkinter расшифровывается как Tool kit interface, и является интерфейсом для языка програмирования Tcl и графической  для него привязки tk.Не вдаваясь в подробности, Tkinter можно охарактеризовать как переводчик с языка Python на язык Tcl. Вы пишете программу на Python, а код модуля tkinter у вас за спиной переводит ваши инструкции на язык Tcl(тикль-токль), который понимает библиотека Tk (tool kit).&lt;/p&gt;
 &lt;p&gt;Конечно для python есть и другие более мощные и интересные библиотеки графического интерфейса такие как: pygame и qiwi, qt и gtk.Однако pygame расчитан больше на разработку видео игр, qiwi лучше использовать для мобильных платформ , qt и gtk несколько сложнее в изучении и могут иметь много не нужного на первых этапах . А вот tkinter хорош для протипирования и быстрой разработки,а потому он идеально подходит для начинающих. В плюсы данной библиотеке можно записать её наличие в стандартном дистрибутиве python,в то время,как другие библиотеки для создания графического интерфейса требует отдельной установки через внутренний менеджер пакетов питона pip.&lt;/p&gt;
 &lt;p&gt;Под графическим интерфейсом пользователя (GUI или graphical user interfase) подразумеваются все  окна, кнопки, текстовые поля для ввода, скроллеры, списки, флаги. Через них пользователь взаимодействует с программой и управляет ею. Все эти элементы интерфейса называются виджетами (widgets).&lt;/p&gt;

@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/tags/setup/</link>
+    <link>/tags/setup/</link>
     <description>Recent content in setup on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Thu, 31 Dec 2020 17:25:04 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/tags/setup/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/setup/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Vim в массы</title>
-      <link>https://dantealighierin.github.io/post/vim/</link>
+      <link>/post/vim/</link>
       <pubDate>Thu, 31 Dec 2020 17:25:04 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/vim/</guid>
+      <guid>/post/vim/</guid>
       <description>
         
           
@@ -27,11 +27,11 @@
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/comfyvim.png&#34; alt=&#34;comfyvim&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;/images/comfyvim.png&#34; alt=&#34;comfyvim&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Не буду в тысячный раз описывать преимущества vim&amp;rsquo;a, их и так все знают, да и на эту тему есть вагон и маленькая тележка статей и видео.&lt;/p&gt;
 &lt;p&gt;Предположим,что вы всё же решились. И вот, наконец, вы открыли терминал, через пакетный менеджер провели установку, открывайте программу и видите примерно следующую картину:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/shittyvim.png&#34; alt=&#34;shittyvim&#34;&gt;
-&lt;img src=&#34;https://dantealighierin.github.io/images/shittyvim2.png&#34; alt=&#34;shittyvim_with_text&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/shittyvim.png&#34; alt=&#34;shittyvim&#34;&gt;
+&lt;img src=&#34;/images/shittyvim2.png&#34; alt=&#34;shittyvim_with_text&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Не очень красиво,правда? И это еще не зашла речь про функциональность и какие-либо плюшки. Уже внешний вид может отпугнуть потенциального пользователя, ведь он хочет удобную и красивую рабочую среду, а не просто кусок терминала с текстом.&lt;/p&gt;
 &lt;h2 id=&#34;usecase&#34;&gt;Usecase&lt;/h2&gt;
 &lt;p&gt;Давайте сразу решим что мы хотим от vim&amp;rsquo;a. На мой вгляд, большинству необходима адекватная подсветка синтаксиса и автокомплит.Также многие пишут тексты в формате Markdown, а для этого желательно иметь настроенный предпросмотр отрендеренного контента.&lt;/p&gt;
@@ -49,7 +49,7 @@
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/gobrr.png&#34; alt=&#34;vimplug go brr&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;img src=&#34;/images/gobrr.png&#34; alt=&#34;vimplug go brr&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;пишем-код-красиво&#34;&gt;Пишем код красиво!&lt;/h3&gt;
 &lt;p&gt;Ставить плагины очень просто. Давайте поставим какую-нибудь тему,а также бар с полезной информацией. Всё в том же .vimrc пишем следующее:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;call plug#begin&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;~/.vim/plugged&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
@@ -70,7 +70,7 @@ colorscheme hybrid
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Если ваша душа изволит прозрачности:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;hi Normal guibg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;NONE ctermbg&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;NONE
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Вот что мы получаем:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/beauty.png&#34; alt=&#34;beauty&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/beauty.png&#34; alt=&#34;beauty&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Красота!&lt;/p&gt;
 &lt;h3 id=&#34;кодировка&#34;&gt;Кодировка&lt;/h3&gt;
 &lt;p&gt;Кракозябры нам не нужны,потому, не забудем про настройку кодировок:&lt;/p&gt;
@@ -99,13 +99,13 @@ Plug &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;fatih/vim-go&amp;#39;&lt
 &lt;p&gt;Достаточно одного плагина:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;
 Plug &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;shougo/neocomplcache.vim&amp;#39;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/complete.png&#34; alt=&#34;autocomplete&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/complete.png&#34; alt=&#34;autocomplete&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Довольно интуитивно, как и в других текстовых редакторах и IDEA.&lt;/p&gt;
 &lt;h3 id=&#34;markdown-preview&#34;&gt;Markdown Preview&lt;/h3&gt;
 &lt;p&gt;Ставим плагин:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;Plug &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;suan/vim-instant-markdown&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;for&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;markdown&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;На этом собственно всё. Достаточно будет открыть файлик в формате .md и сразу же откроется окно браузера c отрендеренным контентом на localhost:8000&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/markdown.png&#34; alt=&#34;markdown&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/markdown.png&#34; alt=&#34;markdown&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Однако же вы можете указать специфичные настройки, где 0 - запретить, 1 - разрешить:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;--------------Указываем порт на локалхосте----------
 let g:instant_markdown_port &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &amp;lt;/port&amp;gt;
@@ -124,7 +124,7 @@ set visualbell t_vb&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;
 &lt;p&gt;Если вы не прописали автозагрузку vim-plug, то установите плагины командой:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;:PlugInstall
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;После перезагрузки vim, получаем следующий сетап:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/vimwow.png&#34; alt=&#34;wow vim&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/vimwow.png&#34; alt=&#34;wow vim&#34;&gt;&lt;/p&gt;
 
         
         </description>

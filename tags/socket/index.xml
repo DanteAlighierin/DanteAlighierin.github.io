@@ -5,21 +5,21 @@
     
     
     
-    <link>https://dantealighierin.github.io/tags/socket/</link>
+    <link>/tags/socket/</link>
     <description>Recent content in socket on Dante&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ru-ru</language>
     <lastBuildDate>Fri, 01 May 2020 21:00:00 +0300</lastBuildDate>
     
-	<atom:link href="https://dantealighierin.github.io/tags/socket/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/socket/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Пишем клон neofetch на python</title>
-      <link>https://dantealighierin.github.io/post/neofetch/</link>
+      <link>/post/neofetch/</link>
       <pubDate>Fri, 01 May 2020 21:00:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/neofetch/</guid>
+      <guid>/post/neofetch/</guid>
       <description>
         
           
@@ -34,7 +34,7 @@
 &lt;p&gt;K примеру в ubuntu она ставиться следующим образом:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt update
 sudo apt install neofetch
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/neofetch_pro.gif&#34; alt=&#34;neofetch_pro&#34;&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;/images/neofetch_pro.gif&#34; alt=&#34;neofetch_pro&#34;&gt;&lt;/p&gt;
 &lt;p&gt;На гифке выше - neofetch выводит название ОС, имя хоста, shell, разрешение экрана, оконный менеджер, gtk тему, иконки и название терминала. Чуть ниже расположена полоска с цветами, отображающая цветовую схему терминала.  Однако можно вывести куда больше информации, и на этом этапе вы можете начать разбираться с конфигурационным файлом. Как правило он лежит в директории ~/.config/neofetch . Если такой директории нет, то создайте её и в ней пропишите конфиг в файле config.conf.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;vim ~ /.config/neofetch/config.conf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Однако мне захотелось сделать свою версию на python. И для начала я отправился на github и нашёл там уже готовое решение,правда для MacOs.  И естественно оно не заработало на linux, даже не смотря то, что это схожие системы с точки зрения UNIX.  И потому было принято решение переписать эту программу.&lt;/p&gt;
@@ -174,7 +174,7 @@ sudo apt install neofetch
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;и-что-в-итоге&#34;&gt;И что в итоге?&lt;/h3&gt;
 &lt;p&gt;Сохранив скрипт и запустив его, мы получаем следующий результат:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/neo_py.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/neo_py.gif&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Ну и по традиции прилагаю репозиторий на &lt;a href=&#34;https://github.com/DanteAlighierin/PyQr&#34;&gt;GitHub&amp;rsquo;е&lt;/a&gt; .&lt;/p&gt;
 
         
@@ -183,10 +183,10 @@ sudo apt install neofetch
     
     <item>
       <title>Простой мессенджер на tkinter,socket и threading</title>
-      <link>https://dantealighierin.github.io/post/chat/</link>
+      <link>/post/chat/</link>
       <pubDate>Sun, 23 Feb 2020 15:10:00 +0300</pubDate>
       
-      <guid>https://dantealighierin.github.io/post/chat/</guid>
+      <guid>/post/chat/</guid>
       <description>
         
           
@@ -194,7 +194,7 @@ sudo apt install neofetch
           
         
         
-        &lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/chat.png/&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;img src=&#34;/images/chat.png/&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;В этой статье я бы хотел показать как написать простое приложение мессенджер менее чем в 150 строк.&lt;/p&gt;
 &lt;h3 id=&#34;серверная-часть&#34;&gt;Серверная часть&lt;/h3&gt;
 &lt;p&gt;Начнём с сервера(наше  приложение будет состоять из скриптов сервера и клиента), через который можно получать входящие запросы от клиентов, желающих общаться.  Традиционно указываем путь до интерпретатора и импортируем необходимые модули. Конкретно socket и threading. Первый отвечает непосредственно за &amp;ldquo;общение&amp;rdquo; процесссов между собой, второй за многопоточность. О этих модулях подробно можно почитать например здесь - &lt;a href=&#34;https://habr.com/ru/post/149077/&#34;&gt;socket&lt;/a&gt; , &lt;a href=&#34;https://habr.com/ru/post/149420/&#34;&gt;threading&lt;/a&gt;.&lt;/p&gt;
@@ -381,7 +381,7 @@ ADDR &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (HOST, PORT)
 client_socket &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; socket(AF_INET, SOCK_STREAM)
 client_socket&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;connect(ADDR)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Как только мы получаем адрес и создаем сокет для подключения к нему, мы запускаем поток для получения сообщений, а затем основной цикл для нашего приложения с графическим интерфейсом:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://dantealighierin.github.io/images/chat.gif&#34; alt=&#34;chat_app_gif&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/images/chat.gif&#34; alt=&#34;chat_app_gif&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;receive_thread &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; Thread(target&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;receive)
 receive_thread&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;start()
 tkinter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;mainloop()
